@@ -18,4 +18,6 @@ The approach stage of this challenge ended up evolving once I took the white boa
 
 The solution holds an if else to set the middle index of our new array as half of the given array's length.  If the array is odd, the else for odd numbers uses Math.Ceiling and a cast to return an whole number as an integer.  Then, after instantiating a new array, there is a for loop with three if's that set the indeces of the new array accordingly.
 
+[Code Lives Here](../Challenges/ArrayChallenges.cs)
+
 ![Insert Array White Board](assets/arrayInsert.jpg)
