@@ -34,18 +34,28 @@ namespace Challenges
             else if (array.Length % 2 != 0)
             {
                 decimal roundedIndex = Math.Ceiling(valueIfArrayLengthIsOdd);
-                middleIndex = (int)roundedIndex;
+                middleIndex = (int)roundedIndex + 1;
             }
             
             // New array is created below
             int[] shiftedArray = new int[array.Length + 1];
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < shiftedArray.Length; i++)
             {
-                shiftedArray[i] = array[i];
+                if (i < middleIndex)
+                {
+                    shiftedArray[i] = array[i];
+                }
+                if (i == middleIndex)
+                {
+                    shiftedArray[i] = number;
+                }
+                if (i > middleIndex)
+                {
+                    shiftedArray[i] = array[i - 1];
+                }
+                
             }
-
-            shiftedArray[middleIndex] = number;
 
             return shiftedArray;
             
