@@ -14,7 +14,7 @@ namespace Challenges.Tests
             // from input
 
             // Act
-            int[] result = ArrayReverse.ReverseArray(input);
+            int[] result = ArrayChallenges.ReverseArray(input);
 
             // Assert
             Assert.Equal(expected, result);
