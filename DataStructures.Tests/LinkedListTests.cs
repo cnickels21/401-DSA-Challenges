@@ -66,7 +66,7 @@ namespace DataStructures.Tests
             listToPopulate = listToPopulate.Insert(value, listToPopulate);
 
             // Assert
-            Assert.Equal("4, 3, 2, 1", listToPopulate.ToString());
+            Assert.Equal("4, 3, 2, 1, ", listToPopulate.ToString());
 
         }
     }
