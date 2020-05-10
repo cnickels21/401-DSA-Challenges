@@ -7,13 +7,13 @@ namespace DataStructures.Tests
     {
 
         /*
-        Can successfully instantiate an empty linked list -- DONE
-        Can properly insert into the linked list
-        The head property will properly point to the first node in the linked list
-        Can properly insert multiple nodes into the linked list
-        Will return true when finding a value within the linked list that exists
-        Will return false when searching for a value in the linked list that does not exist
-        Can properly return a collection of all the values that exist in the linked list
+        1. Can successfully instantiate an empty linked list -- DONE
+        2. Can properly insert into the linked list -- DONE
+        3. The head property will properly point to the first node in the linked list
+        4. Can properly insert multiple nodes into the linked list
+        5. Will return true when finding a value within the linked list that exists
+        6. Will return false when searching for a value in the linked list that does not exist
+        7. Can properly return a collection of all the values that exist in the linked list
         */
 
         [Fact]
@@ -37,6 +37,24 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal("1", listToAddTo.ToString());
+        }
+
+        [Theory]
+        [InlineData(5, 10, 5)]
+        [InlineData(5, 10, 10)]
+        public void Can_point_to_head_node(int firstInsertion, int newHead, int expected)
+        {
+            // Arrange
+            LinkedList listToAccessHead = new LinkedList();
+            listToAccessHead.Insert(firstInsertion);
+            listToAccessHead.Insert(newHead);
+
+            // Act
+            string result = listToAccessHead.ToString();
+
+            // Assert
+            Assert.Equal(expected.ToString(), result);
+            Assert.Equal(expected.ToString(), result);
         }
     }
 }
