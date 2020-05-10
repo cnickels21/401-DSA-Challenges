@@ -32,12 +32,7 @@
             {
                 return result;
             }
-            else if (head != null)
-            {
-                return result += head.Value.ToString();
-            }
-            
-            return result;
+            return result += head.Value.ToString();
         }
 
         public string StringifyFullList()
