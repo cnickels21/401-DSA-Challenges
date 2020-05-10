@@ -16,7 +16,11 @@ namespace DataStructures
         // To string to make testing easier to verify
         public override string ToString()
         {
-            return "";
+            if (head == null)
+            {
+                return "";
+            }
+            return head.Value.ToString();
         }
 
         /*-----Node class defined here-----*/
