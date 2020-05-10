@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -11,6 +12,16 @@ namespace DataStructures
         public void Insert(int value)
         {
             this.head = new Node(value);
+        }
+
+        public LinkedList InsertMultipleValues(int value, LinkedList listToPopulate)
+        {
+            
+            while (value < 5)
+            {
+                listToPopulate.Insert(value);
+            }
+            return listToPopulate;
         }
 
         // To string to make testing easier to verify

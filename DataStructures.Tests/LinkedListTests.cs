@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructures.Tests
@@ -40,9 +41,9 @@ namespace DataStructures.Tests
         }
 
         [Theory]
-        [InlineData(5, 10, 5)]
-        [InlineData(5, 10, 10)]
-        public void Can_point_to_head_node(int initialInsertion, int newHead, int expected)
+        [InlineData(5, 10, "5")]
+        [InlineData(5, 10, "10")]
+        public void Can_point_to_head_node(int initialInsertion, int newHead, string expected)
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
@@ -53,8 +54,20 @@ namespace DataStructures.Tests
             string result = listToAccessHead.ToString();
 
             // Assert
-            Assert.Equal(expected.ToString(), result);
-            Assert.Equal(expected.ToString(), result);
+            Assert.Equal(expected, result);
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Can_insert_multiple_values()
+        {
+            LinkedList listToPopulate = new LinkedList();
+            // Act
+            listToPopulate = listToPopulate.InsertMultipleValues(1, listToPopulate);
+
+            // Assert
+            Assert.Equal("4, 3, 2, 1", listToPopulate.ToString());
+
         }
     }
 }
