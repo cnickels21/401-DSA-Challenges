@@ -35,18 +35,17 @@ namespace DataStructures.Tests
             listToAddTo.Insert(1, listToAddTo);
 
             // Assert
-            Assert.Equal("1", listToAddTo.ToString());
+            Assert.Equal("5", listToAddTo.ToString());
         }
 
         [Theory]
-        [InlineData(5, 10, "5")]
-        [InlineData(5, 10, "10")]
-        public void Can_point_to_head_node(int initialInsertion, int newHead, string expected)
+        [InlineData(1, "1")]
+        [InlineData(1, "5")]
+        public void Can_point_to_head_node(int initialInsertion, string expected)
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
             listToAccessHead.Insert(initialInsertion, listToAccessHead);
-            listToAccessHead.Insert(newHead, listToAccessHead);
 
             // Act
             string result = listToAccessHead.ToString();
