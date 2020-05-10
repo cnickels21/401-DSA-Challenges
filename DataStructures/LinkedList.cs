@@ -25,14 +25,27 @@
         // To string to make testing easier to verify
         public override string ToString()
         {
-            // Setup variables accordingly
-            Node current = head;
             string result = "";
+
+            // Conditions to define return
             if (head == null)
             {
                 return result;
             }
-            // else if (head.Next == null)
+            else if (head != null)
+            {
+                return result += head.Value.ToString();
+            }
+            
+            return result;
+        }
+
+        public string StringifyFullList()
+        {
+            // Setup variables accordingly
+            Node current = head;
+            string result = "";
+
             while (current.Next != null)
             {
                 result = result + current.Value + ", ";

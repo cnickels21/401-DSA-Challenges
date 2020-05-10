@@ -35,12 +35,12 @@ namespace DataStructures.Tests
             listToAddTo.Insert(1, listToAddTo);
 
             // Assert
-            Assert.Equal("5", listToAddTo.ToString());
+            Assert.Equal("4", listToAddTo.ToString());
         }
 
         [Theory]
         [InlineData(1, "1")]
-        [InlineData(1, "5")]
+        [InlineData(1, "4")]
         public void Can_point_to_head_node(int initialInsertion, string expected)
         {
             // Arrange
@@ -66,7 +66,7 @@ namespace DataStructures.Tests
             listToPopulate = listToPopulate.Insert(value, listToPopulate);
 
             // Assert
-            Assert.Equal("4, 3, 2, 1, ", listToPopulate.ToString());
+            Assert.Equal("4, 3, 2, 1, ", listToPopulate.StringifyFullList());
 
         }
     }
