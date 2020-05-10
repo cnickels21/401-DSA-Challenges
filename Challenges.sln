@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Challenges.Tests", "Challen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{2B290FCA-3077-4759-BC21-6476BBB668A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Tests", "DataStructures.Tests\DataStructures.Tests.csproj", "{2A065BBE-42CE-4A6A-A2DB-F0CDDCF077CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Tests", "DataStructures.Tests\DataStructures.Tests.csproj", "{09CA7BDE-FC5F-4B81-BE40-77C544244E66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{2B290FCA-3077-4759-BC21-6476BBB668A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B290FCA-3077-4759-BC21-6476BBB668A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B290FCA-3077-4759-BC21-6476BBB668A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A065BBE-42CE-4A6A-A2DB-F0CDDCF077CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A065BBE-42CE-4A6A-A2DB-F0CDDCF077CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A065BBE-42CE-4A6A-A2DB-F0CDDCF077CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A065BBE-42CE-4A6A-A2DB-F0CDDCF077CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CA7BDE-FC5F-4B81-BE40-77C544244E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CA7BDE-FC5F-4B81-BE40-77C544244E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CA7BDE-FC5F-4B81-BE40-77C544244E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CA7BDE-FC5F-4B81-BE40-77C544244E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
