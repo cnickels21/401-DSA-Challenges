@@ -25,5 +25,18 @@ namespace DataStructures.Tests
             // Assert
             Assert.Equal("", myNewList.ToString());
         }
+
+        [Fact]
+        public void Can_insert_into_list()
+        {
+            // Arrange
+            LinkedList listToAddTo = new LinkedList();
+
+            // Act
+            listToAddTo.Insert(1);
+
+            // Assert
+            Assert.Equal("1", listToAddTo.ToString());
+        }
     }
 }
