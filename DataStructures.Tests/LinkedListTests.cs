@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructures.Tests
@@ -34,7 +32,7 @@ namespace DataStructures.Tests
             LinkedList listToAddTo = new LinkedList();
 
             // Act
-            listToAddTo.Insert(1);
+            listToAddTo.Insert(1, listToAddTo);
 
             // Assert
             Assert.Equal("1", listToAddTo.ToString());
@@ -47,8 +45,8 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
-            listToAccessHead.Insert(initialInsertion);
-            listToAccessHead.Insert(newHead);
+            listToAccessHead.Insert(initialInsertion, listToAccessHead);
+            listToAccessHead.Insert(newHead, listToAccessHead);
 
             // Act
             string result = listToAccessHead.ToString();
@@ -61,9 +59,12 @@ namespace DataStructures.Tests
         [Fact]
         public void Can_insert_multiple_values()
         {
+            // Arrange
             LinkedList listToPopulate = new LinkedList();
+            int value = 1;
+
             // Act
-            listToPopulate = listToPopulate.InsertMultipleValues(1, listToPopulate);
+            listToPopulate = listToPopulate.Insert(value, listToPopulate);
 
             // Assert
             Assert.Equal("4, 3, 2, 1", listToPopulate.ToString());

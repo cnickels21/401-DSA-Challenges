@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Challenges
 {
@@ -36,7 +34,7 @@ namespace Challenges
                 decimal roundedIndex = Math.Ceiling(valueIfArrayLengthIsOdd);
                 middleIndex = (int)roundedIndex + 1;
             }
-            
+
             // New array is created below
             int[] shiftedArray = new int[array.Length + 1];
 
@@ -54,11 +52,11 @@ namespace Challenges
                 {
                     shiftedArray[i] = array[i - 1];
                 }
-                
+
             }
 
             return shiftedArray;
-            
+
         }
 
 
