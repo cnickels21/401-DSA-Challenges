@@ -9,7 +9,7 @@ namespace DataStructures.Tests
         /*
         1. Can successfully instantiate an empty linked list -- DONE
         2. Can properly insert into the linked list -- DONE
-        3. The head property will properly point to the first node in the linked list
+        3. The head property will properly point to the first node in the linked list --  DONE
         4. Can properly insert multiple nodes into the linked list
         5. Will return true when finding a value within the linked list that exists
         6. Will return false when searching for a value in the linked list that does not exist
@@ -42,11 +42,11 @@ namespace DataStructures.Tests
         [Theory]
         [InlineData(5, 10, 5)]
         [InlineData(5, 10, 10)]
-        public void Can_point_to_head_node(int firstInsertion, int newHead, int expected)
+        public void Can_point_to_head_node(int initialInsertion, int newHead, int expected)
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
-            listToAccessHead.Insert(firstInsertion);
+            listToAccessHead.Insert(initialInsertion);
             listToAccessHead.Insert(newHead);
 
             // Act
