@@ -25,7 +25,7 @@ namespace DataStructures
                 }
                 return singlyList;
             }
-            catch (FormatException fex)
+            catch (FormatException fex) // For some me forsaken reason git won't let me commit this exception
             {
                 Console.WriteLine("That value is not valid for this type of list. Enter a number between 0 and 4.");
                 Console.WriteLine(fex.Message);
@@ -36,6 +36,7 @@ namespace DataStructures
         // To string to make testing easier to verify
         public override string ToString()
         {
+            Node current = head;
             string result = "";
 
             // Conditions to define return
@@ -43,7 +44,12 @@ namespace DataStructures
             {
                 return result;
             }
-            return result += head.Value.ToString();
+            while (current.Next != null)
+            {
+                result += $"{{{current.Value}}} -> ";
+                current = current.Next;
+            }
+            return result + "NULL";
         }
 
         public string StringifyFullList()
