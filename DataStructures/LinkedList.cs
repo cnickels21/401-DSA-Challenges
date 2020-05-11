@@ -10,19 +10,21 @@ namespace DataStructures
         // Insert value into linked list
         public LinkedList Insert(int value, LinkedList singlyList)
         {
+            Node newNode = new Node(value);
+
             try
             {
                 if (singlyList.head == null)
                 {
-                    this.head = new Node(value);
+                    this.head = newNode;
                 }
-                while (value < 5)
-                {
-                    Node newNode = new Node(value);
-                    newNode.Next = singlyList.head;
-                    singlyList.head = newNode;
-                    value++;
-                }
+                //while (value < 5)
+                //{
+                    
+                //    newNode.Next = singlyList.head;
+                //    singlyList.head = newNode;
+                //    value++;
+                //}
                 return singlyList;
             }
             catch (FormatException fex) // For some me forsaken reason git won't let me commit this exception
@@ -44,7 +46,7 @@ namespace DataStructures
             {
                 return result;
             }
-            while (current.Next != null)
+            while (current != null)
             {
                 result += $"{{{current.Value}}} -> ";
                 current = current.Next;

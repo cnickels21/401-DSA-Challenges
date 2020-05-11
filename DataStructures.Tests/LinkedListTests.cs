@@ -35,7 +35,7 @@ namespace DataStructures.Tests
             listToAddTo.Insert(1, listToAddTo);
 
             // Assert
-            Assert.Equal("{4} -> Null", listToAddTo.ToString());
+            Assert.Equal("{1} -> NULL", listToAddTo.ToString());
         }
 
         [Theory]
