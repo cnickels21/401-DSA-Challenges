@@ -61,13 +61,17 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList listToPopulate = new LinkedList();
-            int value = 1;
+            int firstValue = 3;
+            int secondValue = 2;
+            int thirdValue = 1;
 
             // Act
-            listToPopulate.Insert(value);
+            listToPopulate.Insert(firstValue);
+            listToPopulate.Insert(secondValue);
+            listToPopulate.Insert(thirdValue);
 
             // Assert
-            Assert.Equal("4, 3, 2, 1, ", listToPopulate.StringifyFullList());
+            Assert.Equal("{1} -> {2} -> {3} -> NULL", listToPopulate.ToString());
         }
 
         [Theory]

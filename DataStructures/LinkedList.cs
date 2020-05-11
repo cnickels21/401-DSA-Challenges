@@ -16,8 +16,13 @@ namespace DataStructures
             {
                 if (Head == null)
                 {
-                    this.Head = newNode;
+                    Head = newNode;
                 }
+                else
+                {
+                    newNode.Next = Head;
+                }
+                Head = newNode;
                 //while (value < 5)
                 //{
                     
