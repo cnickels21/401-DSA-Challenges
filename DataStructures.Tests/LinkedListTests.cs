@@ -86,7 +86,7 @@ namespace DataStructures.Tests
             verificationList.Insert(insertion, verificationList);
 
             // Act
-            bool result = LinkedList.CheckIfValueExists(value, verificationList);
+            bool result = LinkedList.Includes(value, verificationList);
 
             // Assert
             Assert.Equal(expected, result);

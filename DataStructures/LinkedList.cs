@@ -9,7 +9,7 @@ namespace DataStructures
 
         // Insert value into linked list
         public LinkedList Insert(int value, LinkedList singlyList)
-        { 
+        {
             if (singlyList.head == null)
             {
                 this.head = new Node(value);
@@ -52,11 +52,12 @@ namespace DataStructures
             return result;
         }
 
-        public static bool CheckIfValueExists(int value, LinkedList verificationList)
+        public static bool Includes(int value, LinkedList verificationList)
         {
             // Setup variables accordingly
             Node current = verificationList.head;
             bool result = false;
+
 
             while (current.Next != null)
             {
@@ -68,13 +69,14 @@ namespace DataStructures
                 else if (current.Next == null)
                 {
                     result = false;
-                    break;
+                    throw NullReferenceException;
                 }
                 else
                 {
                     current = current.Next;
                 }
             }
+
 
             return result;
         }
