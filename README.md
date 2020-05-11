@@ -7,3 +7,4 @@
 1. [Array Reverse](readme/arrayReverse.md)
 2. [Insert Into Array](readme/arrayInsert.md)
 3. [Binary Search](readme/binarySearch.md)
+4. [Linked Lists](readme/linkedLists.md)
