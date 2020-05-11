@@ -87,7 +87,7 @@ namespace DataStructures.Tests
             bool result = LinkedList.CheckIfValueExists(value, verificationList);
 
             // Assert
-            Assert.True(expected, result.ToString());
+            Assert.Equal(expected, result);
         }
     }
 }
