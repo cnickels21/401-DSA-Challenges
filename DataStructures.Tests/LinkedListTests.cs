@@ -12,7 +12,7 @@ namespace DataStructures.Tests
         4. Can properly insert multiple nodes into the linked list -- DONE
         5. Will return true when finding a value within the linked list that exists
         6. Will return false when searching for a value in the linked list that does not exist
-        7. Can properly return a collection of all the values that exist in the linked list
+        7. Can properly return a collection of all the values that exist in the linked list -- DONE
         */
 
         [Fact]
@@ -55,6 +55,7 @@ namespace DataStructures.Tests
             Assert.Equal(expected, result);
         }
 
+        // This test technically proves that I can insert multiple values and return all of the values from a list stringified
         [Fact]
         public void Can_insert_multiple_values()
         {
@@ -67,6 +68,23 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal("4, 3, 2, 1, ", listToPopulate.StringifyFullList());
+        }
+
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(5, false)]
+        public void Can_check_for_value_in_list(int value, bool expected)
+        {
+            // Arrange
+            LinkedList verificationList = new LinkedList();
+            int insertion = 1;
+            verificationList.Insert(insertion, verificationList);
+
+            // Act
+            bool result = LinkedList.CheckIfValueExists(value, verificationList);
+
+            // Assert
+            Assert.True(expected, result.ToString());
         }
     }
 }

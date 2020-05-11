@@ -1,4 +1,6 @@
-﻿namespace DataStructures
+﻿using System;
+
+namespace DataStructures
 {
     public class LinkedList
     {
@@ -41,11 +43,35 @@
             Node current = head;
             string result = "";
 
+            // Loop to add each node's value to a string with a comma
             while (current.Next != null)
             {
                 result = result + current.Value + ", ";
                 current = current.Next;
             }
+            return result;
+        }
+
+        public static bool CheckIfValueExists(int value, LinkedList verificationList)
+        {
+            // Setup variables accordingly
+            Node current = verificationList.head;
+            bool result = false;
+
+            while (current.Next != null)
+            {
+                if (current.Value == value)
+                {
+                    result = true;
+                    break;
+                }
+                else
+                {
+                    result = false;
+                    break;
+                }
+            }
+
             return result;
         }
 
