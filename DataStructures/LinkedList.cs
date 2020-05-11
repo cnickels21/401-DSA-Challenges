@@ -60,8 +60,6 @@ namespace DataStructures
 
             while (current.Next != null)
             {
-                current = current.Next;
-
                 if (current.Value == value)
                 {
                     result = true;
@@ -71,6 +69,10 @@ namespace DataStructures
                 {
                     result = false;
                     break;
+                }
+                else
+                {
+                    current = current.Next;
                 }
             }
 
