@@ -76,6 +76,7 @@ namespace DataStructures.Tests
         [InlineData(3, true)]
         [InlineData(4, true)]
         [InlineData(5, false)]
+        [InlineData(null, false)]
         public void Can_check_for_value_in_list(int value, bool expected)
         {
             // Arrange
