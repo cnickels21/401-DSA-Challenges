@@ -23,15 +23,8 @@ namespace DataStructures
                     newNode.Next = Head;
                 }
                 Head = newNode;
-                //while (value < 5)
-                //{
-                    
-                //    newNode.Next = singlyList.Head;
-                //    singlyList.Head = newNode;
-                //    value++;
-                //}
             }
-            catch (FormatException fex) // For some me forsaken reason git won't let me commit this exception
+            catch (FormatException fex)
             {
                 Console.WriteLine("That value is not valid for this type of list. Enter a number between 0 and 4.");
                 Console.WriteLine(fex.Message);

@@ -38,21 +38,18 @@ namespace DataStructures.Tests
             Assert.Equal("{1} -> NULL", listToAddTo.ToString());
         }
 
-        [Theory]
-        [InlineData(1, "1")]
-        [InlineData(1, "4")]
-        public void Can_point_to_head_node(int initialInsertion, string expected)
+        [Fact]
+        public void Can_point_to_head_node()
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
-            listToAccessHead.Insert(initialInsertion);
+            listToAccessHead.Insert(1);
 
             // Act
             string result = listToAccessHead.ToString();
 
             // Assert
-            Assert.Equal(expected, result);
-            Assert.Equal(expected, result);
+            Assert.Equal("{1} -> NULL", result);
         }
 
         // This test technically proves that I can insert multiple values and return all of the values from a list stringified
