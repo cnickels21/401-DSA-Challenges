@@ -10,8 +10,8 @@ namespace DataStructures.Tests
         2. Can properly insert into the linked list -- DONE
         3. The head property will properly point to the first node in the linked list --  DONE
         4. Can properly insert multiple nodes into the linked list -- DONE
-        5. Will return true when finding a value within the linked list that exists
-        6. Will return false when searching for a value in the linked list that does not exist
+        5. Will return true when finding a value within the linked list that exists -- DONE
+        6. Will return false when searching for a value in the linked list that does not exist -- DONE
         7. Can properly return a collection of all the values that exist in the linked list -- DONE
         */
 
@@ -76,6 +76,7 @@ namespace DataStructures.Tests
         [InlineData(3, true)]
         [InlineData(4, true)]
         [InlineData(5, false)]
+        [InlineData(0, false)]
         [InlineData(null, false)]
         public void Can_check_for_value_in_list(int value, bool expected)
         {
