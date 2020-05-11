@@ -72,17 +72,17 @@ namespace DataStructures
 
             bool result = false;
 
-            while (current.Next != null)
+            while (current != null)
             {
                 if (current.Value == value)
                 {
                     result = true;
                     break;
                 }
-                else if (current.Next == null)
-                {
-                    break;
-                }
+                //else if (current.Next == null)
+                //{
+                //    break;
+                //}
                 else
                 {
                     current = current.Next;
