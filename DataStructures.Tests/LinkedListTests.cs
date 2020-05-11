@@ -78,16 +78,22 @@ namespace DataStructures.Tests
         [InlineData(4, true)]
         [InlineData(5, false)]
         [InlineData(0, false)]
-        [InlineData(null, false)]
         public void Can_check_for_value_in_list(int value, bool expected)
         {
             // Arrange
             LinkedList verificationList = new LinkedList();
-            int insertion = 1;
-            verificationList.Insert(insertion);
+            int firstValue = 4;
+            int secondValue = 3;
+            int thirdValue = 2;
+            int fourthValue = 1;
+            verificationList.Insert(firstValue);
+            verificationList.Insert(secondValue);
+            verificationList.Insert(thirdValue);
+            verificationList.Insert(fourthValue);
 
             // Act
-            bool result = LinkedList.Includes(value, verificationList);
+            // bool result = verificationList.Includes(value);
+            bool result = verificationList.Includes(value);
 
             // Assert
             Assert.Equal(expected, result);

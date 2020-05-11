@@ -66,12 +66,11 @@ namespace DataStructures
             return result;
         }
 
-        public static bool Includes(int value, LinkedList verificationList)
+        public bool Includes(int value)
         {
-            // Setup variables accordingly
-            Node current = verificationList.Head;
-            bool result = false;
+            Node current = Head;
 
+            bool result = false;
 
             while (current.Next != null)
             {
@@ -82,7 +81,7 @@ namespace DataStructures
                 }
                 else if (current.Next == null)
                 {
-                    result = false;
+                    break;
                 }
                 else
                 {
