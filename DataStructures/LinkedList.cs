@@ -60,12 +60,14 @@ namespace DataStructures
 
             while (current.Next != null)
             {
+                current = current.Next;
+
                 if (current.Value == value)
                 {
                     result = true;
                     break;
                 }
-                else
+                else if (current.Next == null)
                 {
                     result = false;
                     break;
