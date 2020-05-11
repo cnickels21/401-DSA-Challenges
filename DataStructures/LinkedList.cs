@@ -5,7 +5,7 @@ namespace DataStructures
     public class LinkedList
     {
         // Linked list properties defined here
-        public Node head;
+        private Node Head;
 
         // Insert value into linked list
         public void Insert(int value)
@@ -14,15 +14,15 @@ namespace DataStructures
 
             try
             {
-                if (head == null)
+                if (Head == null)
                 {
-                    this.head = newNode;
+                    this.Head = newNode;
                 }
                 //while (value < 5)
                 //{
                     
-                //    newNode.Next = singlyList.head;
-                //    singlyList.head = newNode;
+                //    newNode.Next = singlyList.Head;
+                //    singlyList.Head = newNode;
                 //    value++;
                 //}
             }
@@ -37,11 +37,11 @@ namespace DataStructures
         // To string to make testing easier to verify
         public override string ToString()
         {
-            Node current = head;
+            Node current = Head;
             string result = "";
 
             // Conditions to define return
-            if (head == null)
+            if (Head == null)
             {
                 return result;
             }
@@ -56,7 +56,7 @@ namespace DataStructures
         public string StringifyFullList()
         {
             // Setup variables accordingly
-            Node current = head;
+            Node current = Head;
             string result = "";
 
             // Loop to add each node's value to a string with a comma
@@ -71,7 +71,7 @@ namespace DataStructures
         public static bool Includes(int value, LinkedList verificationList)
         {
             // Setup variables accordingly
-            Node current = verificationList.head;
+            Node current = verificationList.Head;
             bool result = false;
 
 
