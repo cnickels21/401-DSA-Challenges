@@ -32,7 +32,7 @@ namespace DataStructures.Tests
             LinkedList listToAddTo = new LinkedList();
 
             // Act
-            listToAddTo.Insert(1, listToAddTo);
+            listToAddTo.Insert(1);
 
             // Assert
             Assert.Equal("{1} -> NULL", listToAddTo.ToString());
@@ -45,7 +45,7 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList listToAccessHead = new LinkedList();
-            listToAccessHead.Insert(initialInsertion, listToAccessHead);
+            listToAccessHead.Insert(initialInsertion);
 
             // Act
             string result = listToAccessHead.ToString();
@@ -64,7 +64,7 @@ namespace DataStructures.Tests
             int value = 1;
 
             // Act
-            listToPopulate.Insert(value, listToPopulate);
+            listToPopulate.Insert(value);
 
             // Assert
             Assert.Equal("4, 3, 2, 1, ", listToPopulate.StringifyFullList());
@@ -83,7 +83,7 @@ namespace DataStructures.Tests
             // Arrange
             LinkedList verificationList = new LinkedList();
             int insertion = 1;
-            verificationList.Insert(insertion, verificationList);
+            verificationList.Insert(insertion);
 
             // Act
             bool result = LinkedList.Includes(value, verificationList);

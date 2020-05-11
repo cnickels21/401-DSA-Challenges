@@ -8,13 +8,13 @@ namespace DataStructures
         public Node head;
 
         // Insert value into linked list
-        public LinkedList Insert(int value, LinkedList singlyList)
+        public void Insert(int value)
         {
             Node newNode = new Node(value);
 
             try
             {
-                if (singlyList.head == null)
+                if (head == null)
                 {
                     this.head = newNode;
                 }
@@ -25,7 +25,6 @@ namespace DataStructures
                 //    singlyList.head = newNode;
                 //    value++;
                 //}
-                return singlyList;
             }
             catch (FormatException fex) // For some me forsaken reason git won't let me commit this exception
             {
