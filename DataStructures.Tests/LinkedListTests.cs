@@ -72,6 +72,9 @@ namespace DataStructures.Tests
 
         [Theory]
         [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(4, true)]
         [InlineData(5, false)]
         public void Can_check_for_value_in_list(int value, bool expected)
         {
