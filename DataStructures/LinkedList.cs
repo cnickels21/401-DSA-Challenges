@@ -5,25 +5,24 @@ namespace DataStructures
     public class LinkedList
     {
         // Linked list properties defined here
-        public Node head;
+        private Node Head;
 
         // Insert value into linked list
-        public LinkedList Insert(int value, LinkedList singlyList)
+        public void Insert(int value)
         {
+            Node newNode = new Node(value);
+
             try
             {
-                if (singlyList.head == null)
+                if (Head == null)
                 {
-                    this.head = new Node(value);
+                    Head = newNode;
                 }
-                while (value < 5)
+                else
                 {
-                    Node newNode = new Node(value);
-                    newNode.Next = singlyList.head;
-                    singlyList.head = newNode;
-                    value++;
+                    newNode.Next = Head;
                 }
-                return singlyList;
+                Head = newNode;
             }
             catch (FormatException fex)
             {
@@ -36,20 +35,26 @@ namespace DataStructures
         // To string to make testing easier to verify
         public override string ToString()
         {
+            Node current = Head;
             string result = "";
 
             // Conditions to define return
-            if (head == null)
+            if (Head == null)
             {
                 return result;
             }
-            return result += head.Value.ToString();
+            while (current != null)
+            {
+                result += $"{{{current.Value}}} -> ";
+                current = current.Next;
+            }
+            return result + "NULL";
         }
 
         public string StringifyFullList()
         {
             // Setup variables accordingly
-            Node current = head;
+            Node current = Head;
             string result = "";
 
             // Loop to add each node's value to a string with a comma
@@ -61,24 +66,23 @@ namespace DataStructures
             return result;
         }
 
-        public static bool Includes(int value, LinkedList verificationList)
+        public bool Includes(int value)
         {
-            // Setup variables accordingly
-            Node current = verificationList.head;
+            Node current = Head;
+
             bool result = false;
 
-
-            while (current.Next != null)
+            while (current != null)
             {
                 if (current.Value == value)
                 {
                     result = true;
                     break;
                 }
-                else if (current.Next == null)
-                {
-                    result = false;
-                }
+                //else if (current.Next == null)
+                //{
+                //    break;
+                //}
                 else
                 {
                     current = current.Next;
