@@ -10,18 +10,27 @@ namespace DataStructures
         // Insert value into linked list
         public LinkedList Insert(int value, LinkedList singlyList)
         {
-            if (singlyList.head == null)
+            try
             {
-                this.head = new Node(value);
+                if (singlyList.head == null)
+                {
+                    this.head = new Node(value);
+                }
+                while (value < 5)
+                {
+                    Node newNode = new Node(value);
+                    newNode.Next = singlyList.head;
+                    singlyList.head = newNode;
+                    value++;
+                }
+                return singlyList;
             }
-            while (value < 5)
+            catch (FormatException fex)
             {
-                Node newNode = new Node(value);
-                newNode.Next = singlyList.head;
-                singlyList.head = newNode;
-                value++;
+                Console.WriteLine("That value is not valid for this type of list. Enter a number between 0 and 4.");
+                Console.WriteLine(fex.Message);
+                throw;
             }
-            return singlyList;
         }
 
         // To string to make testing easier to verify
@@ -69,15 +78,12 @@ namespace DataStructures
                 else if (current.Next == null)
                 {
                     result = false;
-                    throw NullReferenceException;
                 }
                 else
                 {
                     current = current.Next;
                 }
             }
-
-
             return result;
         }
 
