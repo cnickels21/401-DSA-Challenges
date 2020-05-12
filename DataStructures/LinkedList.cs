@@ -82,14 +82,18 @@ namespace DataStructures
             // Traverse list
             while (current.Next != null)
             {
-                    current = current.Next;
+                current = current.Next;
             }
 
             if (current.Next == null)
             {
                 current.Next = appendMe;
             }
+        }
 
+        public void InsertInMiddle(int value, int newValue)
+        {
+            
         }
 
         /*-----Node class defined here-----*/
@@ -105,7 +109,5 @@ namespace DataStructures
             public int Value { get; set; }
             public Node Next { get; set; }
         }
-
-        
     }
 }
