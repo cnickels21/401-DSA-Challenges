@@ -76,7 +76,20 @@ namespace DataStructures
 
         public void AppendAtEnd(int value)
         {
-            
+            Node current = Head;
+            Node appendMe = new Node(value);
+
+            // Traverse list
+            while (current.Next != null)
+            {
+                    current = current.Next;
+            }
+
+            if (current.Next == null)
+            {
+                current.Next = appendMe;
+            }
+
         }
 
         /*-----Node class defined here-----*/

@@ -59,14 +59,11 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList listToPopulate = new LinkedList();
-            int firstValue = 3;
-            int secondValue = 2;
-            int thirdValue = 1;
 
             // Act
-            listToPopulate.Insert(firstValue);
-            listToPopulate.Insert(secondValue);
-            listToPopulate.Insert(thirdValue);
+            listToPopulate.Insert(3);
+            listToPopulate.Insert(2);
+            listToPopulate.Insert(1);
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> NULL", listToPopulate.ToString());
@@ -83,14 +80,10 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList verificationList = new LinkedList();
-            int firstValue = 4;
-            int secondValue = 3;
-            int thirdValue = 2;
-            int fourthValue = 1;
-            verificationList.Insert(firstValue);
-            verificationList.Insert(secondValue);
-            verificationList.Insert(thirdValue);
-            verificationList.Insert(fourthValue);
+            verificationList.Insert(4);
+            verificationList.Insert(3);
+            verificationList.Insert(2);
+            verificationList.Insert(1);
 
             // Act
             // bool result = verificationList.Includes(value);
