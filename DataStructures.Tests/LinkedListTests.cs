@@ -205,7 +205,7 @@ namespace DataStructures.Tests
         /// Lab 07 kth from end tests
         /// 1. Where k is greater than the length of the linked list -- DONE
         /// 2. Where k and the length of the list are the same -- DONE
-        /// 3. Where k is not a positive integer
+        /// 3. Where k is not a positive integer -- DONE
         /// 4. Where the linked list is of a size 1 -- DONE
         /// 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
         /// </summary>
@@ -291,6 +291,25 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal(3, result);
+        }
+
+        [Theory]
+        [InlineData(2, 3)]
+        [InlineData(3, 2)]
+        public void Find_value_in_middle_of_list(int value, int expected)
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+            list.AppendAtEnd(4);
+
+            // Act
+            int result = list.CompareLengthToValue(value);
+
+            // Assert
+            Assert.Equal(expected, result);
         }
     }
 }
