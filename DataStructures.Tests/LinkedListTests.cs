@@ -251,10 +251,26 @@ namespace DataStructures.Tests
             list.Insert(1);
 
             // Act
-            int result = list.CompareLengthToValue(0);
+            int result = list.CompareLengthToValue(1);
 
             // Assert
             Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void Find_0th_value_from_end()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+
+            // Act
+            int result = list.CompareLengthToValue(1);
+
+            // Assert
+            Assert.Equal(3, result);
         }
     }
 }
