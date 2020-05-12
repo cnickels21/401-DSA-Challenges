@@ -100,7 +100,7 @@ namespace DataStructures.Tests
         2. Can successfully add multiple nodes to the end of a linked list -- DONE
         3. Can successfully insert a node before a node located in the middle of a linked list -- DONE
         4. Can successfully insert a node before the first node of a linked list -- DONE
-        5. Can successfully insert after a node in the middle of the linked list
+        5. Can successfully insert after a node in the middle of the linked list -- DONE
         6. Can successfully insert a node after the last node of the linked list
         */
 
@@ -179,6 +179,22 @@ namespace DataStructures.Tests
 
             // Act
             insertBeforeValue.InsertAfterGivenValue(2, 3);
+
+            // Assert
+            Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", insertBeforeValue.ToString());
+        }
+
+        [Fact]
+        public void Can_insert_after_last_node_of_specified_value()
+        {
+            // Arrange
+            LinkedList insertBeforeValue = new LinkedList();
+            insertBeforeValue.Insert(3);
+            insertBeforeValue.Insert(2);
+            insertBeforeValue.Insert(1);
+
+            // Act
+            insertBeforeValue.InsertAfterGivenValue(3, 4);
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", insertBeforeValue.ToString());

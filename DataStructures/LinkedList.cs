@@ -125,6 +125,11 @@ namespace DataStructures
                 }
                 current = current.Next;
             }
+            if (current.Next == null)
+            {
+                insertMe.Next = current.Next;
+                current.Next = insertMe;
+            }
         }
 
         /*-----Node class defined here-----*/
