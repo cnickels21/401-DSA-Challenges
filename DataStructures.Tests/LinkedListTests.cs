@@ -204,7 +204,7 @@ namespace DataStructures.Tests
         /// <summary>
         /// Lab 07 kth from end tests
         /// 1. Where k is greater than the length of the linked list -- DONE
-        /// 2. Where k and the length of the list are the same
+        /// 2. Where k and the length of the list are the same -- DONE
         /// 3. Where k is not a positive integer
         /// 4. Where the linked list is of a size 1
         /// 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
@@ -238,6 +238,20 @@ namespace DataStructures.Tests
 
             // Act
             int result = list.CompareLengthToValue(3);
+
+            // Assert
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void List_has_only_has_one_item()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+
+            // Act
+            int result = list.CompareLengthToValue(1);
 
             // Assert
             Assert.Equal(1, result);
