@@ -100,6 +100,12 @@ namespace DataStructures
                     current.Next = insertMe;
                     break;
                 }
+                else if (current.Value == value)
+                {
+                    insertMe.Next = current;
+                    Head = insertMe;
+                    break;
+                }
                 current = current.Next;
             }
             
