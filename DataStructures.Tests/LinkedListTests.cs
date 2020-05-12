@@ -294,8 +294,8 @@ namespace DataStructures.Tests
         }
 
         [Theory]
-        [InlineData(2, 3)]
-        [InlineData(3, 2)]
+        [InlineData(1, 3)]
+        [InlineData(2, 2)]
         public void Find_value_in_middle_of_list(int value, int expected)
         {
             // Arrange

@@ -160,7 +160,7 @@ namespace DataStructures
         {
             Node current = Head;
 
-            for (int i = 1; i < listLength - value; i++)
+            for (int i = 0; i < listLength - value - 1; i++)
             {
                 current = current.Next;
             }
