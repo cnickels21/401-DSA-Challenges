@@ -143,8 +143,8 @@ namespace DataStructures.Tests
         {
             // Arrange
             LinkedList insertBeforeValue = new LinkedList();
-            insertBeforeValue.AppendAtEnd(1);
-            insertBeforeValue.AppendAtEnd(3);
+            insertBeforeValue.Insert(3);
+            insertBeforeValue.Insert(1);
 
             // Act
             insertBeforeValue.InsertInMiddle(3, 2);
