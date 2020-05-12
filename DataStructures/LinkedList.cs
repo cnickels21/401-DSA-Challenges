@@ -108,7 +108,23 @@ namespace DataStructures
                 }
                 current = current.Next;
             }
-            
+        }
+
+        public void InsertAfterGivenValue(int value, int newValue)
+        {
+            Node current = Head;
+            Node insertMe = new Node(newValue);
+
+            while (current.Next != null)
+            {
+                if (current.Value == value)
+                {
+                    insertMe.Next = current.Next;
+                    current.Next = insertMe;
+                    break;
+                }
+                current = current.Next;
+            }
         }
 
         /*-----Node class defined here-----*/
