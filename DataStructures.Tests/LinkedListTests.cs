@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace DataStructures.Tests
@@ -101,7 +102,7 @@ namespace DataStructures.Tests
         3. Can successfully insert a node before a node located in the middle of a linked list -- DONE
         4. Can successfully insert a node before the first node of a linked list -- DONE
         5. Can successfully insert after a node in the middle of the linked list -- DONE
-        6. Can successfully insert a node after the last node of the linked list
+        6. Can successfully insert a node after the last node of the linked list -- DONE
         */
 
         [Fact]
@@ -198,6 +199,118 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", insertBeforeValue.ToString());
+        }
+
+        /// <summary>
+        /// Lab 07 kth from end tests
+        /// 1. Where k is greater than the length of the linked list -- DONE
+        /// 2. Where k and the length of the list are the same -- DONE
+        /// 3. Where k is not a positive integer -- DONE
+        /// 4. Where the linked list is of a size 1 -- DONE
+        /// 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+        /// </summary>
+
+        [Fact]
+        public void Value_given_is_larger_than_length_of_list()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(3);
+            list.Insert(2);
+            list.Insert(1);
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                // Act
+                list.CompareLengthToValue(4);
+            });
+        }
+
+        [Fact]
+        public void Value_given_is_length_of_list()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(3);
+            list.Insert(2);
+            list.Insert(1);
+
+            // Act
+            int result = list.CompareLengthToValue(3);
+
+            // Assert
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void List_only_has_one_item()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+
+            // Act
+            int result = list.CompareLengthToValue(1);
+
+            // Assert
+            Assert.Equal(1, result);
+        }
+
+        /// <summary>
+        /// Edge case identified and tested (extra test not in requirements)
+        /// </summary>
+        [Fact]
+        public void What_happens_given_a_negative_integer()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+
+            // Assert
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                // Act
+                int result = list.CompareLengthToValue(-1);
+            });
+        }
+
+        [Fact]
+        public void Find_0th_value_from_end()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+
+            // Act
+            int result = list.CompareLengthToValue(0);
+
+            // Assert
+            Assert.Equal(3, result);
+        }
+
+        [Theory]
+        [InlineData(1, 3)]
+        [InlineData(2, 2)]
+        [InlineData(3, 1)]
+        public void Find_value_in_middle_of_list(int value, int expected)
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+            list.AppendAtEnd(4);
+
+            // Act
+            int result = list.CompareLengthToValue(value);
+
+            // Assert
+            Assert.Equal(expected, result);
         }
     }
 }
