@@ -236,12 +236,11 @@ namespace DataStructures.Tests
             list.Insert(2);
             list.Insert(1);
 
+            // Act
+            int result = list.FindKthValue(3);
+
             // Assert
-            Assert.Throws<IndexOutOfRangeException>(() =>
-            {
-                // Act
-                list.FindKthValue(3);
-            });
+            Assert.Equal(1, result);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace DataStructures
     {
         // Linked list properties defined here
         private Node Head;
+        private Node Tail;
 
         // Insert value into linked list
         public void Insert(int value)
@@ -134,11 +135,12 @@ namespace DataStructures
 
         // Method for lab 07 challenges
 
-        public void FindKthValue(int value)
+        public int FindKthValue(int value)
         {
             Node current = Head;
 
             int listLength = 0;
+            int returnValue = 0;
 
             while (current != null)
             {
@@ -149,6 +151,14 @@ namespace DataStructures
             if (listLength < value)
                 throw new IndexOutOfRangeException("That value is larger than the list length.");
 
+            current = Head;
+
+            for (int i = 1; i < listLength - value + 1; i++)
+            {
+                current = current.Next;
+            }
+            returnValue = current.Value;
+            return returnValue;
         }
 
         /*-----Node class defined here-----*/
