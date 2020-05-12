@@ -94,7 +94,7 @@ namespace DataStructures
 
             while (current.Next != null)
             { 
-                if (current.Value == value)
+                if (current.Next.Value == value)
                 {
                     insertMe.Next = current.Next;
                     current.Next = insertMe;
