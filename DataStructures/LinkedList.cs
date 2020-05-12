@@ -51,21 +51,6 @@ namespace DataStructures
             return result + "NULL";
         }
 
-        public string StringifyFullList()
-        {
-            // Setup variables accordingly
-            Node current = Head;
-            string result = "";
-
-            // Loop to add each node's value to a string with a comma
-            while (current.Next != null)
-            {
-                result = result + current.Value + ", ";
-                current = current.Next;
-            }
-            return result;
-        }
-
         public bool Includes(int value)
         {
             Node current = Head;
@@ -79,16 +64,19 @@ namespace DataStructures
                     result = true;
                     break;
                 }
-                //else if (current.Next == null)
-                //{
-                //    break;
-                //}
                 else
                 {
                     current = current.Next;
                 }
             }
             return result;
+        }
+
+        /*-----Methods for lab 06 linked list insertion-----*/
+
+        public void AppendAtEnd(int value)
+        {
+            
         }
 
         /*-----Node class defined here-----*/
@@ -104,5 +92,7 @@ namespace DataStructures
             public int Value { get; set; }
             public Node Next { get; set; }
         }
+
+        
     }
 }
