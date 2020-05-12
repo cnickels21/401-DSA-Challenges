@@ -206,7 +206,7 @@ namespace DataStructures.Tests
         /// 1. Where k is greater than the length of the linked list -- DONE
         /// 2. Where k and the length of the list are the same -- DONE
         /// 3. Where k is not a positive integer
-        /// 4. Where the linked list is of a size 1
+        /// 4. Where the linked list is of a size 1 -- DONE
         /// 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
         /// </summary>
 
@@ -244,7 +244,7 @@ namespace DataStructures.Tests
         }
 
         [Fact]
-        public void List_has_only_has_one_item()
+        public void List_only_has_one_item()
         {
             // Arrange
             LinkedList list = new LinkedList();
@@ -257,6 +257,9 @@ namespace DataStructures.Tests
             Assert.Equal(1, result);
         }
 
+        /// <summary>
+        /// Edge case identified and tested (extra test not in requirements)
+        /// </summary>
         [Fact]
         public void Find_0th_value_from_end()
         {
@@ -267,7 +270,7 @@ namespace DataStructures.Tests
             list.AppendAtEnd(3);
 
             // Act
-            int result = list.CompareLengthToValue(1);
+            int result = list.CompareLengthToValue(0);
 
             // Assert
             Assert.Equal(3, result);
