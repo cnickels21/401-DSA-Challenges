@@ -149,6 +149,9 @@ namespace DataStructures
             if (listLength < value)
                 throw new IndexOutOfRangeException("That value is larger than the list length.");
 
+            if (value < 0)
+                throw new NullReferenceException("That index doesn't exist in the list!");
+
             return SearchListForKthValue(value, listLength);
 
         }

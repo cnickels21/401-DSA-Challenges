@@ -261,6 +261,23 @@ namespace DataStructures.Tests
         /// Edge case identified and tested (extra test not in requirements)
         /// </summary>
         [Fact]
+        public void What_happens_given_a_negative_integer()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(1);
+            list.AppendAtEnd(2);
+            list.AppendAtEnd(3);
+
+            // Assert
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                // Act
+                int result = list.CompareLengthToValue(-1);
+            });
+        }
+
+        [Fact]
         public void Find_0th_value_from_end()
         {
             // Arrange
