@@ -51,21 +51,6 @@ namespace DataStructures
             return result + "NULL";
         }
 
-        public string StringifyFullList()
-        {
-            // Setup variables accordingly
-            Node current = Head;
-            string result = "";
-
-            // Loop to add each node's value to a string with a comma
-            while (current.Next != null)
-            {
-                result = result + current.Value + ", ";
-                current = current.Next;
-            }
-            return result;
-        }
-
         public bool Includes(int value)
         {
             Node current = Head;
@@ -79,16 +64,72 @@ namespace DataStructures
                     result = true;
                     break;
                 }
-                //else if (current.Next == null)
-                //{
-                //    break;
-                //}
                 else
                 {
                     current = current.Next;
                 }
             }
             return result;
+        }
+
+        /*-----Methods for lab 06 linked list insertion-----*/
+
+        public void AppendAtEnd(int value)
+        {
+            Node current = Head;
+            Node appendMe = new Node(value);
+
+            // Traverse list
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+                current.Next = appendMe;
+        }
+
+        public void InsertBeforeGivenValue(int value, int newValue)
+        {
+            Node current = Head;
+            Node insertMe = new Node(newValue);
+
+            while (current.Next != null)
+            { 
+                if (current.Next.Value == value)
+                {
+                    insertMe.Next = current.Next;
+                    current.Next = insertMe;
+                    break;
+                }
+                else if (current.Value == value)
+                {
+                    insertMe.Next = current;
+                    Head = insertMe;
+                    break;
+                }
+                current = current.Next;
+            }
+        }
+
+        public void InsertAfterGivenValue(int value, int newValue)
+        {
+            Node current = Head;
+            Node insertMe = new Node(newValue);
+
+            while (current.Next != null)
+            {
+                if (current.Value == value)
+                {
+                    insertMe.Next = current.Next;
+                    current.Next = insertMe;
+                    break;
+                }
+                current = current.Next;
+            }
+            if (current.Next == null)
+            {
+                insertMe.Next = current.Next;
+                current.Next = insertMe;
+            }
         }
 
         /*-----Node class defined here-----*/
