@@ -147,9 +147,8 @@ namespace DataStructures
             }
 
             if (listLength < value)
-            {
                 throw new IndexOutOfRangeException("That value is larger than the list length.");
-            }
+
         }
 
         /*-----Node class defined here-----*/
