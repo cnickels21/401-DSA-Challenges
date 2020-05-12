@@ -131,7 +131,9 @@ namespace DataStructures.Tests
             // Act
             listForAppend.AppendAtEnd(3);
             listForAppend.AppendAtEnd(4);
-            listForAppend.AppendAtEnd(5);
+
+            // Action below was used to prove test fails
+            // listForAppend.AppendAtEnd(5);
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", listForAppend.ToString());
