@@ -203,7 +203,7 @@ namespace DataStructures.Tests
 
         /// <summary>
         /// Lab 07 kth from end tests
-        /// 1. Where k is greater than the length of the linked list
+        /// 1. Where k is greater than the length of the linked list -- DONE
         /// 2. Where k and the length of the list are the same
         /// 3. Where k is not a positive integer
         /// 4. Where the linked list is of a size 1
@@ -223,7 +223,24 @@ namespace DataStructures.Tests
             Assert.Throws<IndexOutOfRangeException>(() =>
             {
                 // Act
-                list.FindKthValue(2);
+                list.FindKthValue(4);
+            });
+        }
+
+        [Fact]
+        public void Value_given_is_length_of_list()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(3);
+            list.Insert(2);
+            list.Insert(1);
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                // Act
+                list.FindKthValue(3);
             });
         }
     }
