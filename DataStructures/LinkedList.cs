@@ -132,6 +132,26 @@ namespace DataStructures
             }
         }
 
+        // Method for lab 07 challenges
+
+        public void FindKthValue(int value)
+        {
+            Node current = Head;
+
+            int listLength = 0;
+
+            while (current != null)
+            {
+                current = current.Next;
+                listLength++;
+            }
+
+            if (listLength < value)
+            {
+                throw new IndexOutOfRangeException("That value is larger than the list length.");
+            }
+        }
+
         /*-----Node class defined here-----*/
         public class Node
         {

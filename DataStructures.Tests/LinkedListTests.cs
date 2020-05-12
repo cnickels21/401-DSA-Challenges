@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace DataStructures.Tests
@@ -101,7 +102,7 @@ namespace DataStructures.Tests
         3. Can successfully insert a node before a node located in the middle of a linked list -- DONE
         4. Can successfully insert a node before the first node of a linked list -- DONE
         5. Can successfully insert after a node in the middle of the linked list -- DONE
-        6. Can successfully insert a node after the last node of the linked list
+        6. Can successfully insert a node after the last node of the linked list -- DONE
         */
 
         [Fact]
@@ -198,6 +199,32 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", insertBeforeValue.ToString());
+        }
+
+        /// <summary>
+        /// Lab 07 kth from end tests
+        /// 1. Where k is greater than the length of the linked list
+        /// 2. Where k and the length of the list are the same
+        /// 3. Where k is not a positive integer
+        /// 4. Where the linked list is of a size 1
+        /// 5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+        /// </summary>
+
+        [Fact]
+        public void Value_given_is_larger_than_length_of_list()
+        {
+            // Arrange
+            LinkedList list = new LinkedList();
+            list.Insert(3);
+            list.Insert(2);
+            list.Insert(1);
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() =>
+            {
+                // Act
+                list.FindKthValue(4);
+            });
         }
     }
 }
