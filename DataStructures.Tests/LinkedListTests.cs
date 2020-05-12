@@ -97,7 +97,7 @@ namespace DataStructures.Tests
         /// Class 06 - Linked List Appending/Insertion
         /// </summary>
         /*
-        1. Can successfully add a node to the end of the linked list
+        1. Can successfully add a node to the end of the linked list -- DONE
         2. Can successfully add multiple nodes to the end of a linked list
         3. Can successfully insert a node before a node located i the middle of a linked list
         4. Can successfully insert a node before the first node of a linked list
@@ -118,6 +118,23 @@ namespace DataStructures.Tests
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> NULL", listForAppend.ToString());
+        }
+
+        [Fact]
+        public void Can_insert_multiple_at_end_of_list()
+        {
+            // Arrange
+            LinkedList listForAppend = new LinkedList();
+            listForAppend.Insert(2);
+            listForAppend.Insert(1);
+
+            // Act
+            listForAppend.AppendAtEnd(3);
+            listForAppend.AppendAtEnd(4);
+            listForAppend.AppendAtEnd(5);
+
+            // Assert
+            Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", listForAppend.ToString());
         }
     }
 }
