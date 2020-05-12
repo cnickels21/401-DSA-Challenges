@@ -84,11 +84,7 @@ namespace DataStructures
             {
                 current = current.Next;
             }
-
-            if (current.Next == null)
-            {
                 current.Next = appendMe;
-            }
         }
 
         public void InsertInMiddle(int value, int newValue)
