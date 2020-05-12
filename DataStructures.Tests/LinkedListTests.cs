@@ -223,7 +223,7 @@ namespace DataStructures.Tests
             Assert.Throws<IndexOutOfRangeException>(() =>
             {
                 // Act
-                list.FindKthValue(4);
+                list.CompareLengthToValue(4);
             });
         }
 
@@ -237,7 +237,7 @@ namespace DataStructures.Tests
             list.Insert(1);
 
             // Act
-            int result = list.FindKthValue(3);
+            int result = list.CompareLengthToValue(3);
 
             // Assert
             Assert.Equal(1, result);

@@ -135,12 +135,10 @@ namespace DataStructures
 
         // Method for lab 07 challenges
 
-        public int FindKthValue(int value)
+        public int CompareLengthToValue(int value)
         {
             Node current = Head;
-
             int listLength = 0;
-            int returnValue = 0;
 
             while (current != null)
             {
@@ -151,13 +149,20 @@ namespace DataStructures
             if (listLength < value)
                 throw new IndexOutOfRangeException("That value is larger than the list length.");
 
-            current = Head;
+            return SearchListForKthValue(value, listLength);
 
-            for (int i = 1; i < listLength - value + 1; i++)
+        }
+
+        public int SearchListForKthValue(int value, int listLength)
+        {
+            Node current = Head;
+
+            for (int i = 0; i < listLength - value; i++)
             {
                 current = current.Next;
             }
-            returnValue = current.Value;
+            int returnValue = current.Value;
+
             return returnValue;
         }
 
