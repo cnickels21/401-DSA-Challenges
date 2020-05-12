@@ -87,7 +87,7 @@ namespace DataStructures
                 current.Next = appendMe;
         }
 
-        public void InsertInMiddle(int value, int newValue)
+        public void InsertBeforeGivenValue(int value, int newValue)
         {
             Node current = Head;
             Node insertMe = new Node(newValue);

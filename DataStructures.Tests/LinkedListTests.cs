@@ -147,7 +147,7 @@ namespace DataStructures.Tests
             insertBeforeValue.Insert(1);
 
             // Act
-            insertBeforeValue.InsertInMiddle(3, 2);
+            insertBeforeValue.InsertBeforeGivenValue(3, 2);
 
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> NULL", insertBeforeValue.ToString());
