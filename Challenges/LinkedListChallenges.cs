@@ -39,7 +39,7 @@ namespace Challenges
                     firstCurrent.Next = secondCurrent;
                     secondCurrent = secondCurrent.Next;
                     
-                    if (secondCurrent.Next == null)
+                    if (secondCurrent == null)
                     {
                         break;
                     }
@@ -47,7 +47,7 @@ namespace Challenges
                 else if (secondCurrent == null)
                 {
                     firstCurrent = firstCurrent.Next;
-                    if (firstCurrent.Next == null)
+                    if (firstCurrent == null)
                     {
                         break;
                     }
