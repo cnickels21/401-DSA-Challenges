@@ -1,13 +1,12 @@
 ﻿using DataStructures;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Challenges
 {
-    class LinkedListChallenges
+    public class LinkedListChallenges
     {
-        static LinkedList Merge(LinkedList listOne, LinkedList listTwo)
+        public static LinkedList MergeLists(LinkedList listOne, LinkedList listTwo)
         {
             return listOne;
         }
