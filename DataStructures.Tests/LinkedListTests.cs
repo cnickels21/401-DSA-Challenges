@@ -9,7 +9,7 @@ namespace DataStructures.Tests
         /*
         1. Can successfully instantiate an empty linked list -- DONE
         2. Can properly insert into the linked list -- DONE
-        3. The Head property will properly point to the first node in the linked list --  DONE
+        3. The head property will properly point to the first node in the linked list --  DONE
         4. Can properly insert multiple nodes into the linked list -- DONE
         5. Will return true when finding a value within the linked list that exists -- DONE
         6. Will return false when searching for a value in the linked list that does not exist -- DONE

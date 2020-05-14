@@ -9,7 +9,7 @@ namespace Challenges
     {
         static LinkedList Merge(LinkedList listOne, LinkedList listTwo)
         {
-
+            return listOne;
         }
     }
 }
