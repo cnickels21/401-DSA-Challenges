@@ -66,5 +66,45 @@ namespace Challenges.Tests
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", result.ToString());
         }
+
+        [Fact]
+        public void First_list_is_empty()
+        {
+            // Arrange
+            LinkedList listOne = new LinkedList();
+            LinkedList listTwo = new LinkedList();
+
+            listTwo.Insert(1);
+            listTwo.AppendAtEnd(3);
+
+
+
+            // Assert
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                // Act
+                LinkedListChallenges.MergeLists(listOne, listTwo);
+            });
+        }
+
+        [Fact]
+        public void Second_list_is_empty()
+        {
+            // Arrange
+            LinkedList listOne = new LinkedList();
+            LinkedList listTwo = new LinkedList();
+
+            listOne.Insert(1);
+            listOne.AppendAtEnd(3);
+
+
+
+            // Assert
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                // Act
+                LinkedListChallenges.MergeLists(listOne, listTwo);
+            });
+        }
     }
 }

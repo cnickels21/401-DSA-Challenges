@@ -12,6 +12,9 @@ namespace Challenges
             LinkedList.Node firstCurrent = listOne.Head;
             LinkedList.Node secondCurrent = listTwo.Head;
 
+            if (firstCurrent == null || secondCurrent == null)
+                throw new NullReferenceException("You didn't give me a list to merge!");
+
             // Capturing the present next nodes for use on each iteration
             LinkedList.Node firstListsNextNode = firstCurrent.Next;
             LinkedList.Node secondListsNextNode = secondCurrent.Next;
@@ -52,11 +55,6 @@ namespace Challenges
                         break;
                     }
                 }
-
-                
-
-
-                
             }
 
             return listOne;
