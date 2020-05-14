@@ -12,9 +12,9 @@ namespace Challenges
             LinkedList.Node firstCurrent = listOne.Head;
             LinkedList.Node secondCurrent = listTwo.Head;
 
-            while (firstCurrent.Next != null)
+            while (firstCurrent.Next != null ||
+                secondCurrent.Next != null)
             {
-
                 secondCurrent.Next = firstCurrent.Next;
                 firstCurrent.Next = secondCurrent;
 
