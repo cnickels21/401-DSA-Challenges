@@ -45,5 +45,26 @@ namespace Challenges.Tests
             // Assert
             Assert.Equal("{1} -> {2} -> {3} -> NULL", result.ToString());
         }
+
+        [Fact]
+        public void Two_lists_are_same_length()
+        {
+            // Arrange
+            LinkedList listOne = new LinkedList();
+            LinkedList listTwo = new LinkedList();
+
+            listOne.Insert(1);
+            listOne.AppendAtEnd(3);
+
+            listTwo.Insert(2);
+            listOne.AppendAtEnd(4);
+
+
+            // Act
+            LinkedList result = LinkedListChallenges.MergeLists(listOne, listTwo);
+
+            // Assert
+            Assert.Equal("{1} -> {2} -> {3} -> {4} -> NULL", result.ToString());
+        }
     }
 }
