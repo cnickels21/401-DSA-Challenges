@@ -5,9 +5,9 @@ namespace DataStructures
     public class LinkedList
     {
         // Linked list properties defined here
-        private Node Head;
+        private Node head;
 
-        public Node Head => Head;
+        public Node Head => head;
 
         // Insert value into linked list
         public void Insert(int value)
@@ -16,15 +16,15 @@ namespace DataStructures
 
             try
             {
-                if (Head == null)
+                if (head == null)
                 {
-                    Head = newNode;
+                    head = newNode;
                 }
                 else
                 {
-                    newNode.Next = Head;
+                    newNode.Next = head;
                 }
-                Head = newNode;
+                head = newNode;
             }
             catch (FormatException fex)
             {
@@ -37,11 +37,11 @@ namespace DataStructures
         // To string to make testing easier to verify
         public override string ToString()
         {
-            Node current = Head;
+            Node current = head;
             string result = "";
 
             // Conditions to define return
-            if (Head == null)
+            if (head == null)
             {
                 return result;
             }
@@ -55,7 +55,7 @@ namespace DataStructures
 
         public bool Includes(int value)
         {
-            Node current = Head;
+            Node current = head;
 
             bool result = false;
 
@@ -78,7 +78,7 @@ namespace DataStructures
 
         public void AppendAtEnd(int value)
         {
-            Node current = Head;
+            Node current = head;
             Node appendMe = new Node(value);
 
             // Traverse list
@@ -91,7 +91,7 @@ namespace DataStructures
 
         public void InsertBeforeGivenValue(int value, int newValue)
         {
-            Node current = Head;
+            Node current = head;
             Node insertMe = new Node(newValue);
 
             while (current.Next != null)
@@ -105,7 +105,7 @@ namespace DataStructures
                 else if (current.Value == value)
                 {
                     insertMe.Next = current;
-                    Head = insertMe;
+                    head = insertMe;
                     break;
                 }
                 current = current.Next;
@@ -114,7 +114,7 @@ namespace DataStructures
 
         public void InsertAfterGivenValue(int value, int newValue)
         {
-            Node current = Head;
+            Node current = head;
             Node insertMe = new Node(newValue);
 
             while (current.Next != null)
@@ -138,7 +138,7 @@ namespace DataStructures
 
         public int CompareLengthToValue(int value)
         {
-            Node current = Head;
+            Node current = head;
             int listLength = 0;
 
             while (current != null)
@@ -159,7 +159,7 @@ namespace DataStructures
 
         public int SearchListForKthValue(int value, int listLength)
         {
-            Node current = Head;
+            Node current = head;
 
             for (int i = 0; i < listLength - value - 1; i++)
             {

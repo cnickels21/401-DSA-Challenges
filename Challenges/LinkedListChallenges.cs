@@ -9,7 +9,15 @@ namespace Challenges
     {
         public static LinkedList MergeLists(LinkedList listOne, LinkedList listTwo)
         {
-            LinkedList.Node firstCurrent = LinkedList.head;
+            LinkedList.Node firstCurrent = listOne.Head;
+            LinkedList.Node secondCurrent = listTwo.Head;
+
+            while (firstCurrent.Next != null &&
+                secondCurrent.Next != null)
+            {
+                firstCurrent.Next = secondCurrent;
+                firstCurrent = firstCurrent.Next;
+            }
 
             return listOne;
         }
