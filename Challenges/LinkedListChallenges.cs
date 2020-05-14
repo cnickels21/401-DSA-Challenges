@@ -23,7 +23,10 @@ namespace Challenges
             {
                 // Capturing each list's next node for use on this iteration
                 firstListsNextNode = firstCurrent.Next;
-                secondListsNextNode = secondCurrent.Next;
+                if (secondCurrent != null)
+                {
+                    secondListsNextNode = secondCurrent.Next;
+                }
 
                 // Insert second lists current node into next slot in first list
                 // DON'T CHANGE

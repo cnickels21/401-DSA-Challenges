@@ -68,6 +68,27 @@ namespace Challenges.Tests
         }
 
         [Fact]
+        public void Can_return_longer_merged_list()
+        {
+            // Arrange
+            LinkedList listOne = new LinkedList();
+            LinkedList listTwo = new LinkedList();
+
+            listOne.Insert(1);
+            listOne.AppendAtEnd(3);
+            listOne.AppendAtEnd(5);
+
+            listTwo.Insert(2);
+            listOne.AppendAtEnd(4);
+
+            // Act
+            LinkedList result = LinkedListChallenges.MergeLists(listOne, listTwo);
+
+            // Assert
+            Assert.Equal("{1} -> {2} -> {3} -> {4} -> {5} -> NULL", result.ToString());
+        }
+
+        [Fact]
         public void First_list_is_empty()
         {
             // Arrange
