@@ -10,3 +10,4 @@
 4. [Linked Lists](readme/linkedLists.md)
 5. [Linked List Insertion](readme/llInsertion.md)
 6. [Kth Value From End](readme/kthValueFromEnd.md)
+7. [Linked List Merge](readme/llMerge.md)
