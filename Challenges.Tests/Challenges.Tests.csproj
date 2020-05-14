@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Challenges\Challenges.csproj" />
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
   </ItemGroup>
 
 </Project>
