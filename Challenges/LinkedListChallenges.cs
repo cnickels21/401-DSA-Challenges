@@ -17,7 +17,6 @@ namespace Challenges
 
                 secondCurrent.Next = firstCurrent.Next;
                 firstCurrent.Next = secondCurrent;
-                
 
                 firstCurrent = firstCurrent.Next.Next;
                 secondCurrent = secondCurrent.Next;

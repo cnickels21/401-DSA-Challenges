@@ -37,7 +37,7 @@ namespace Challenges.Tests
             listOne.Insert(1);
             listOne.AppendAtEnd(3);
 
-            listTwo.Insert(5);
+            listTwo.Insert(2);
 
             // Act
             LinkedList result = LinkedListChallenges.MergeLists(listOne, listTwo);
