@@ -14,10 +14,19 @@ namespace Challenges
 
             while (firstCurrent.Next != null)
             {
+                // Insert second lists current node into next slot in first list
+                // DON'T CHANGE
                 secondCurrent.Next = firstCurrent.Next;
                 firstCurrent.Next = secondCurrent;
 
-                if (firstCurrent.Next == null)
+                // Step over in first list to carry on
+                firstCurrent = firstCurrent.Next.Next;
+
+                // Step over in second list to carry on
+                secondCurrent = secondCurrent.Next;
+
+                // Edge cases for breaking loop
+                if (firstCurrent == null)
                 {
                     firstCurrent.Next = secondCurrent;
                     secondCurrent = secondCurrent.Next;
@@ -27,7 +36,7 @@ namespace Challenges
                         break;
                     }
                 }
-                else if (secondCurrent.Next == null)
+                else if (secondCurrent == null)
                 {
                     firstCurrent = firstCurrent.Next;
                     if (firstCurrent.Next == null)
@@ -35,11 +44,11 @@ namespace Challenges
                         break;
                     }
                 }
-                
+
                 
 
-                firstCurrent = firstCurrent.Next.Next;
-                // secondCurrent = secondCurrent.Next;
+
+                
             }
 
             return listOne;
