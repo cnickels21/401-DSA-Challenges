@@ -12,18 +12,26 @@ namespace Challenges
             LinkedList.Node firstCurrent = listOne.Head;
             LinkedList.Node secondCurrent = listTwo.Head;
 
+            // Capturing the present next nodes for use on each iteration
+            LinkedList.Node firstListsNextNode = firstCurrent.Next;
+            LinkedList.Node secondListsNextNode = secondCurrent.Next;
+
             while (firstCurrent.Next != null)
             {
+                // Capturing each list's next node for use on this iteration
+                firstListsNextNode = firstCurrent.Next;
+                secondListsNextNode = secondCurrent.Next;
+
                 // Insert second lists current node into next slot in first list
                 // DON'T CHANGE
                 secondCurrent.Next = firstCurrent.Next;
                 firstCurrent.Next = secondCurrent;
 
                 // Step over in first list to carry on
-                firstCurrent = firstCurrent.Next.Next;
+                firstCurrent = firstListsNextNode;
 
                 // Step over in second list to carry on
-                secondCurrent = secondCurrent.Next;
+                secondCurrent = secondListsNextNode;
 
                 // Edge cases for breaking loop
                 if (firstCurrent == null)
