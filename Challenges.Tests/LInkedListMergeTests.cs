@@ -24,7 +24,7 @@ namespace Challenges.Tests
             LinkedList result = LinkedListChallenges.MergeLists(listOne, listTwo);
 
             // Assert
-            Assert.Equal(listOne, result);
+            Assert.Equal("{1} -> {5} -> {3} -> NULL", result.ToString());
         }
 
         [Fact]

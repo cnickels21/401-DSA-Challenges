@@ -14,6 +14,9 @@ namespace Challenges
 
             while (firstCurrent.Next != null)
             {
+                secondCurrent.Next = firstCurrent.Next;
+                firstCurrent.Next = secondCurrent;
+
                 if (firstCurrent.Next == null)
                 {
                     firstCurrent.Next = secondCurrent;
@@ -24,7 +27,6 @@ namespace Challenges
                         break;
                     }
                 }
-
                 else if (secondCurrent.Next == null)
                 {
                     firstCurrent = firstCurrent.Next;
@@ -33,12 +35,11 @@ namespace Challenges
                         break;
                     }
                 }
-
-                secondCurrent.Next = firstCurrent.Next;
-                firstCurrent.Next = secondCurrent;
+                
+                
 
                 firstCurrent = firstCurrent.Next.Next;
-                secondCurrent = secondCurrent.Next;
+                // secondCurrent = secondCurrent.Next;
             }
 
             return listOne;
