@@ -19,17 +19,15 @@ namespace Challenges
             LinkedList.Node firstListsNextNode = firstCurrent.Next;
             LinkedList.Node secondListsNextNode = secondCurrent.Next;
 
+            // We're going down a rabbit hole
             while (firstCurrent.Next != null)
             {
                 // Capturing each list's next node for use on this iteration
                 firstListsNextNode = firstCurrent.Next;
-                if (secondCurrent != null)
-                {
-                    secondListsNextNode = secondCurrent.Next;
-                }
+                secondListsNextNode = secondCurrent.Next;
 
                 // Insert second lists current node into next slot in first list
-                // DON'T CHANGE
+                // DON'T CHANGE -- okay, maybe needs to change for more edge cases
                 secondCurrent.Next = firstCurrent.Next;
                 firstCurrent.Next = secondCurrent;
 
