@@ -25,7 +25,7 @@ namespace DataStructures.Stack
 
         public T Peek()
         {
-            return default;
+            return top.Value;
         }
         
         public bool IsEmpty()
