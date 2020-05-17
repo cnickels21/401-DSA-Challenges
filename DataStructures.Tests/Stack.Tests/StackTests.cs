@@ -37,5 +37,21 @@ namespace DataStructures.Tests.Stack.Tests
             Assert.Equal(2, result);
 
         }
+
+        [Fact]
+        public void Can_pop_top_off_the_pop_top()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+            testStack.Push(1);
+            testStack.Push(2);
+
+            // Act
+            int result = testStack.Pop();
+
+            // Assert
+            Assert.Equal(1, result);
+
+        }
     }
 }

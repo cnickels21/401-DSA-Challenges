@@ -6,7 +6,7 @@ namespace DataStructures.Stack
 {
     public partial class Stack<T>
     {
-        public Node top;
+        private Node top;
 
         public T Push(T value)
         {
@@ -18,9 +18,15 @@ namespace DataStructures.Stack
             return top.Value;
         }
 
-        public T Pop(T value)
+        public T Pop()
         {
-            return value;
+            Node placeHolder = top;
+
+            top = top.Next;
+
+            placeHolder.Next = null;
+
+            return top.Value;
         }
 
         public T Peek()
@@ -33,7 +39,7 @@ namespace DataStructures.Stack
             return default;
         }
 
-        public class Node
+        private class Node
         {
             public Node(T value) { Value = value;  }
             public Node Next { get; set; }
