@@ -6,13 +6,38 @@ namespace DataStructures.Stack
 {
     public partial class Stack<T>
     {
-        private Node top;
+        public Node top;
 
-
-        private class Node
+        public T Push(T value)
         {
+            Node newTop = new Node(value);
+
+            newTop.Next = top;
+            top = newTop;
+
+            return top.Value;
+        }
+
+        public T Pop(T value)
+        {
+            return value;
+        }
+
+        public T Peek()
+        {
+            return default;
+        }
+        
+        public bool IsEmpty()
+        {
+            return default;
+        }
+
+        public class Node
+        {
+            public Node(T value) { Value = value;  }
             public Node Next { get; set; }
-            public T Value { get; set; }
+            public T Value { get; }
         }
     }
 }
