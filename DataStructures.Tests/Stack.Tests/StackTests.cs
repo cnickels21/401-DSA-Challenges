@@ -125,6 +125,8 @@ namespace DataStructures.Tests.Stack.Tests
 
             // Assert
             Assert.True(testStack.IsEmpty());
+
+            // Assert return value of final item in stack
             Assert.Equal(1, result);
 
         }

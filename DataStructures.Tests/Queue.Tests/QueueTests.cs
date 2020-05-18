@@ -105,7 +105,7 @@ namespace DataStructures.Tests.Queue.Tests
             int result = testQueue.Dequeue();
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.Equal(1, result);
         }
 
     }
