@@ -121,5 +121,19 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.True(result);
         }
 
+        [Fact]
+        public void Is_empty_false_if_not_empty_queue()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(1);
+
+            // Act
+            bool result = testQueue.IsEmpty();
+
+            // Assert
+            Assert.False(result);
+        }
+
     }
 }
