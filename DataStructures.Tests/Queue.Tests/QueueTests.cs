@@ -135,5 +135,25 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.False(result);
         }
 
+        [Fact]
+        public void Dequeue_multiple_nodes_out_of_queue()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(3);
+            testQueue.Enqueue(2);
+            testQueue.Enqueue(1);
+
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+
+            // Act
+            bool result = testQueue.IsEmpty();
+
+            // Assert
+            Assert.True(result);
+        }
+
     }
 }
