@@ -81,5 +81,34 @@ namespace DataStructures.Tests.Stack.Tests
                 testStack.Peek();
             });
         }
+
+        [Fact]
+        public void IsEmpty_returns_true_if_empty()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+
+            // Act
+            bool result = testStack.IsEmpty();
+
+            // Assert
+            Assert.True(result);
+
+        }
+
+        [Fact]
+        public void IsEmpty_returns_false_if_not_empty()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+            testStack.Push(1);
+
+            // Act
+            bool result = testStack.IsEmpty();
+
+            // Assert
+            Assert.False(result);
+
+        }
     }
 }
