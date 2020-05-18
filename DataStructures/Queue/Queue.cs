@@ -8,6 +8,24 @@ namespace DataStructures.Queue
         private Node front;
         private Node rear;
 
+        public T Enqueue(T value)
+        {
+            Node newRearNode = new Node(value);
+
+            if (rear == null)
+            {
+                front = rear;
+                rear = newRearNode;
+                return rear.Value;
+            }
+
+            rear.Next = newRearNode;
+            rear = newRearNode;
+
+            return rear.Value;
+
+        }
+
         public T Peek()
         {
             if (front == null)
@@ -16,7 +34,7 @@ namespace DataStructures.Queue
             return default;
         }
 
-        private class Node
+        public class Node
         {
             public Node(T value)
             {
@@ -24,8 +42,8 @@ namespace DataStructures.Queue
                 Next = null;
             }
 
-            public Node Next { get; }
-            public T Value { get; }
+            public Node Next { get; set; }
+            public T Value { get; set; }
         }
     }
 }

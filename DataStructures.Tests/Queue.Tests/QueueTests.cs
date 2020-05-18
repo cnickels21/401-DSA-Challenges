@@ -21,5 +21,19 @@ namespace DataStructures.Tests.Queue.Tests
                 testQueue.Peek();
             });
         }
+
+        [Fact]
+        public void Enqueue_instantiates_new_queue_from_empty()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+
+            // Act
+            int result = testQueue.Enqueue(1);
+
+            // Assert
+            Assert.Equal(1, result);
+        }
+
     }
 }
