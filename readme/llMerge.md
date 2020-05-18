@@ -12,7 +12,7 @@ My partner and I spent about a half an hour working through a white board soluti
 
 As far as the code is concerned, I started with very small tests to make sure the program dependencies and references were set up properly, and then started breaking down the problem one step at a time.  There were many infinite loops, but once I got the loop situation fixed, every new turn presented a new null reference exception.  The solution is not fully implemented yet, but I think some specific and clever refactoring will lead me to an ultimate solution.  The code I have thus far is all functioning as expected, but a deeper level of refactoring will be the difference.
 
-![White Board Solution](lab08Merge.png)
+![White Board Solution](assets/lab08Merge.png)
 
 ## The Code
 
