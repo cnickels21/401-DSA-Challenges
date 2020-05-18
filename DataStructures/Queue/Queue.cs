@@ -8,7 +8,13 @@ namespace DataStructures.Queue
         private Node front;
         private Node rear;
 
+        public T Peek()
+        {
+            if (front == null)
+                throw new QueueEmptyException();
 
+            return default;
+        }
 
         private class Node
         {

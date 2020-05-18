@@ -1,6 +1,8 @@
-﻿namespace DataStructures.Queue
+﻿using System;
+
+namespace DataStructures.Queue
 {
-    public class QueueEmptyException
+    public class QueueEmptyException : Exception
     {
 
     }
