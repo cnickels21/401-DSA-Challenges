@@ -38,7 +38,7 @@ namespace DataStructures.Stack
             top = top.Next;
             placeHolder.Next = null;
 
-            return top.Value;
+            return placeHolder.Value;
         }
 
         public T Peek()

@@ -50,7 +50,7 @@ namespace DataStructures.Tests.Stack.Tests
             int result = testStack.Pop();
 
             // Assert
-            Assert.Equal(1, result);
+            Assert.Equal(2, result);
 
         }
 
