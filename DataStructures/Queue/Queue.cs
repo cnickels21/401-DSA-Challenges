@@ -30,7 +30,14 @@ namespace DataStructures.Queue
             if (front == null)
                 throw new QueueEmptyException();
 
-            return front.Value;
+            Node placeHolder = front;
+            front = front.Next;
+            placeHolder.Next = null;
+
+            if (front == null)
+                rear = null;
+
+            return placeHolder.Value;
         }
 
         public T Peek()
