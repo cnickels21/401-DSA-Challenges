@@ -17,4 +17,5 @@ For a stack, there are four key methods to define for full functionality: Push, 
 A queue is very similiar, only the methods are as follows: Enqueue, Dequeue, Peek, and IsEmpty.  Enqueue allows me to add a new value to the end of the queue \(or cafeteria line if you will\).  Dequeue, however, takes the item off the front of the list, meaning the first item that was put into the queue, no matter how many have been put into the queue since.  It also throws an empty exception if the queue is empty.  Peek, similiar to that of a stack, allows me to simply see what the value of the *first* node in the stack is.  Finally, IsEmpty does the exact same thing for a queue that it does for a stack.
 
 [Check Out My Stack!](../DataStructures/Stack/Stack.cs)
+
 [Next in Line? My Queue](../DataStructures/Queue/Queue.cs)
