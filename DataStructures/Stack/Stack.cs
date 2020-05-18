@@ -32,6 +32,10 @@ namespace DataStructures.Stack
 
         public T Peek()
         {
+
+            if (top == null)
+                throw new StackEmptyException();
+
             return top.Value;
         }
         

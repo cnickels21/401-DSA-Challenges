@@ -67,5 +67,19 @@ namespace DataStructures.Tests.Stack.Tests
                 testStack.Pop();
             });
         }
+
+        [Fact]
+        public void Peek_method_throws_exception_if_null()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+
+            // Assert
+            Assert.Throws<StackEmptyException>(() =>
+            {
+                // Act
+                testStack.Peek();
+            });
+        }
     }
 }
