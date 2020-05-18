@@ -48,6 +48,15 @@ namespace DataStructures.Queue
             return front.Value;
         }
 
+        public bool IsEmpty()
+        {
+            if (front == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public class Node
         {
             public Node(T value)
