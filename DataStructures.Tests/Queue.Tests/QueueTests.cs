@@ -49,5 +49,20 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.Equal(2, result);
         }
 
+        [Fact]
+        public void Peek_at_front_value_of_queue()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(1);
+            testQueue.Enqueue(2);
+
+            // Act
+            int result = testQueue.Peek();
+
+            // Assert
+            Assert.Equal(1, result);
+        }
+
     }
 }

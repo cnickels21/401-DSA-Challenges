@@ -14,8 +14,7 @@ namespace DataStructures.Queue
 
             if (rear == null)
             {
-                front = rear;
-                rear = newRearNode;
+                front = rear = newRearNode;
                 return rear.Value;
             }
 
@@ -26,12 +25,14 @@ namespace DataStructures.Queue
 
         }
 
+
+
         public T Peek()
         {
             if (front == null)
                 throw new QueueEmptyException();
 
-            return default;
+            return front.Value;
         }
 
         public class Node
