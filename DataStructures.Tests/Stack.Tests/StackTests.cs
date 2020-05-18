@@ -110,5 +110,24 @@ namespace DataStructures.Tests.Stack.Tests
             Assert.False(result);
 
         }
+
+        [Fact]
+        public void Can_pop_off_all_the_pop_tops()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+            testStack.Push(1);
+            testStack.Push(2);
+
+            testStack.Pop();
+
+            // Assert
+            Assert.Throws<StackEmptyException>(() =>
+            {
+                // Act
+                testStack.Pop();
+            });
+
+        }
     }
 }
