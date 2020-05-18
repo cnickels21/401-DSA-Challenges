@@ -119,14 +119,12 @@ namespace DataStructures.Tests.Stack.Tests
             testStack.Push(1);
             testStack.Push(2);
 
+            // Act
+            testStack.Pop();
             testStack.Pop();
 
             // Assert
-            Assert.Throws<StackEmptyException>(() =>
-            {
-                // Act
-                testStack.Pop();
-            });
+            Assert.True(testStack.IsEmpty());
 
         }
     }

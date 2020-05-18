@@ -24,14 +24,17 @@ namespace DataStructures.Stack
             {
                 throw new StackEmptyException();
             }
-            else if (top.Next == null)
-            {
-                top = top.Next;
-                throw new StackEmptyException();
-            }
 
             Node placeHolder = top;
-            
+
+            if (top.Next == null)
+            {
+                top = null;
+                placeHolder.Next = null;
+
+                return placeHolder.Value;
+            }
+
             top = top.Next;
             placeHolder.Next = null;
 
