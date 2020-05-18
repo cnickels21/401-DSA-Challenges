@@ -1,10 +1,9 @@
-﻿namespace DataStructures.Stack
+﻿using System;
+
+namespace DataStructures.Stack
 {
-    public partial class Stack<T>
-    {
-        public class StackEmptyException
+        public class StackEmptyException : Exception
         {
 
         }
-    }
 }

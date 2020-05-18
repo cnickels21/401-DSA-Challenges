@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.Stack
 {
-    public partial class Stack<T>
+    public class Stack<T>
     {
         private Node top;
 
@@ -20,10 +20,11 @@ namespace DataStructures.Stack
 
         public T Pop()
         {
+            if (top == null)
+                throw new StackEmptyException();
+
             Node placeHolder = top;
-
             top = top.Next;
-
             placeHolder.Next = null;
 
             return top.Value;

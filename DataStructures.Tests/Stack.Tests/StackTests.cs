@@ -53,5 +53,19 @@ namespace DataStructures.Tests.Stack.Tests
             Assert.Equal(1, result);
 
         }
+
+        [Fact]
+        public void Pop_method_throws_exception_if_null()
+        {
+            // Arrange
+            Stack<int> testStack = new Stack<int>();
+
+            // Assert
+            Assert.Throws<StackEmptyException>(() =>
+            {
+                // Act
+                testStack.Pop();
+            });
+        }
     }
 }
