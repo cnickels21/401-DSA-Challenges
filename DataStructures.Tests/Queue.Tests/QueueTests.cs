@@ -91,6 +91,20 @@ namespace DataStructures.Tests.Queue.Tests
             int result = testQueue.Dequeue();
 
             // Assert
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void Dequeue_returns_value_of_dequeued_front_node_on_queue_with_1_item()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(1);
+
+            // Act
+            int result = testQueue.Dequeue();
+
+            // Assert
             Assert.Equal(2, result);
         }
 

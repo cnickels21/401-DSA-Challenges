@@ -121,10 +121,11 @@ namespace DataStructures.Tests.Stack.Tests
 
             // Act
             testStack.Pop();
-            testStack.Pop();
+            int result = testStack.Pop();
 
             // Assert
             Assert.True(testStack.IsEmpty());
+            Assert.Equal(1, result);
 
         }
     }
