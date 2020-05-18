@@ -11,3 +11,4 @@
 5. [Linked List Insertion](readme/llInsertion.md)
 6. [Kth Value From End](readme/kthValueFromEnd.md)
 7. [Linked List Merge](readme/llMerge.md)
+8. [Stacks and Queues](readme/stacksAndQueues.md)
