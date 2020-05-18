@@ -18,4 +18,4 @@ Firstly we set a couple of variables to access specific indeces of the given arr
 
 [Code Lives Here](../Challenges/ArrayChallenges.cs)
 
-![White Board](assets/binarySearchWhiteBoard.md)
+![White Board](assets/binarySearchWhiteBoard.png)
