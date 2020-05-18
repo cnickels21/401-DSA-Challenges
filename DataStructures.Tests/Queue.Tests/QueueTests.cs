@@ -155,5 +155,26 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.True(result);
         }
 
+        [Fact]
+        public void Dequeue_throws_after_emptied()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(3);
+            testQueue.Enqueue(2);
+            testQueue.Enqueue(1);
+
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+
+            // Assert
+            Assert.Throws<QueueEmptyException>(() =>
+            {
+                // Act
+                testQueue.Dequeue();
+            });
+        }
+
     }
 }
