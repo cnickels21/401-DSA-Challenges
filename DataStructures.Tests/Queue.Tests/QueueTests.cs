@@ -35,5 +35,19 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.Equal(1, result);
         }
 
+        [Fact]
+        public void Enqueue_adds_multiple_items_to_rear()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+            testQueue.Enqueue(1);
+
+            // Act
+            int result = testQueue.Enqueue(2);
+
+            // Assert
+            Assert.Equal(2, result);
+        }
+
     }
 }
