@@ -64,5 +64,19 @@ namespace DataStructures.Tests.Queue.Tests
             Assert.Equal(1, result);
         }
 
+        [Fact]
+        public void Dequeue_throws_empty_exception()
+        {
+            // Arrange
+            Queue<int> testQueue = new Queue<int>();
+
+            // Assert
+            Assert.Throws<QueueEmptyException>(() =>
+            {
+                // Act
+                testQueue.Dequeue();
+            });
+        }
+
     }
 }

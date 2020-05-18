@@ -25,7 +25,13 @@ namespace DataStructures.Queue
 
         }
 
+        public T Dequeue()
+        {
+            if (front == null)
+                throw new QueueEmptyException();
 
+            return front.Value;
+        }
 
         public T Peek()
         {
