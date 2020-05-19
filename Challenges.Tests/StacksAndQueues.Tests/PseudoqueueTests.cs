@@ -50,5 +50,21 @@ namespace Challenges.Tests.StacksAndQueues.Tests
                 testQueue.Dequeue();
             });
         }
+
+        [Fact]
+        public void Can_dequeue_multiple_items()
+        {
+            // Arrange
+            Pseudoqueue<int> testQueue = new Pseudoqueue<int>();
+
+            testQueue.Enqueue(1);
+            testQueue.Enqueue(2);
+            testQueue.Enqueue(3);
+
+            // Assert
+            Assert.Equal(1, testQueue.Dequeue());
+            Assert.Equal(2, testQueue.Dequeue());
+            Assert.Equal(3, testQueue.Dequeue());
+        }
     }
 }

@@ -47,7 +47,8 @@ namespace Challenges.StacksAndQueues
             if (firstStack.IsEmpty())
                 throw new StackEmptyException();
 
-            return default;
+            T currentResult = firstStack.Pop();
+            return currentResult;
 
         }
 
