@@ -12,5 +12,6 @@
 6. [Kth Value From End](readme/kthValueFromEnd.md)
 7. [Linked List Merge](readme/llMerge.md)
 8. [Stacks and Queues](readme/stacksAndQueues.md)
+9. [Pseudo Queue](readme/pseudoQueue.md)
 
 ![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
