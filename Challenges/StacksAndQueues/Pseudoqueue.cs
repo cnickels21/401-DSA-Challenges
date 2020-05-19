@@ -42,6 +42,15 @@ namespace Challenges.StacksAndQueues
             }
         }
 
+        public T Dequeue()
+        {
+            if (firstStack.IsEmpty())
+                throw new StackEmptyException();
+
+            return default;
+
+        }
+
         public T Peek()
         {
             if (front == null)
@@ -49,9 +58,6 @@ namespace Challenges.StacksAndQueues
 
             return front.Value;
         }
-
-        //if (firstStack.IsEmpty())
-        //        throw new QueueEmptyException();
 
         public class Node
         {

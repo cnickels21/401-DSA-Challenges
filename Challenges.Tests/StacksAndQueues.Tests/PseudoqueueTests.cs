@@ -36,5 +36,19 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             // Assert
             Assert.Equal(1, testQueue.Peek());
         }
+
+        [Fact]
+        public void Dequeue_throws_on_empty()
+        {
+            // Arrange
+            Pseudoqueue<int> testQueue = new Pseudoqueue<int>();
+
+            // Assert
+            Assert.Throws<StackEmptyException>(() =>
+            {
+                // Act
+                testQueue.Dequeue();
+            });
+        }
     }
 }
