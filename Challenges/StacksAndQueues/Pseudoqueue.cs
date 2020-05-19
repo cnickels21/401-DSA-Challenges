@@ -22,11 +22,18 @@ namespace Challenges.StacksAndQueues
                 secondStack.Push(firstStack.Pop());
             }
 
-            Node itemToInsert = new Node(firstStack.Push(value));
-
             if (front == null)
             {
-                front = rear = itemToInsert;
+                firstStack.Push(value);
+                Node seedForEmptyQueue = new Node(firstStack.Peek());
+                front = rear = seedForEmptyQueue;
+            }
+            else
+            {
+                firstStack.Push(value);
+                Node newBottomOfFirstStack = new Node(firstStack.Peek());
+                rear.Next = newBottomOfFirstStack;
+                rear = newBottomOfFirstStack;
             }
 
             while (!secondStack.IsEmpty())

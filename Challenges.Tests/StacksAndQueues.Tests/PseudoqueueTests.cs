@@ -21,5 +21,20 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             // Assert
             Assert.Equal(1, testQueue.Peek());
         }
+
+        [Fact]
+        public void Can_enqueue_multiple_items()
+        {
+            // Arrange
+            Pseudoqueue<int> testQueue = new Pseudoqueue<int>();
+
+            // Act
+            testQueue.Enqueue(1);
+            testQueue.Enqueue(2);
+            testQueue.Enqueue(3);
+
+            // Assert
+            Assert.Equal(1, testQueue.Peek());
+        }
     }
 }
