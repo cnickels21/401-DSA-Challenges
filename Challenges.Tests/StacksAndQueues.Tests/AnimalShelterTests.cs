@@ -18,7 +18,7 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             Dog newDog = new Dog();
 
             // Act
-            testQueue.ArriveAtShelter<Dog>(newDog);
+            testQueue.ArriveAtShelter(newDog);
 
             Animal result = testQueue.Peek();
 
@@ -33,8 +33,8 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
             Dog newDog = new Dog();
 
-            testQueue.ArriveAtShelter<Dog>(newDog);
-            testQueue.ArriveAtShelter<Dog>(newDog);
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newDog);
 
             // Act
             Animal result = testQueue.TakeHome<Dog>();
@@ -63,16 +63,17 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             // Arrange
             AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
             Dog newDog = new Dog();
+            Cat newCat = new Cat();
 
-            testQueue.ArriveAtShelter<Dog>(newDog);
-            testQueue.ArriveAtShelter<Dog>(newDog);
-            testQueue.ArriveAtShelter<Cat>(newDog);
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newCat);
 
             // Act
-            Animal result = testQueue.TakeHome<Cat>();
+            Cat result = testQueue.TakeHome<Cat>();
 
             //Assert
-            Assert.Equal("cat", actual: result.Type);
+            Assert.Equal("cat", result.Type);
         }
     }
 }

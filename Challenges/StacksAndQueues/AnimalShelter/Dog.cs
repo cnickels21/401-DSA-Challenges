@@ -6,7 +6,6 @@ namespace Challenges.StacksAndQueues
     {
         public override string Type { 
             get => "dog"; 
-            set => throw new NotImplementedException(); 
         }
     }
 }

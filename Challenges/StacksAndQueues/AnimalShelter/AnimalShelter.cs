@@ -11,8 +11,7 @@ namespace Challenges.StacksAndQueues.AnimalShelter
         private Node rear;
 
         // This is my enqueue method
-        public void ArriveAtShelter<TAnimal>(T animal)
-            where TAnimal : Animal
+        public void ArriveAtShelter(T animal)
         {
             Node newRearNode = new Node(animal);
 
@@ -26,7 +25,7 @@ namespace Challenges.StacksAndQueues.AnimalShelter
         }
 
         // This is my dequeue method
-        public T TakeHome<TAnimal>()
+        public TAnimal TakeHome<TAnimal>()
             where TAnimal : Animal
         {
             if (front == null)
@@ -34,16 +33,14 @@ namespace Challenges.StacksAndQueues.AnimalShelter
 
             while (front.Next != null)
             {
-                if (front.Value is TAnimal)
+                if (front.Value is TAnimal animal)
                 {
-                    Node placeHolder = front;
                     front = front.Next;
-                    placeHolder.Next = null;
 
                     if (front == null)
                         rear = null;
 
-                    return placeHolder.Value;
+                    return animal;
                 }
                 else
                 {

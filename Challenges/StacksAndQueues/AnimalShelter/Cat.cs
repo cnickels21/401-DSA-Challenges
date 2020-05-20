@@ -7,7 +7,6 @@ namespace Challenges.StacksAndQueues
         public override string Type
         {
             get => "cat";
-            set => throw new NotImplementedException();
         }
     }
 }
