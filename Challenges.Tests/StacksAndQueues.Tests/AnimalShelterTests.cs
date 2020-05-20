@@ -2,6 +2,7 @@
 using System.Text;
 using Challenges.StacksAndQueues;
 using Challenges.StacksAndQueues.AnimalShelter;
+using DataStructures.Queue;
 using Xunit;
 
 namespace Challenges.Tests.StacksAndQueues.Tests
@@ -40,6 +41,20 @@ namespace Challenges.Tests.StacksAndQueues.Tests
 
             //Assert
             Assert.Equal("dog", result.Type);
+        }
+
+        [Fact]
+        public void Can_throw_exception_if_queue_is_empty()
+        {
+            // Arrange
+            AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
+
+            // Assert
+            Assert.Throws<QueueEmptyException>(() =>
+            {
+                // Act
+                testQueue.TakeHome<Dog>();
+            });
         }
     }
 }

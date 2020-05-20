@@ -29,6 +29,9 @@ namespace Challenges.StacksAndQueues.AnimalShelter
         public T TakeHome<TAnimal>()
             where TAnimal : Animal
         {
+            if (front == null)
+                throw new QueueEmptyException();
+
             if (front.Value is TAnimal)
             {
                 Node placeHolder = front;
@@ -42,6 +45,7 @@ namespace Challenges.StacksAndQueues.AnimalShelter
             }
 
             return default;
+            
         }
 
         public T Peek()
