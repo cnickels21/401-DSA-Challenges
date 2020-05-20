@@ -95,5 +95,32 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             //Assert
             Assert.Null(result);
         }
+
+        [Fact]
+        public void Queue_stays_in_order_after_dequeue_in_middle()
+        {
+            // Arrange
+            AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
+            Dog newDog = new Dog();
+            Cat newCat = new Cat();
+
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newCat);
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newCat);
+
+            // Removing from center to prove the order stays the same
+            testQueue.TakeHome<Cat>();
+
+            // Act
+            Dog firstDog = testQueue.TakeHome<Dog>();
+            Dog secondDog = testQueue.TakeHome<Dog>();
+            Cat secondCat = testQueue.TakeHome<Cat>();
+
+            //Assert
+            Assert.Equal("dog", firstDog.Type);
+            Assert.Equal("dog", secondDog.Type);
+            Assert.Equal("cat", secondCat.Type);
+        }
     }
 }
