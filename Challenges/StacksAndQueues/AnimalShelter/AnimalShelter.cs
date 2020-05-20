@@ -48,7 +48,7 @@ namespace Challenges.StacksAndQueues.AnimalShelter
                 }
             }
             
-            return default;
+            return null;
             
         }
 

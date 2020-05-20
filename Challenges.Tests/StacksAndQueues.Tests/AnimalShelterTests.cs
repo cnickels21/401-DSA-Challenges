@@ -37,7 +37,7 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             testQueue.ArriveAtShelter(newDog);
 
             // Act
-            Animal result = testQueue.TakeHome<Dog>();
+            Dog result = testQueue.TakeHome<Dog>();
 
             //Assert
             Assert.Equal("dog", result.Type);
@@ -75,6 +75,25 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             //Assert
             Assert.NotNull(result);
             Assert.Equal("cat", result.Type);
+        }
+
+        [Fact]
+        public void Cannnot_take_home_other_than_cat_or_dog()
+        {
+            // Arrange
+            AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
+            Dog newDog = new Dog();
+            Cat newCat = new Cat();
+
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newDog);
+            testQueue.ArriveAtShelter(newCat);
+
+            // Act
+            Fish result = testQueue.TakeHome<Fish>();
+
+            //Assert
+            Assert.Null(result);
         }
     }
 }
