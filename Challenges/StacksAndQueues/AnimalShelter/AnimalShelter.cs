@@ -31,7 +31,7 @@ namespace Challenges.StacksAndQueues.AnimalShelter
             if (front == null)
                 throw new QueueEmptyException();
 
-            while (front.Next != null)
+            while (front != null)
             {
                 if (front.Value is TAnimal animal)
                 {

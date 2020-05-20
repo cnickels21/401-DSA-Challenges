@@ -73,6 +73,7 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             Cat result = testQueue.TakeHome<Cat>();
 
             //Assert
+            Assert.NotNull(result);
             Assert.Equal("cat", result.Type);
         }
     }
