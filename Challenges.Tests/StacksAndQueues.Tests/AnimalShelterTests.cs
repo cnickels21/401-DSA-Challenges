@@ -24,5 +24,22 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             //Assert
             Assert.Equal("dog", result.Type);
         }
+
+        [Fact]
+        public void Can_dequeue_selected_animal_is_at_front_node()
+        {
+            // Arrange
+            AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
+            Dog newDog = new Dog();
+
+            testQueue.ArriveAtShelter<Dog>(newDog);
+            testQueue.ArriveAtShelter<Dog>(newDog);
+
+            // Act
+            Animal result = testQueue.TakeHome<Dog>();
+
+            //Assert
+            Assert.Equal("dog", result.Type);
+        }
     }
 }
