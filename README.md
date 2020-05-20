@@ -13,5 +13,6 @@
 7. [Linked List Merge](readme/llMerge.md)
 8. [Stacks and Queues](readme/stacksAndQueues.md)
 9. [Pseudo Queue](readme/pseudoQueue.md)
+10. [Animal Shelter](readme/animalShelter.md)
 
 ![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
