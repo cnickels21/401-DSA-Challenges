@@ -32,18 +32,25 @@ namespace Challenges.StacksAndQueues.AnimalShelter
             if (front == null)
                 throw new QueueEmptyException();
 
-            if (front.Value is TAnimal)
+            while (front.Next != null)
             {
-                Node placeHolder = front;
-                front = front.Next;
-                placeHolder.Next = null;
+                if (front.Value is TAnimal)
+                {
+                    Node placeHolder = front;
+                    front = front.Next;
+                    placeHolder.Next = null;
 
-                if (front == null)
-                    rear = null;
+                    if (front == null)
+                        rear = null;
 
-                return placeHolder.Value;
+                    return placeHolder.Value;
+                }
+                else
+                {
+                    front = front.Next;
+                }
             }
-
+            
             return default;
             
         }

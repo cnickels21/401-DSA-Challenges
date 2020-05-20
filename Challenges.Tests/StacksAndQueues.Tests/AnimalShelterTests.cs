@@ -56,5 +56,23 @@ namespace Challenges.Tests.StacksAndQueues.Tests
                 testQueue.TakeHome<Dog>();
             });
         }
+
+        [Fact]
+        public void Can_dequeue_selected_animal_is_not_at_front()
+        {
+            // Arrange
+            AnimalShelter<Animal> testQueue = new AnimalShelter<Animal>();
+            Dog newDog = new Dog();
+
+            testQueue.ArriveAtShelter<Dog>(newDog);
+            testQueue.ArriveAtShelter<Dog>(newDog);
+            testQueue.ArriveAtShelter<Cat>(newDog);
+
+            // Act
+            Animal result = testQueue.TakeHome<Cat>();
+
+            //Assert
+            Assert.Equal("cat", actual: result.Type);
+        }
     }
 }
