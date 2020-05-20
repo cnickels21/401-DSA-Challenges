@@ -31,20 +31,22 @@ namespace Challenges.StacksAndQueues.AnimalShelter
             if (front == null)
                 throw new QueueEmptyException();
 
-            while (front != null)
-            {
-                if (front.Value is TAnimal animal)
-                {
-                    front = front.Next;
+            Node current = front;
 
-                    if (front == null)
+            while (current != null)
+            {
+                if (current.Value is TAnimal animal)
+                {
+                    current = current.Next;
+
+                    if (current == null)
                         rear = null;
 
                     return animal;
                 }
                 else
                 {
-                    front = front.Next;
+                    current = current.Next;
                 }
             }
             

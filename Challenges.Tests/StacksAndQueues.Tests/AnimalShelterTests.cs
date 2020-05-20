@@ -87,10 +87,10 @@ namespace Challenges.Tests.StacksAndQueues.Tests
 
             testQueue.ArriveAtShelter(newDog);
             testQueue.ArriveAtShelter(newDog);
-            testQueue.ArriveAtShelter(newCat);
+            testQueue.ArriveAtShelter(newDog);
 
             // Act
-            Fish result = testQueue.TakeHome<Fish>();
+            Cat result = testQueue.TakeHome<Cat>();
 
             //Assert
             Assert.Null(result);
