@@ -7,14 +7,17 @@ namespace Challenges.Tests.StacksAndQueues.Tests
 {
     public class MultiBracketValidationTests
     {
-        [Fact]
-        public void Can_push_brackets_into_stack()
+        [Theory]
+        [InlineData("[")]
+        [InlineData("{")]
+        [InlineData("(")]
+        public void Can_push_brackets_into_stack(string input)
         {
             // Arrange
-            string testing = "[,{,(";
+            // Inline data
 
             // Act
-            bool result = MultiBracketValidation.MixMatchTheSwitchCatch(testing);
+            bool result = MultiBracketValidation.MixMatchTheSwitchCatch(input);
 
             Assert.True(result);
         }

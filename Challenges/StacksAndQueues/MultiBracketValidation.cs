@@ -19,7 +19,7 @@ namespace Challenges.StacksAndQueues
                 if (character == "[" || character == "{" || character == "(")
                 {
                     frontBracketHolderStack.Push(character);
-                    if (frontBracketHolderStack.Peek() == "[")
+                    if (frontBracketHolderStack.Peek() == "[" || frontBracketHolderStack.Peek() == "{" || frontBracketHolderStack.Peek() == "(")
                     {
                         defaultReturn = true;
                     }
