@@ -86,7 +86,7 @@ namespace DataStructures
             {
                 current = current.Next;
             }
-                current.Next = appendMe;
+            current.Next = appendMe;
         }
 
         public void InsertBeforeGivenValue(int value, int newValue)
@@ -95,7 +95,7 @@ namespace DataStructures
             Node insertMe = new Node(newValue);
 
             while (current.Next != null)
-            { 
+            {
                 if (current.Next.Value == value)
                 {
                     insertMe.Next = current.Next;

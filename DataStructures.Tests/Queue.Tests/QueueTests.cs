@@ -1,7 +1,5 @@
-﻿using System;
-using System.Text;
+﻿using DataStructures.Queue;
 using Xunit;
-using DataStructures.Queue;
 
 namespace DataStructures.Tests.Queue.Tests
 {

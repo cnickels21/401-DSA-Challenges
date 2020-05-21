@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace DataStructures.Queue
+﻿namespace DataStructures.Queue
 {
     public class Queue<T>
     {

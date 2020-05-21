@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace Challenges.StacksAndQueues
+﻿namespace Challenges.StacksAndQueues
 {
     public abstract class Animal
     {

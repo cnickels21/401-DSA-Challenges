@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Challenges.StacksAndQueues
+﻿namespace Challenges.StacksAndQueues
 {
     public class Cat : Animal
     {

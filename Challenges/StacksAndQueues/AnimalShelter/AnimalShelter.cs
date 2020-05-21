@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using DataStructures.Queue;
+﻿using DataStructures.Queue;
 
 namespace Challenges.StacksAndQueues.AnimalShelter
 {
@@ -49,9 +47,9 @@ namespace Challenges.StacksAndQueues.AnimalShelter
                     current = current.Next;
                 }
             }
-            
+
             return null;
-            
+
         }
 
         public T Peek()
