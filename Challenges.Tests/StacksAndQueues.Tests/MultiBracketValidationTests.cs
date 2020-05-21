@@ -19,8 +19,27 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             // Act
             bool result = MultiBracketValidation.MixMatchTheSwitchCatch(input);
 
+            // Assert
             Assert.True(result);
         }
 
+        [Theory]
+        [InlineData("[]")]
+        [InlineData("{}")]
+        [InlineData("()")]
+        [InlineData("[()]")]
+        [InlineData("{[()]}")]
+        [InlineData("[]{}()")]
+        public void Can_return_true_for_all_combinations_of_valid_brackets(string input)
+        {
+            // Arrange
+            // Inline data
+
+            // Act
+            bool result = MultiBracketValidation.MixMatchTheSwitchCatch(input);
+
+            // Assert
+            Assert.True(result);
+        }
     }
 }
