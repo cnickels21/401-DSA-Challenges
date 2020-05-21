@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using DataStructures.Stack;
+﻿using DataStructures.Stack;
 
 namespace Challenges.StacksAndQueues
 {
@@ -18,22 +16,24 @@ namespace Challenges.StacksAndQueues
                 if (character == '[' || character == '{' || character == '(')
                 {
                     frontBracketHolderStack.Push(character);
-
-                    //if (frontBracketHolderStack.Peek() == '[' ||
-                    //    frontBracketHolderStack.Peek() == '{' ||
-                    //    frontBracketHolderStack.Peek() == '(')
-                    //{
-                    //    defaultReturn = true;
-                    //}
                 }
                 else if (character == ']' || character == '}' || character == ')')
                 {
+                    if (frontBracketHolderStack.IsEmpty())
+                    {
+                        defaultReturn = false;
+                        break;
+                    }
                     if (frontBracketHolderStack.Peek() == CheckForMatchingBracket(character))
                     {
                         frontBracketHolderStack.Pop();
                         defaultReturn = true;
                     }
                 }
+            }
+            if (!frontBracketHolderStack.IsEmpty())
+            {
+                defaultReturn = false;
             }
 
             return defaultReturn;

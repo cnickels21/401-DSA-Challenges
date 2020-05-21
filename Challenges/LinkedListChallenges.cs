@@ -1,7 +1,5 @@
 ﻿using DataStructures;
 using System;
-using System.Text;
-using System.Xml;
 
 namespace Challenges
 {
@@ -42,7 +40,7 @@ namespace Challenges
                 {
                     firstCurrent.Next = secondCurrent;
                     secondCurrent = secondCurrent.Next;
-                    
+
                     if (secondCurrent == null)
                     {
                         break;

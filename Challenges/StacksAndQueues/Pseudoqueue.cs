@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using DataStructures.Stack;
+﻿using DataStructures.Stack;
 
 namespace Challenges.StacksAndQueues
 {
@@ -74,5 +72,5 @@ namespace Challenges.StacksAndQueues
 
     }
 
-    
+
 }

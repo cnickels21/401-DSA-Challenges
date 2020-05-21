@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using Challenges.StacksAndQueues;
+﻿using Challenges.StacksAndQueues;
 using Challenges.StacksAndQueues.AnimalShelter;
 using DataStructures.Queue;
 using Xunit;

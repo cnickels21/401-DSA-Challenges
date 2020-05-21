@@ -1,12 +1,15 @@
-﻿using System;
-using System.Text;
-using Challenges.StacksAndQueues;
+﻿using Challenges.StacksAndQueues;
 using Xunit;
 
 namespace Challenges.Tests.StacksAndQueues.Tests
 {
     public class MultiBracketValidationTests
     {
+
+        /// <summary>
+        /// Theories for all true strings
+        /// </summary>
+        /// <param name="input"></param>
         [Theory]
         [InlineData("[]")]
         [InlineData("{}")]
@@ -14,6 +17,9 @@ namespace Challenges.Tests.StacksAndQueues.Tests
         [InlineData("[()]")]
         [InlineData("{[()]}")]
         [InlineData("[]{}()")]
+        [InlineData("[{}()]")]
+        [InlineData("{[(abcd)]}")]
+        [InlineData("(Goober)")]
         public void Can_return_true_for_all_combinations_of_valid_brackets(string input)
         {
             // Arrange
@@ -26,13 +32,24 @@ namespace Challenges.Tests.StacksAndQueues.Tests
             Assert.True(result);
         }
 
+        /// <summary>
+        /// Theories for all false strings
+        /// </summary>
+        /// <param name="input"></param>
         [Theory]
         [InlineData("[")]
+        [InlineData("{")]
+        [InlineData("(")]
+        [InlineData("]")]
+        [InlineData(")")]
         [InlineData("}")]
         [InlineData("[)")]
+        [InlineData("[[")]
+        [InlineData("))")]
         [InlineData("[(])")]
         [InlineData("{[()}")]
         [InlineData("[{}")]
+        [InlineData("")]
         public void Can_return_false_for_all_combinations_of_invalid_brackets(string input)
         {
             // Arrange

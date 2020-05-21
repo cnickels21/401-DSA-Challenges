@@ -1,7 +1,5 @@
-﻿using System;
-using System.Text;
+﻿using DataStructures.Stack;
 using Xunit;
-using DataStructures.Stack;
 
 namespace DataStructures.Tests.Stack.Tests
 {

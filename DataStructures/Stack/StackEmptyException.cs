@@ -2,8 +2,8 @@
 
 namespace DataStructures.Stack
 {
-        public class StackEmptyException : Exception
-        {
+    public class StackEmptyException : Exception
+    {
 
-        }
+    }
 }

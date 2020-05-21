@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace DataStructures.Stack
+﻿namespace DataStructures.Stack
 {
     public class Stack<T>
     {
@@ -48,7 +45,7 @@ namespace DataStructures.Stack
 
             return top.Value;
         }
-        
+
         public bool IsEmpty()
         {
             if (top == null)
@@ -60,7 +57,7 @@ namespace DataStructures.Stack
 
         private class Node
         {
-            public Node(T value) { Value = value;  }
+            public Node(T value) { Value = value; }
             public Node Next { get; set; }
             public T Value { get; }
         }
