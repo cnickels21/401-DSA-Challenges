@@ -57,5 +57,20 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
         }
 
+        [Fact]
+        public void Can_add_value_to_right_node()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(2);
+
+            // Act
+            testTree.Add(3);
+
+            // Assert
+            Assert.Equal(3, testTree.Root.Right.Value);
+
+        }
+
     }
 }
