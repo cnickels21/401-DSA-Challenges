@@ -1,5 +1,6 @@
 ﻿using DataStructures.BinaryTree;
 using System;
+using System.Collections;
 using System.Text;
 using Xunit;
 
@@ -92,7 +93,29 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.True(leftValue);
             Assert.True(rightValue);
             Assert.False(existentialCrisis);
+        }
 
+        [Fact]
+        public void Preorder_traversal_functional()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(2);
+            testTree.Add(3);
+            testTree.Add(1);
+
+            int[] expected = new int[]
+            {
+                2,
+                1,
+                3,
+            };
+
+            // Act
+            IEnumerable result = testTree.PreOrder(testTree.Root);
+
+            // Assert
+            Assert.Equal(expected, result);
         }
 
     }
