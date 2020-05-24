@@ -14,12 +14,54 @@ namespace DataStructures.BinaryTree
             if (Root is null)
                 yield break;
 
+            yield return Root.Value;
+
             foreach (T item in PreOrder(Root.Left))
             {
                 yield return item;
             }
 
-            
+            foreach (T item in PreOrder(Root.Right))
+            {
+                yield return item;
+            }
+        }
+
+        public IEnumerable<T> InOrder(Node Root)
+        {
+            if (Root is null)
+                yield break;
+
+            foreach (T item in InOrder(Root.Left))
+            {
+                yield return item;
+            }
+
+            yield return Root.Value;
+
+            foreach (T item in InOrder(Root.Right))
+            {
+                yield return item;
+            }
+        }
+
+        public IEnumerable<T> PostOrder(Node Root)
+        {
+            if (Root is null)
+                yield break;
+
+            foreach (T item in PostOrder(Root.Left))
+            {
+                yield return item;
+            }
+
+            foreach (T item in PostOrder(Root.Right))
+            {
+                yield return item;
+            }
+
+            yield return Root.Value;
+
         }
 
         // Tree nested Node class

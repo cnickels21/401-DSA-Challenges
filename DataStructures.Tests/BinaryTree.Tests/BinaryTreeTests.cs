@@ -15,6 +15,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         /// 5. Can successfully return a collection from an inorder traversal
         /// 6. Can successfully return a collection from a postorder traversal
         /// </summary>
+        
         [Fact]
         public void Can_create_empty_tree()
         {
@@ -27,7 +28,19 @@ namespace DataStructures.Tests.BinaryTree.Tests
                 );
         }
 
+        [Fact]
+        public void Can_add_value_to_root_node()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
 
+            // Act
+            testTree.Add(1);
+
+            // Assert
+            Assert.Equal(1, testTree.Root.Value);
+            
+        }
 
     }
 }
