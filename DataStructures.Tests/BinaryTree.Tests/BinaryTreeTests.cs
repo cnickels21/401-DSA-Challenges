@@ -8,7 +8,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
     public class BinaryTreeTests
     {
         /// <summary>
-        /// 1. Can successfully instantiate an empty tree
+        /// 1. Can successfully instantiate an empty tree -- DONE
         /// 2. Can successfully instantiate a tree with a single root node
         /// 3. Can successfully add a left child and right child to a single root node
         /// 4. Can successfully return a collection from a preorder traversal
@@ -25,7 +25,9 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.Throws<NullReferenceException>(() =>
                     testTree.Root.Value
                 );
-
         }
+
+
+
     }
 }
