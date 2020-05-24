@@ -9,7 +9,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
     {
         /// <summary>
         /// 1. Can successfully instantiate an empty tree -- DONE
-        /// 2. Can successfully instantiate a tree with a single root node
+        /// 2. Can successfully instantiate a tree with a single root node -- DONE
         /// 3. Can successfully add a left child and right child to a single root node
         /// 4. Can successfully return a collection from a preorder traversal
         /// 5. Can successfully return a collection from an inorder traversal
@@ -40,6 +40,21 @@ namespace DataStructures.Tests.BinaryTree.Tests
             // Assert
             Assert.Equal(1, testTree.Root.Value);
             
+        }
+
+        [Fact]
+        public void Can_add_value_to_left_node()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(2);
+
+            // Act
+            testTree.Add(1);
+
+            // Assert
+            Assert.Equal(1, testTree.Root.Left.Value);
+
         }
 
     }

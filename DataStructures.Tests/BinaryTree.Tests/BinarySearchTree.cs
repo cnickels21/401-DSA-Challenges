@@ -22,6 +22,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             else
             {
                 Node current = Root;
+                Node parent = current;
 
                 while (true)
                 {
@@ -32,7 +33,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
                         if (current == null)
                         {
-                            current = newNode;
+                            parent.Left = newNode;
                             break;
                         }
                     }
@@ -42,7 +43,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
                         if (current == null)
                         {
-                            current = newNode;
+                            parent.Right = newNode;
                             break;
                         }
                     }
