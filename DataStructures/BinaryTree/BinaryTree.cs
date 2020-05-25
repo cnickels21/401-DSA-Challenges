@@ -43,7 +43,7 @@ namespace DataStructures.BinaryTree
             {
                 if (root.Left != null)
                 {
-                    foreach (T item in PreOrder(root.Left))
+                    foreach (T item in InOrder(root.Left))
                     {
                         yield return item;
                     }
@@ -53,7 +53,7 @@ namespace DataStructures.BinaryTree
 
                 if (root.Right != null)
                 {
-                    foreach (T item in PreOrder(root.Right))
+                    foreach (T item in InOrder(root.Right))
                     {
                         yield return item;
                     }
@@ -61,23 +61,31 @@ namespace DataStructures.BinaryTree
             }
         }
 
-        public IEnumerable<T> PostOrder(Node Root)
+        public IEnumerable<T> PostOrder(Node root)
         {
             if (Root is null)
                 yield break;
 
-            foreach (T item in PostOrder(Root.Left))
+            if (root != null)
             {
-                yield return item;
+                if (root.Left != null)
+                {
+                    foreach (T item in PostOrder(root.Left))
+                    {
+                        yield return item;
+                    }
+                }
+
+                if (root.Right != null)
+                {
+                    foreach (T item in PostOrder(root.Right))
+                    {
+                        yield return item;
+                    }
+                }
+
+                yield return root.Value;
             }
-
-            foreach (T item in PostOrder(Root.Right))
-            {
-                yield return item;
-            }
-
-            yield return Root.Value;
-
         }
 
 

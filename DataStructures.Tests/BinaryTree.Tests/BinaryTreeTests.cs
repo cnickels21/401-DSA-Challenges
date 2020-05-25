@@ -167,17 +167,50 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
             List<int> expected = new List<int>
             {
-                3,
                 1,
+                3,
                 4,
                 5,
-                10,
                 7,
+                10,
                 11,
             };
 
             // Act
             IEnumerable result = testTree.InOrder(testTree.Root);
+
+            // Assert
+            Assert.True(testTree.Contains(testTree.Root, 7));
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Postorder_traversal_for_larger_tree()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(5);
+            testTree.Add(3);
+            testTree.Add(10);
+            testTree.Add(1);
+            testTree.Add(4);
+            testTree.Add(7);
+            testTree.Add(11);
+
+
+            List<int> expected = new List<int>
+            {
+                1,
+                4,
+                3,
+                7,
+                11,
+                10,
+                5,
+            };
+
+            // Act
+            IEnumerable result = testTree.PostOrder(testTree.Root);
 
             // Assert
             Assert.True(testTree.Contains(testTree.Root, 7));
