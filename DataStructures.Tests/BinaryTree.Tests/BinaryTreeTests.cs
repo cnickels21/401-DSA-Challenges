@@ -1,6 +1,8 @@
 ﻿using DataStructures.BinaryTree;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -104,11 +106,43 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Add(3);
             testTree.Add(1);
 
-            int[] expected = new int[]
+            List<int> expected = new List<int>
             {
                 2,
                 1,
                 3,
+            };
+
+            // Act
+            IEnumerable result = testTree.PreOrder(testTree.Root);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Preorder_traversal_for_larger_tree()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(5);
+            testTree.Add(3);
+            testTree.Add(10);
+            testTree.Add(1);
+            testTree.Add(4);
+            testTree.Add(7);
+            testTree.Add(11);
+
+
+            List<int> expected = new List<int>
+            {
+                5,
+                3,
+                1,
+                4,
+                10,
+                7,
+                11,
             };
 
             // Act

@@ -16,15 +16,19 @@ namespace DataStructures.BinaryTree
 
             yield return Root.Value;
 
-            foreach (T item in PreOrder(Root.Left))
+            if (Root != null)
             {
-                yield return item;
-            }
+                foreach (T item in PreOrder(Root.Left))
+                {
+                    yield return item;
+                }
 
-            foreach (T item in PreOrder(Root.Right))
-            {
-                yield return item;
+                foreach (T item in PreOrder(Root.Right))
+                {
+                    yield return item;
+                }
             }
+            
         }
 
         public IEnumerable<T> InOrder(Node Root)
