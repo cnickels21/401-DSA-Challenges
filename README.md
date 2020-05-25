@@ -15,5 +15,6 @@
 9. [Pseudo Queue](readme/pseudoQueue.md)
 10. [Animal Shelter](readme/animalShelter.md)
 11. [Multi-Bracket-Validation](readme/multiBracketValidation.md)
+12. [Binary Tree](readme/binaryTree.md)
 
 ![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
