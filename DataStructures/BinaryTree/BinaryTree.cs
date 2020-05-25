@@ -63,29 +63,21 @@ namespace DataStructures.BinaryTree
 
         public IEnumerable<T> PostOrder(Node root)
         {
-            if (Root is null)
+            if (root is null)
                 yield break;
 
-            if (root != null)
+            foreach (T item in PostOrder(root.Left))
             {
-                if (root.Left != null)
-                {
-                    foreach (T item in PostOrder(root.Left))
-                    {
-                        yield return item;
-                    }
-                }
-
-                if (root.Right != null)
-                {
-                    foreach (T item in PostOrder(root.Right))
-                    {
-                        yield return item;
-                    }
-                }
-
-                yield return root.Value;
+                yield return item;
             }
+
+            foreach (T item in PostOrder(root.Right))
+            {
+                yield return item;
+            }
+
+            yield return root.Value;
+
         }
 
 
