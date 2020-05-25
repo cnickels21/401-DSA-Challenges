@@ -12,7 +12,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         /// 1. Can successfully instantiate an empty tree -- DONE
         /// 2. Can successfully instantiate a tree with a single root node -- DONE
         /// 3. Can successfully add a left child and right child to a single root node -- DONE
-        /// 4. Can successfully return a collection from a preorder traversal
+        /// 4. Can successfully return a collection from a preorder traversal -- DONE
         /// 5. Can successfully return a collection from an inorder traversal
         /// 6. Can successfully return a collection from a postorder traversal
         /// </summary>
@@ -145,6 +145,39 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
             // Act
             IEnumerable result = testTree.PreOrder(testTree.Root);
+
+            // Assert
+            Assert.True(testTree.Contains(testTree.Root, 7));
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Inorder_traversal_for_larger_tree()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Add(5);
+            testTree.Add(3);
+            testTree.Add(10);
+            testTree.Add(1);
+            testTree.Add(4);
+            testTree.Add(7);
+            testTree.Add(11);
+
+
+            List<int> expected = new List<int>
+            {
+                3,
+                1,
+                4,
+                5,
+                10,
+                7,
+                11,
+            };
+
+            // Act
+            IEnumerable result = testTree.InOrder(testTree.Root);
 
             // Assert
             Assert.True(testTree.Contains(testTree.Root, 7));
