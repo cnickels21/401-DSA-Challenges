@@ -14,23 +14,13 @@ namespace DataStructures.BinaryTree
 
             yield return root.Value;
 
-            if (root != null)
+            foreach (T item in PreOrder(root.Left))
             {
-                if (root.Left != null)
-                {
-                    foreach (T item in PreOrder(root.Left))
-                    {
-                        yield return item;
-                    }
-                }
-
-                if (root.Right != null)
-                {
-                    foreach (T item in PreOrder(root.Right))
-                    {
-                        yield return item;
-                    }
-                }
+                yield return item;
+            }
+            foreach (T item in PreOrder(root.Right))
+            {
+                yield return item;
             }
         }
 
