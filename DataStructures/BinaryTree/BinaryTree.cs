@@ -34,30 +34,20 @@ namespace DataStructures.BinaryTree
             }
         }
 
-        public IEnumerable<T> InOrder(Node root)
+        public IEnumerable<T> InOrder(Node current)
         {
-            if (Root is null)
+            if (current is null)
                 yield break;
 
-            if (root != null)
+            foreach (T item in InOrder(current.Left))
             {
-                if (root.Left != null)
-                {
-                    foreach (T item in InOrder(root.Left))
-                    {
-                        yield return item;
-                    }
-                }
+                yield return item;
+            }
+            yield return current.Value;
 
-                yield return root.Value;
-
-                if (root.Right != null)
-                {
-                    foreach (T item in InOrder(root.Right))
-                    {
-                        yield return item;
-                    }
-                }
+            foreach (T item in InOrder(current.Right))
+            {
+                yield return item;
             }
         }
 
