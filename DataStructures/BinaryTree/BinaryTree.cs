@@ -9,25 +9,35 @@ namespace DataStructures.BinaryTree
     {
         public Node Root { get; set; }
 
-        public IEnumerable<T> PreOrder(Node Root)
+
+        public IEnumerable<T> PreOrder(Node root)
         {
-            if (Root is null)
+            if (root == null)
                 yield break;
 
-            yield return Root.Value;
 
-            if (Root != null)
+
+            if (root != null)
             {
-                foreach (T item in PreOrder(Root.Left))
+                yield return root.Value;
+            }
+
+                if (root.Left != null)
                 {
-                    yield return item;
+                    foreach (T item in PreOrder(root.Left))
+                    {
+                        yield return item;
+                    }
                 }
 
-                foreach (T item in PreOrder(Root.Right))
+                if (root.Right != null)
                 {
-                    yield return item;
+                    foreach (T item in PreOrder(root.Right))
+                    {
+                        yield return item;
+                    }
+
                 }
-            }
             
         }
 
