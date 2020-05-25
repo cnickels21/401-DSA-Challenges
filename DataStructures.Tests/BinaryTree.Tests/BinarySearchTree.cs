@@ -1,8 +1,5 @@
 ﻿using DataStructures.BinaryTree;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Text;
-using System.Collections.Generic;
 
 namespace DataStructures.Tests.BinaryTree.Tests
 {
@@ -14,6 +11,8 @@ namespace DataStructures.Tests.BinaryTree.Tests
         {
 
             Node newNode = new Node(value);
+            Node current = Root;
+            Node parent = null;
 
             if (Root == null)
             {
@@ -21,32 +20,26 @@ namespace DataStructures.Tests.BinaryTree.Tests
             }
             else
             {
-                Node current = Root;
-                Node parent = current;
-
-                while (true)
+                while (current != null)
                 {
-
+                    parent = current;
                     if (value.CompareTo(current.Value) < 0)
                     {
                         current = current.Left;
-
-                        if (current == null)
-                        {
-                            parent.Left = newNode;
-                            break;
-                        }
                     }
                     else
                     {
                         current = current.Right;
-
-                        if (current == null)
-                        {
-                            parent.Right = newNode;
-                            break;
-                        }
                     }
+                }
+
+                if (value.CompareTo(parent.Value) < 0)
+                {
+                    parent.Left = newNode;
+                }
+                else
+                {
+                    parent.Right = newNode;
                 }
             }
         }

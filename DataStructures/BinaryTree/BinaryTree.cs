@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DataStructures.BinaryTree
 {
@@ -15,13 +12,10 @@ namespace DataStructures.BinaryTree
             if (root == null)
                 yield break;
 
-
+            yield return root.Value;
 
             if (root != null)
             {
-                yield return root.Value;
-            }
-
                 if (root.Left != null)
                 {
                     foreach (T item in PreOrder(root.Left))
@@ -36,9 +30,8 @@ namespace DataStructures.BinaryTree
                     {
                         yield return item;
                     }
-
                 }
-            
+            }
         }
 
         public IEnumerable<T> InOrder(Node Root)
@@ -78,6 +71,8 @@ namespace DataStructures.BinaryTree
 
         }
 
+
+
         // Tree nested Node class
         public class Node
         {
@@ -88,6 +83,27 @@ namespace DataStructures.BinaryTree
             public Node(T value)
             {
                 Value = value;
+            }
+
+            public IEnumerator<T> GetEnumerator()
+            {
+                if (Left != null)
+                {
+                    foreach (T node in Left)
+                    {
+                        yield return node;
+                    }
+                }
+
+                yield return Value;
+
+                if (Right != null)
+                {
+                    foreach (T node in Right)
+                    {
+                        yield return node;
+                    }
+                }
             }
         }
     }

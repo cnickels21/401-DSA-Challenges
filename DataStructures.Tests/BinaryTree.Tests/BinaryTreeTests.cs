@@ -2,8 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace DataStructures.Tests.BinaryTree.Tests
@@ -18,7 +16,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         /// 5. Can successfully return a collection from an inorder traversal
         /// 6. Can successfully return a collection from a postorder traversal
         /// </summary>
-        
+
         [Fact]
         public void Can_create_empty_tree()
         {
@@ -42,7 +40,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
             // Assert
             Assert.Equal(1, testTree.Root.Value);
-            
+
         }
 
         [Fact]
@@ -149,6 +147,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             IEnumerable result = testTree.PreOrder(testTree.Root);
 
             // Assert
+            Assert.True(testTree.Contains(testTree.Root, 7));
             Assert.Equal(expected, result);
         }
 
