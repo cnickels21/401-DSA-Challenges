@@ -18,6 +18,7 @@ namespace DataStructures.BinaryTree
             {
                 yield return item;
             }
+
             foreach (T item in PreOrder(root.Right))
             {
                 yield return item;
@@ -33,6 +34,7 @@ namespace DataStructures.BinaryTree
             {
                 yield return item;
             }
+
             yield return current.Value;
 
             foreach (T item in InOrder(current.Right))
@@ -60,8 +62,6 @@ namespace DataStructures.BinaryTree
 
         }
 
-
-
         // Tree nested Node class
         public class Node
         {
@@ -73,27 +73,7 @@ namespace DataStructures.BinaryTree
             {
                 Value = value;
             }
-
-            public IEnumerator<T> GetEnumerator()
-            {
-                if (Left != null)
-                {
-                    foreach (T node in Left)
-                    {
-                        yield return node;
-                    }
-                }
-
-                yield return Value;
-
-                if (Right != null)
-                {
-                    foreach (T node in Right)
-                    {
-                        yield return node;
-                    }
-                }
-            }
         }
+
     }
 }

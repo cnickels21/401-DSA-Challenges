@@ -217,5 +217,20 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void Contains_null_value()
+        {
+            BinarySearchTree<string> testTree = new BinarySearchTree<string>();
+
+            testTree.Add(null);
+            testTree.Add("false");
+            testTree.Add("true");
+            testTree.Add("true");
+
+            Assert.True(testTree.Contains(testTree.Root, null));
+            Assert.True(testTree.Contains(testTree.Root, "true"));
+            Assert.True(testTree.Contains(testTree.Root, "false"));
+        }
+
     }
 }
