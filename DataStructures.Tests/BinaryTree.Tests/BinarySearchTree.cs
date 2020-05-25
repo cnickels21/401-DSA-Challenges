@@ -47,11 +47,6 @@ namespace DataStructures.Tests.BinaryTree.Tests
         // Contains boolean method
         public bool Contains(Node root, T value)
         {
-            if (value == null)
-            {
-                return true;
-            }
-
             while (root != null)
             {
                 if (root.Value.Equals(value))
