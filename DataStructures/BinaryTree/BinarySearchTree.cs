@@ -1,7 +1,6 @@
-﻿using DataStructures.BinaryTree;
-using System;
+﻿using System;
 
-namespace DataStructures.Tests.BinaryTree.Tests
+namespace DataStructures.BinaryTree
 {
     public class BinarySearchTree<T> : BinaryTree<T>
         where T : IComparable<T>
@@ -9,7 +8,6 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
         public void Add(T value)
         {
-
             Node newNode = new Node(value);
             Node current = Root;
             Node parent = null;
