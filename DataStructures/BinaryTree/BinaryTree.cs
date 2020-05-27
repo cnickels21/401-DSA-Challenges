@@ -1,7 +1,8 @@
-﻿
+﻿// using DataStructures.Queue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Transactions;
 
 namespace DataStructures.BinaryTree
@@ -15,7 +16,7 @@ namespace DataStructures.BinaryTree
             if (Root == null)
                 yield break;
 
-            Queue<Node> queue = new Queue<Node>();
+            System.Collections.Generic.Queue<Node> queue = new System.Collections.Generic.Queue<Node>();
             queue.Enqueue(this.Root);
 
             while (queue.Count > 0)
@@ -90,10 +91,22 @@ namespace DataStructures.BinaryTree
             yield return current.Value;
         }
 
-        public T MaxValue()
+        public static T MaxValue<T>(this BinaryTree<T> binaryTree)
+            where T : IComparable<T>
         {
-            if (Root == null)
+            if (binaryTree.Root == null)
                 return default;
+
+            Queue<Node> filterQueue = new Queue<Node>();
+            Node seedNode = new Node(binaryTree.Root.Value);
+            filterQueue.Enqueue(binaryTree.Root);
+
+            while (filterQueue.Count > 1)
+            {
+                Node front = filterQueue.Dequeue();
+
+                // if (front.Value > front.Left.Value || )
+            }
 
             return default;
         }

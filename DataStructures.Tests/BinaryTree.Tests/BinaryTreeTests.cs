@@ -286,6 +286,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         /// 3. Find largest value in more nodes
         /// 4. Values are equal
         /// </summary>
+        /// 
         [Fact]
         public void Can_return_empty_if_empty()
         {
@@ -293,6 +294,21 @@ namespace DataStructures.Tests.BinaryTree.Tests
             BinaryTree<int> testTree = new BinaryTree<int>();
 
             int expected = 0;
+
+            // Act & Assert
+            Assert.Equal(expected, testTree.MaxValue());
+        }
+
+        [Fact]
+        public void Can_return_largest_value_of_three()
+        {
+            // Arrange
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            testTree.Root = new BinaryTree<int>.Node(2);
+            testTree.Root.Left = new BinaryTree<int>.Node(1);
+            testTree.Root.Right = new BinaryTree<int>.Node(3);
+
+            int expected = 3;
 
             // Act & Assert
             Assert.Equal(expected, testTree.MaxValue());
