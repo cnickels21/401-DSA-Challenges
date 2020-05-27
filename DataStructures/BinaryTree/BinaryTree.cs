@@ -11,6 +11,9 @@ namespace DataStructures.BinaryTree
 
         public IEnumerable<T> BreadthFirst()
         {
+            if (Root == null)
+                yield break;
+
             Queue<Node> queue = new Queue<Node>();
             queue.Enqueue(this.Root);
 

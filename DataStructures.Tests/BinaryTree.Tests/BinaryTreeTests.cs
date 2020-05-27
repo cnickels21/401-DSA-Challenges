@@ -233,6 +233,17 @@ namespace DataStructures.Tests.BinaryTree.Tests
         }
 
         [Fact]
+        public void Can_return_empty_from_empty_tree()
+        {
+            // Arrange
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            int[] expected = new int[0];
+
+            // Assert
+            Assert.Equal(expected, testTree.BreadthFirst());
+        }
+
+        [Fact]
         public void Can_instantiate_queue_with_tree_root()
         {
             // Arrange
