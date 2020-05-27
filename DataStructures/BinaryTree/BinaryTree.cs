@@ -11,23 +11,23 @@ namespace DataStructures.BinaryTree
 
         public IEnumerable<T> BreadthFirst()
         {
-            Queue<T> queue = new Queue<T>();
-            queue.Enqueue(this.Root.Value);
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(this.Root);
 
             while (queue.Count > 0)
             {
-                Node front = new Node(queue.Dequeue());
+                Node front = queue.Dequeue();
 
                 yield return front.Value;
 
                 if (front.Left != null)
                 {
-                    queue.Enqueue(front.Left.Value);
+                    queue.Enqueue(front.Left);
                 }
 
                 if (front.Right != null)
                 {
-                    queue.Enqueue(front.Right.Value);
+                    queue.Enqueue(front.Right);
                 }
             }
         }

@@ -248,7 +248,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.Equal(expected, testTree.BreadthFirst());
         }
 
-        [Fact(Skip = "Breadth first not functional as of yet")]
+        [Fact]
         public void Can_perform_breadth_first_on_three_values()
         {
             // Arrange
