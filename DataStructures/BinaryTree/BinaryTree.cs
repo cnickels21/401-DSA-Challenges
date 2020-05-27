@@ -91,26 +91,6 @@ namespace DataStructures.BinaryTree
             yield return current.Value;
         }
 
-        public static T MaxValue<T>(this BinaryTree<T> binaryTree)
-            where T : IComparable<T>
-        {
-            if (binaryTree.Root == null)
-                return default;
-
-            Queue<Node> filterQueue = new Queue<Node>();
-            Node seedNode = new Node(binaryTree.Root.Value);
-            filterQueue.Enqueue(binaryTree.Root);
-
-            while (filterQueue.Count > 1)
-            {
-                Node front = filterQueue.Dequeue();
-
-                // if (front.Value > front.Left.Value || )
-            }
-
-            return default;
-        }
-
         // Tree nested Node class
         public class Node
         {
