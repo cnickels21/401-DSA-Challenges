@@ -279,5 +279,24 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.Equal(expected, testTree.BreadthFirst());
         }
 
+        /// <summary>
+        /// Unit Tests for Max Value:
+        /// 1. Empty tree returns empty
+        /// 2. Find largest value in 3 nodes
+        /// 3. Find largest value in more nodes
+        /// 4. Values are equal
+        /// </summary>
+        [Fact]
+        public void Can_return_empty_if_empty()
+        {
+            // Arrange
+            BinaryTree<int> testTree = new BinaryTree<int>();
+
+            int expected = 0;
+
+            // Act & Assert
+            Assert.Equal(expected, testTree.MaxValue());
+        }
+
     }
 }

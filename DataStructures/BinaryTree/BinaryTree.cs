@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
@@ -89,7 +90,13 @@ namespace DataStructures.BinaryTree
             yield return current.Value;
         }
 
-        
+        public T MaxValue()
+        {
+            if (Root == null)
+                return default;
+
+            return default;
+        }
 
         // Tree nested Node class
         public class Node
@@ -103,6 +110,6 @@ namespace DataStructures.BinaryTree
                 Value = value;
             }
         }
-
+        
     }
 }
