@@ -104,7 +104,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Add(3);
             testTree.Add(1);
 
-            List<int> expected = new List<int>
+            int[] expected = new int[]
             {
                 2,
                 1,
@@ -132,7 +132,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Add(11);
 
 
-            List<int> expected = new List<int>
+            int[] expected = new int[]
             {
                 5,
                 3,
@@ -165,7 +165,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Add(11);
 
 
-            List<int> expected = new List<int>
+            int[] expected = new int[]
             {
                 1,
                 3,
@@ -198,7 +198,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Add(11);
 
 
-            List<int> expected = new List<int>
+            int[] expected = new int[]
             {
                 1,
                 4,
@@ -230,6 +230,24 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.True(testTree.Contains(testTree.Root, null));
             Assert.True(testTree.Contains(testTree.Root, "true"));
             Assert.True(testTree.Contains(testTree.Root, "false"));
+        }
+
+        [Fact]
+        public void Can_instantiate_queue_with_tree_root()
+        {
+            // Arrange
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            testTree.Root = new BinaryTree<int>.Node(1);
+
+            int[] expected = new int[]
+            {
+                1,
+            };
+
+            // Assert
+            Assert.Equal(expected, testTree.BreadthFirst());
+
+            
         }
 
     }

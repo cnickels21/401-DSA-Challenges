@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures.BinaryTree
 {
@@ -6,6 +7,14 @@ namespace DataStructures.BinaryTree
     {
         public Node Root { get; set; }
 
+        public IEnumerable<T> BreadthFirst()
+        {
+            Queue<T> queue = new Queue<T>();
+            Node front = this.Root;
+            queue.Enqueue(front.Value);
+
+            return queue.ToList();
+        }
 
         public IEnumerable<T> PreOrder(Node root)
         {
@@ -59,8 +68,9 @@ namespace DataStructures.BinaryTree
             }
 
             yield return current.Value;
-
         }
+
+        
 
         // Tree nested Node class
         public class Node
