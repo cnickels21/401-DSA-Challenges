@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace DataStructures.BinaryTree
 {
@@ -10,10 +12,24 @@ namespace DataStructures.BinaryTree
         public IEnumerable<T> BreadthFirst()
         {
             Queue<T> queue = new Queue<T>();
-            Node front = this.Root;
-            queue.Enqueue(front.Value);
+            queue.Enqueue(this.Root.Value);
 
-            return queue.ToList();
+            while (queue.Count > 0)
+            {
+                Node front = new Node(queue.Dequeue());
+
+                yield return front.Value;
+
+                if (front.Left != null)
+                {
+                    queue.Enqueue(front.Left.Value);
+                }
+
+                if (front.Right != null)
+                {
+                    queue.Enqueue(front.Right.Value);
+                }
+            }
         }
 
         public IEnumerable<T> PreOrder(Node root)

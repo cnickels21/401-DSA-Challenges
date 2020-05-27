@@ -246,8 +246,26 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
             // Assert
             Assert.Equal(expected, testTree.BreadthFirst());
+        }
 
-            
+        [Fact(Skip = "Breadth first not functional as of yet")]
+        public void Can_perform_breadth_first_on_three_values()
+        {
+            // Arrange
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            testTree.Root = new BinaryTree<int>.Node(2);
+            testTree.Root.Left = new BinaryTree<int>.Node(1);
+            testTree.Root.Right = new BinaryTree<int>.Node(3);
+
+            int[] expected = new int[]
+            {
+                2,
+                1,
+                3,
+            };
+
+            // Assert
+            Assert.Equal(expected, testTree.BreadthFirst());
         }
 
     }
