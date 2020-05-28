@@ -283,7 +283,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         /// 1. Empty tree returns empty -- DONE
         /// 2. Find largest value in 3 nodes -- DONE
         /// 3. Find largest value in more nodes -- DONE
-        /// 4. Values are equal
+        /// 4. Values are equal -- DONE
         /// </summary>
         /// 
         [Fact]
