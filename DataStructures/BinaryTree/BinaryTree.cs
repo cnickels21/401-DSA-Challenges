@@ -1,7 +1,5 @@
-﻿
+﻿// using DataStructures.Queue;
 using System.Collections.Generic;
-using System.Linq;
-using System.Transactions;
 
 namespace DataStructures.BinaryTree
 {
@@ -14,7 +12,7 @@ namespace DataStructures.BinaryTree
             if (Root == null)
                 yield break;
 
-            Queue<Node> queue = new Queue<Node>();
+            System.Collections.Generic.Queue<Node> queue = new System.Collections.Generic.Queue<Node>();
             queue.Enqueue(this.Root);
 
             while (queue.Count > 0)
@@ -88,8 +86,6 @@ namespace DataStructures.BinaryTree
 
             yield return current.Value;
         }
-
-        
 
         // Tree nested Node class
         public class Node
