@@ -1,10 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataStructures.BinaryTree
 {
-    public class BinarySearchTree<T> : BinaryTree<T>
+    public class BinarySearchTree<T> : ComparableBinaryTree<T>
         where T : IComparable<T>
     {
+
+        public override T MaxValue()
+        {
+            if (this.Root == null)
+                return default;
+
+            Queue<Node> filterQueue = new Queue<Node>();
+            filterQueue.Enqueue(this.Root);
+            filterQueue.Enqueue(this.Root.Left);
+
+            T ultimateReturn = default;
+
+            while (filterQueue.Count > 1)
+            {
+                Node front = filterQueue.Dequeue();
+                Node valueToCompare = filterQueue.Peek();
+
+                if (front.Left != null)
+                {
+                    filterQueue.Enqueue(front.Left);
+                }
+                if (front.Right != null)
+                {
+                    filterQueue.Enqueue(front.Right);
+                }
+
+                if (front.Value.CompareTo(valueToCompare.Value) == 1)
+                {
+                    filterQueue.Enqueue(front);
+                    filterQueue.Dequeue();
+                }
+                else if (front.Value.CompareTo(valueToCompare.Value) == 1)
+                {
+                    continue;
+                }
+                else if (front.Value.CompareTo(valueToCompare.Value) == 0)
+                {
+                    continue;
+                }
+
+                ultimateReturn = front.Value;
+            }
+
+            return ultimateReturn;
+        }
 
         public void Add(T value)
         {

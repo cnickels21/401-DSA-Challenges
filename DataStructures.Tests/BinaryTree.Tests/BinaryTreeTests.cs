@@ -1,7 +1,6 @@
 ﻿using DataStructures.BinaryTree;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructures.Tests.BinaryTree.Tests
@@ -291,7 +290,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         public void Can_return_empty_if_empty()
         {
             // Arrange
-            ComparableBinaryTree<int> testTree = new ComparableBinaryTree<int>();
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
 
             int expected = 0;
 
@@ -303,7 +302,7 @@ namespace DataStructures.Tests.BinaryTree.Tests
         public void Can_return_largest_value_of_three()
         {
             // Arrange
-            ComparableBinaryTree<int> testTree = new ComparableBinaryTree<int>();
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
             testTree.Root = new BinaryTree<int>.Node(2);
             testTree.Root.Left = new BinaryTree<int>.Node(1);
             testTree.Root.Right = new BinaryTree<int>.Node(3);
