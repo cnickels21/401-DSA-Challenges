@@ -313,5 +313,22 @@ namespace DataStructures.Tests.BinaryTree.Tests
             Assert.Equal(expected, testTree.MaxValue());
         }
 
+        [Fact]
+        public void Can_return_largest_value_of_five_values()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Root = new BinaryTree<int>.Node(2);
+            testTree.Root.Left = new BinaryTree<int>.Node(1);
+            testTree.Root.Right = new BinaryTree<int>.Node(3);
+            testTree.Root.Left.Right = new BinaryTree<int>.Node(2);
+            testTree.Root.Right.Left = new BinaryTree<int>.Node(7);
+
+            int expected = 7;
+
+            // Act & Assert
+            Assert.Equal(expected, testTree.MaxValue());
+        }
+
     }
 }
