@@ -43,6 +43,7 @@ namespace DataStructures.BinaryTree
                 }
                 else if (front.Value.CompareTo(valueToCompare.Value) == 0)
                 {
+                    ultimateReturn = front.Value;
                     continue;
                 }
 

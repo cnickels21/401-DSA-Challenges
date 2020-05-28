@@ -280,9 +280,9 @@ namespace DataStructures.Tests.BinaryTree.Tests
 
         /// <summary>
         /// Unit Tests for Max Value:
-        /// 1. Empty tree returns empty
-        /// 2. Find largest value in 3 nodes
-        /// 3. Find largest value in more nodes
+        /// 1. Empty tree returns empty -- DONE
+        /// 2. Find largest value in 3 nodes -- DONE
+        /// 3. Find largest value in more nodes -- DONE
         /// 4. Values are equal
         /// </summary>
         /// 
@@ -325,6 +325,21 @@ namespace DataStructures.Tests.BinaryTree.Tests
             testTree.Root.Right.Left = new BinaryTree<int>.Node(7);
 
             int expected = 7;
+
+            // Act & Assert
+            Assert.Equal(expected, testTree.MaxValue());
+        }
+
+        [Fact]
+        public void Can_return_value_if_all_nodes_are_equal()
+        {
+            // Arrange
+            BinarySearchTree<int> testTree = new BinarySearchTree<int>();
+            testTree.Root = new BinaryTree<int>.Node(2);
+            testTree.Root.Left = new BinaryTree<int>.Node(2);
+            testTree.Root.Right = new BinaryTree<int>.Node(2);
+
+            int expected = 2;
 
             // Act & Assert
             Assert.Equal(expected, testTree.MaxValue());
