@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
+
 # 401-DSA-Challenges
 
 ## Landing pad for all DeltaV 401 code challenges.
@@ -22,5 +24,3 @@
 #### Sorts
 
 1. [Insertion Sort](readme/sorts/insertionSort.md)
-
-![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
