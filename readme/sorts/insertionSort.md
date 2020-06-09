@@ -10,3 +10,5 @@ How it works is, it sets the first value as "sorted".  Then, for each subsequent
 - \[1, 2, 3, 4, 6\]
 
 The algorithm sets the first value as sorted to start, and then steps through each value after that one at a time; performing a while loop until that value is finally larger than the value that precedes it within the array.  It is a relatively drawn out process as it needs to iterate through the array as a whole, and, worst case, needs to iterate for the length of the array for each item in the array; making this sort method a less than ideal situation for sorting data accordingly.
+
+[Check the Code!](../../Challenges/Sorts/InsertionSort.cs)
