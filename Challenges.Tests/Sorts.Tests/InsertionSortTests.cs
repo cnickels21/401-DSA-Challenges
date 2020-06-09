@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Challenges.Sorts
+namespace Challenges.Tests.Sorts.Tests
 {
-    public class InsertionSort
+    public class InsertionSortTests
     {
     }
 }
