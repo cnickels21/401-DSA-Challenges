@@ -19,4 +19,8 @@
 13. [Breadth First Traversal](readme/breadthFirst.md)
 14. [Max Value Search](readme/maxValue.md)
 
+#### Sorts
+
+1. [Insertion Sort](readme/sorts/insertionSort.md)
+
 ![.NET Core](https://github.com/cnickels21/401-DSA-Challenges/workflows/.NET%20Core/badge.svg?branch=master)
