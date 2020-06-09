@@ -21,5 +21,18 @@ namespace Challenges.Tests.Sorts
             Assert.Equal(expected, result);
         }
 
+        [Theory]
+        [InlineData(new[] { 3, 1, 2 }, new[] { 1, 2, 3 })]
+        public void Multiple_test_data_passed_through_sort(int[] testArray, int[] expected)
+        {
+            // Arrange in parameters
+
+            // Act
+            int[] result = InsertionSort.InsertionSorting(testArray);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
     }
 }
