@@ -12,9 +12,13 @@ namespace Challenges.Tests.Sorts
         {
             // Arrange
             int[] testArray = new int[0];
+            int[] expected = new int[0];
 
             // Act
             int[] result = InsertionSort.InsertionSorting(testArray);
+
+            // Assert
+            Assert.Equal(expected, result);
         }
 
     }

@@ -7,7 +7,7 @@ namespace Challenges.Sorts
     {
         public static int[] InsertionSorting(int[] array)
         {
-            return default;
+            return array;
         }
     }
 }
