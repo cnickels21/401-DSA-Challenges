@@ -24,3 +24,4 @@
 #### Sorts
 
 1. [Insertion Sort](readme/sorts/insertionSort.md)
+2. [Merge Sort](readme/sorts/mergeSort.md)
