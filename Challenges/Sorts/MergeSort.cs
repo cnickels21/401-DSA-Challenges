@@ -5,12 +5,22 @@ namespace Challenges.Sorts
 {
     public class MergeSort
     {
+        /// <summary>
+        /// This is the middle man between the test and the actual sorting algorithm
+        /// Calls itself recursively to create a call stack
+        /// The given array is split up into halves
+        /// This happens recursively until there are only two values left to compare and merge
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
         public static int[] MergeSorter(int[] array)
         {
             int arrayLength = array.Length;
 
             if (arrayLength > 1)
             {
+                // ToDo: Account for odd length array
+                //       Conditional to handle both situations
                 int mid = arrayLength / 2;
                 int[] leftSide = new int[mid];
                 int[] rightSide = new int[mid];
@@ -33,6 +43,14 @@ namespace Challenges.Sorts
             return array;
         }
 
+        /// <summary>
+        /// This is where the split up arrays are merged back together,
+        /// And is where the magic happens.
+        /// Places the proper values in their proper place within the full array that gets returned
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <param name="array"></param>
         public static void Merge(int[] leftSide, int[] rightSide, int[] array)
         {
             int i = 0;
