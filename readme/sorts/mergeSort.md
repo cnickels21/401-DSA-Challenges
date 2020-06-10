@@ -10,6 +10,7 @@ The first merge sort method recursively breaks the values out into sub arrays un
 
 I was given pseudocode that acts as a general depiction of what the algorithm will look like in the code.  After reading through and breaking down what the algorithm looks like I created a white board diagram to visualize what is happening behind the scenes, as shown below.  The efficiency of this sort method is linearithmic, or O\(n log n\), because it is recursive.  It divides the array and conquers the sort by bringing it all back together much more efficiently than having to iterate through the entire array, potentially O\(n^2\).
 
-[Check the Code!]()  
+[Check the Code!](../../Challenges/Sorts/MergeSort.cs)  
+[Check the Tests!](../../Challenges.Tests/Sorts/MergeSortTests.cs)
 
 ![White Board Diagram](../assets/MergeSort.png)
