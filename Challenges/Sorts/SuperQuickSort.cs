@@ -18,7 +18,7 @@ namespace Challenges.Sorts
 
         public static int[] QuickSort(int[] array, int left, int right)
         {
-            if (array[left] < array[right])
+            if (left < right)
             {
                 int position = Partition(array, left, right);
 
@@ -34,16 +34,16 @@ namespace Challenges.Sorts
             int pivot = array[right];
             int lowerThanPivot = left - 1;
 
-            for (int i = 0; i < right; i++)
+            for (int i = left; i < right; i++)
             {
-                if (array[i] <= pivot)
+                if (array[i] < pivot)
                 {
                     lowerThanPivot++;
-                    Swap(array, i, lowerThanPivot);
+                    Swap(array, lowerThanPivot, i);
                 }
             }
 
-            Swap(array, right, lowerThanPivot + 1);
+            Swap(array, lowerThanPivot + 1, right);
             return lowerThanPivot + 1;
         }
 
