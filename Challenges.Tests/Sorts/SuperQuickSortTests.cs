@@ -23,6 +23,9 @@ namespace Challenges.Tests.Sorts
 
         [Theory]
         [InlineData(new int[] { 8, 4, 23, 42, 16, 15 }, new int[] { 4, 8, 15, 16, 23, 42 })]
+        [InlineData(new int[] { 3, 2 }, new int[] { 2, 3 })]
+        [InlineData(new int[] { 3, 2, 1}, new int[] { 1, 2, 3 })]
+        [InlineData(new int[] { 3, 2, 4, 1 }, new int[] { 1, 2, 3, 4 })]
         public void Theory_for_multiple_edge_cases(int[] actual, int[] expected)
         {
             // Arrange in parameters
