@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,20 +15,41 @@ namespace Challenges.Sorts
 
         private int[] QuickSort(int[] array, int left, int right)
         {
-            throw new NotImplementedException();
+            if (left < right)
+            {
+                int position = Partition(array, left, right);
+
+                QuickSort(array, left, position - 1);
+                QuickSort(array, position + 1, right);
+            }
+
+            return array;
         }
 
+        private int Partition(int[] array, int left, int right)
+        {
+            int pivot = array[right];
+            int lowerThanPivot = left - 1;
 
+            for (int i = 0; i <= right; i++)
+            {
+                if (array[i] <= pivot)
+                {
+                    lowerThanPivot++;
+                    Swap(array, i, lowerThanPivot);
+                }
+            }
 
-        //        ALGORITHM 
-        //        QuickSort(arr, left, right)
-        //        if left<right
-        //        // Partition the array by setting the position of the pivot value 
-        //        DEFINE position<-- Partition(arr, left, right)
-        //        // Sort the left
-        //        QuickSort(arr, left, position - 1)
-        //        // Sort the right
-        //        QuickSort(arr, position + 1, right)
+            Swap(array, right, lowerThanPivot + 1);
+            return lowerThanPivot + 1;
+        }
+
+        private void Swap(int[] array, int i, int lowerThanPivot)
+        {
+            int temp = array[i];
+            array[i] = array[lowerThanPivot];
+            array[lowerThanPivot] = temp;
+        }
 
         //        ALGORITHM Partition(arr, left, right)
         //        // set a pivot value as a point of reference
