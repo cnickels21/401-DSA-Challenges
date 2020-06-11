@@ -10,12 +10,15 @@ namespace Challenges.Sorts
 
         public static int[] QuickSort(int[] array)
         {
+            if (array.Length == 0)
+                return array;
+
             return QuickSort(array, 0, array.Length - 1);
         }
 
         public static int[] QuickSort(int[] array, int left, int right)
         {
-            if (left < right)
+            if (array[left] < array[right])
             {
                 int position = Partition(array, left, right);
 
@@ -31,7 +34,7 @@ namespace Challenges.Sorts
             int pivot = array[right];
             int lowerThanPivot = left - 1;
 
-            for (int i = 0; i <= right; i++)
+            for (int i = 0; i < right; i++)
             {
                 if (array[i] <= pivot)
                 {

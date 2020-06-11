@@ -20,5 +20,18 @@ namespace Challenges.Tests.Sorts
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData(new int[] { 8, 4, 23, 42, 16, 15 }, new int[] { 4, 8, 15, 16, 23, 42 })]
+        public void Theory_for_multiple_edge_cases(int[] actual, int[] expected)
+        {
+            // Arrange in parameters
+
+            // Act
+            int[] result = SuperQuickSort.QuickSort(actual);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
