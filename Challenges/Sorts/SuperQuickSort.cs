@@ -54,30 +54,6 @@ namespace Challenges.Sorts
             array[lowerThanPivot] = temp;
         }
 
-        //        ALGORITHM Partition(arr, left, right)
-        //        // set a pivot value as a point of reference
-        //        DEFINE pivot<-- arr[right]
-        //        // create a variable to track the largest index of numbers lower than the defined pivot
-        //        DEFINE low<-- left - 1
-        //        for i<- left to right do
-        //            if arr[i] <= pivot
-        //                low++
-        //              Swap(arr, i, low)
-
-        //        // place the value of the pivot location in the middle.
-        //        // all numbers smaller than the pivot are on the left, larger on the right. 
-        //        Swap(arr, right, low + 1)
-        //        return the pivot index point
-        //        return low + 1
-
-        //         ALGORITHM
-        //         Swap(arr, i, low)
-        //         DEFINE temp;
-        //         temp<-- arr[i]
-
-        //         arr[i] <-- arr[low]
-
-        //         arr[low] <-- temp
 
 
     }
