@@ -40,7 +40,7 @@ namespace Challenges.Sorts
             {
                 // Matt's code has <= here, I assume to compensate for the -1 in the comment above
                 // Between these two minor differences, what is being accomplished?
-                if (array[i] < pivot)
+                if (array[i] <= pivot)
                 {
                     lowerThanPivot++;
                     Swap(array, lowerThanPivot, i);
