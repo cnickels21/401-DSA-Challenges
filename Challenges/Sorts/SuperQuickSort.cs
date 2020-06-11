@@ -34,8 +34,12 @@ namespace Challenges.Sorts
             int pivot = array[right];
             int lowerThanPivot = left - 1;
 
+            // Why does Matt have i < right - 1; but it still works for him
+            // What edge case is being covered by this slight difference?
             for (int i = left; i < right; i++)
             {
+                // Matt's code has <= here, I assume to compensate for the -1 in the comment above
+                // Between these two minor differences, what is being accomplished?
                 if (array[i] < pivot)
                 {
                     lowerThanPivot++;
