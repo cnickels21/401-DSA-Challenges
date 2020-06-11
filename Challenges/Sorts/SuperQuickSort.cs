@@ -8,12 +8,12 @@ namespace Challenges.Sorts
     public class SuperQuickSort
     {
 
-        public int[] QuickSort(int[] array)
+        public static int[] QuickSort(int[] array)
         {
             return QuickSort(array, 0, array.Length - 1);
         }
 
-        private int[] QuickSort(int[] array, int left, int right)
+        public static int[] QuickSort(int[] array, int left, int right)
         {
             if (left < right)
             {
@@ -26,7 +26,7 @@ namespace Challenges.Sorts
             return array;
         }
 
-        private int Partition(int[] array, int left, int right)
+        private static int Partition(int[] array, int left, int right)
         {
             int pivot = array[right];
             int lowerThanPivot = left - 1;
@@ -44,7 +44,7 @@ namespace Challenges.Sorts
             return lowerThanPivot + 1;
         }
 
-        private void Swap(int[] array, int i, int lowerThanPivot)
+        private static void Swap(int[] array, int i, int lowerThanPivot)
         {
             int temp = array[i];
             array[i] = array[lowerThanPivot];
