@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace DataStructures.HashTable
 {
     public class HashTable
     {
+        private List<LinkedListNode>[] hashTableArray = new List<LinkedListNode>[99];
+
+
+
         public static int GenerateHashCode(string key)
         {
             if (key is null || key == "")
@@ -24,5 +29,8 @@ namespace DataStructures.HashTable
 
             return hashIndex;
         }
+
+
+
     }
 }
