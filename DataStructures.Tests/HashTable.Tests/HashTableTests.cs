@@ -20,5 +20,20 @@ namespace DataStructures.Tests.HashTable.Tests
             // Assert
             Assert.Equal(14, result);
         }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void Arguement_exception_for_invalid_keys(string key)
+        {
+            // Arrange in parameters
+
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                var result = DataStructures.HashTable.HashTable.GenerateHashCode(key);
+            });
+        }
     }
 }
