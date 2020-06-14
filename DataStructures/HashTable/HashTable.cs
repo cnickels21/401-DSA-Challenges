@@ -6,9 +6,17 @@ namespace DataStructures.HashTable
 {
     public class HashTable
     {
-        private List<LinkedListNode>[] hashTableArray = new List<LinkedListNode>[99];
-
-
+        public int Buckets { get; set; }
+        public List<Node> HashTableNode { get; set; }
+        public HashTable(int buckets)
+        {
+            Buckets = buckets;
+            HashTableNode = new List<Node>();
+        }
+        //public static void AddToHashTable(string key, string value)
+        //{
+        //    int hashTableLocation = GenerateHashCode(key);
+        //}
 
         public static int GenerateHashCode(string key)
         {
@@ -30,7 +38,18 @@ namespace DataStructures.HashTable
             return hashIndex;
         }
 
-
+        public class Node
+        {
+            public string Key { get; set; }
+            public string Value { get; set; }
+            public Node Next { get; set; }
+            public Node(string key, string value)
+            {
+                Key = key;
+                Value = value;
+                Next = null;
+            }
+        }
 
     }
 }

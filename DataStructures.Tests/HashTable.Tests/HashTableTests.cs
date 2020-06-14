@@ -36,12 +36,17 @@ namespace DataStructures.Tests.HashTable.Tests
             });
         }
 
-        //[Fact]
-        //public void Can_add_a_key_value_pair_to_table()
-        //{
-        //    // Arrange
+        [Fact]
+        public void Can_add_a_key_value_pair_to_table()
+        {
+            // Arrange
+            string testKey = "Cat";
+            string testValue = "Milo";
 
-        //}
+            // Act
+            DataStructures.HashTable.HashTable.AddToHashTable(testKey, testValue);
+
+        }
 
 
 
