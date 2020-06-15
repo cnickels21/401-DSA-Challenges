@@ -18,7 +18,7 @@ namespace DataStructures.HashTable
         {
             int hashTableLocation = GenerateHashCode(key);
 
-            if (Buckets[hashTableLocation].Value == null)
+            if (Buckets[hashTableLocation] == null)
             {
                 Node newNode = new Node(key, value);
                 Buckets[hashTableLocation] = newNode; 
@@ -34,6 +34,33 @@ namespace DataStructures.HashTable
                 }
 
                 current.Next = newNode;
+            }
+        }
+
+        public bool TableContains(string key)
+        {
+            int index = GenerateHashCode(key);
+
+            if (Buckets[index] == null)
+            {
+                return false;
+            }
+            else
+            {
+                Node current = Buckets[index];
+                while (current != null)
+                {
+                    if (current.Key == key)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
+                }
+
+                return false;
             }
         }
 

@@ -36,7 +36,10 @@ namespace DataStructures.Tests.HashTable.Tests
             });
         }
 
-        [Fact(Skip = "Need contains to test this")]
+        /// <summary>
+        /// This test actually proves that my add and contains are working correctly
+        /// </summary>
+        [Fact]
         public void Can_add_a_key_value_pair_to_table()
         {
             // Arrange
@@ -48,7 +51,8 @@ namespace DataStructures.Tests.HashTable.Tests
             testTable.AddToHashTable(testKey, testValue);
 
             // Assert
-
+            Assert.True(testTable.TableContains("Cat"));
+            Assert.False(testTable.TableContains("Dog"));
         }
 
 
