@@ -15,4 +15,4 @@ I created my hashing method specifically for a hash table that has 99 buckets, s
 A distinct selling point of hash tables is that the time efficiency for accessing and retreiving data is O\(1\) as you are able to directly access a specific index of the table directly instead of having to iterate through the table until the correct value is found.  There are a few ways to optimize the efficiency of a specific table by optimizing how the the GenerateHashCode method works and how it can be idealized for specific lengths and values.  This is a more advanced approach to hash tables, and not implemented here in mine, but they, as a data structure, offer an immense amount of efficiency in the world of data storage and the performance that comes with it.
 
 [Check the Code!](../DataStructures/HashTable/HashTable.cs)  
-[Check the Code!](../DataStructures.Tests/HashTable.Tests/HashTableTests.cs)
+[Check the Tests!](../DataStructures.Tests/HashTable.Tests/HashTableTests.cs)
