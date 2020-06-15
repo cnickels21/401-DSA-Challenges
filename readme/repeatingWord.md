@@ -12,8 +12,8 @@ Utilizing the hash table that I created from scratch, I am going to split the gi
 
 I started by drawing up a white board templated diagram to capture a visual representation of what will be happening in my method and to draw up an algorithm/pseudocode before moving forward with writing the code.  This white board break down of the problem is shown below, as well as links to the code and testing.  That being said, I utilized TDD to prove the functionality of my *repeating word* method following a red/green/refactor cycle.  The time and space efficiency for this particular challenge is O\(n\) because, worst case scenario, I need to create a list that is as long as there are words in the given string, and I will need to potentially iterate through every single word before finding a match, or not finding a match at all!
 
-[Check the Code!]()  
-[Check the Tests!]()
+[Check the Code!](../Challenges/HashTableStuff/DuplicateSearch.cs)  
+[Check the Tests!](../Challenges.Tests/DuplicateSearch.Tests/DuplicateSearchTests.cs)
 
 
 ![White Board Solution](assets/RepeatingWordWhiteboard.png)
