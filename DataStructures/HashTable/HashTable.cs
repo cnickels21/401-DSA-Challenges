@@ -6,17 +6,18 @@ namespace DataStructures.HashTable
 {
     public class HashTable
     {
-        public int Buckets { get; set; }
-        public List<Node> HashTableNode { get; set; }
+        public Node[] Buckets { get; set; }
+        public int BucketCount { get; set; }
         public HashTable(int buckets)
         {
-            Buckets = buckets;
-            HashTableNode = new List<Node>();
+            Buckets = new Node[buckets];
+            BucketCount = buckets;
         }
-        //public static void AddToHashTable(string key, string value)
-        //{
-        //    int hashTableLocation = GenerateHashCode(key);
-        //}
+
+        public static void AddToHashTable(string key, string value)
+        {
+            int hashTableLocation = GenerateHashCode(key);
+        }
 
         public static int GenerateHashCode(string key)
         {
