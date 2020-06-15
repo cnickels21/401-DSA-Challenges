@@ -33,5 +33,18 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Assert
             Assert.Equal("this", result);
         }
+
+        [Fact]
+        public void No_duplicates()
+        {
+            // Arrange
+            string testString = "This has no duplicates";
+
+            // Act
+            var result = HashTableStuff.DuplicateSearch.RepeatingWord(testString);
+
+            // Assert
+            Assert.Null(result);
+        }
     }
 }
