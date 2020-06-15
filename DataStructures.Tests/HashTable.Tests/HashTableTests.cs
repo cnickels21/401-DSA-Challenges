@@ -63,11 +63,13 @@ namespace DataStructures.Tests.HashTable.Tests
             string testKey = "Cat";
             string testValue = "Milo";
 
+            testTable.AddToHashTable(testKey, testValue);
+
             // Act
             string result = testTable.GetFromTable(testKey);
 
             // Assert
-            Assert.Equal(testValue, result);
+            Assert.Equal("Otis", result);
         }
 
 
