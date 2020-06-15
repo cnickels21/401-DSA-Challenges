@@ -14,9 +14,27 @@ namespace DataStructures.HashTable
             BucketCount = buckets;
         }
 
-        public static void AddToHashTable(string key, string value)
+        public void AddToHashTable(string key, string value)
         {
             int hashTableLocation = GenerateHashCode(key);
+
+            if (Buckets[hashTableLocation].Value == null)
+            {
+                Node newNode = new Node(key, value);
+                Buckets[hashTableLocation] = newNode; 
+            }
+            else
+            {
+                Node newNode = new Node(key, value);
+                Node current = Buckets[hashTableLocation];
+                
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                }
+
+                current.Next = newNode;
+            }
         }
 
         public static int GenerateHashCode(string key)
