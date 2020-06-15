@@ -20,10 +20,14 @@
 12. [Binary Tree](readme/binaryTree.md)
 13. [Breadth First Traversal](readme/breadthFirst.md)
 14. [Max Value Search](readme/maxValue.md)
-15. [Hash Table](readme/hashTable.md)
 
 #### Sorts
 
 1. [Insertion Sort](readme/sorts/insertionSort.md)
 2. [Merge Sort](readme/sorts/mergeSort.md)
 3. [Quick Sort](readme/sorts/quickSort.md)
+
+#### Hash Table
+
+1. [Hash Table](readme/hashTable.md)
+2. [Repeating Word](readme/repeatingWord.md)
