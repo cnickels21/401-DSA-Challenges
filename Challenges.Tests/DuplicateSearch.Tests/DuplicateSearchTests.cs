@@ -20,5 +20,18 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Assert
             Assert.Null(result);
         }
+
+        [Fact]
+        public void Can_return_duplicate_word()
+        {
+            // Arrange
+            string testString = "This is the second this";
+
+            // Act
+            var result = HashTableStuff.DuplicateSearch.RepeatingWord(testString);
+
+            // Assert
+            Assert.Equal("this", result);
+        }
     }
 }
