@@ -36,15 +36,18 @@ namespace DataStructures.Tests.HashTable.Tests
             });
         }
 
-        [Fact]
+        [Fact(Skip = "Need contains to test this")]
         public void Can_add_a_key_value_pair_to_table()
         {
             // Arrange
+            DataStructures.HashTable.HashTable testTable = new DataStructures.HashTable.HashTable(99);
             string testKey = "Cat";
             string testValue = "Milo";
 
             // Act
-            DataStructures.HashTable.HashTable.AddToHashTable(testKey, testValue);
+            testTable.AddToHashTable(testKey, testValue);
+
+            // Assert
 
         }
 
