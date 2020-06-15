@@ -21,6 +21,7 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             Assert.Null(result);
         }
 
+        // Also proves case insensitivity
         [Fact]
         public void Can_return_duplicate_word()
         {
