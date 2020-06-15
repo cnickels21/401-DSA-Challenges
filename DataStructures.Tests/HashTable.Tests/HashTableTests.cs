@@ -69,7 +69,7 @@ namespace DataStructures.Tests.HashTable.Tests
             string result = testTable.GetFromTable(testKey);
 
             // Assert
-            Assert.Equal("Otis", result);
+            Assert.Equal("Milo", result);
         }
 
 
