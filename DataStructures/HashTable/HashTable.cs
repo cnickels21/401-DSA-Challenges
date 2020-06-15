@@ -37,9 +37,31 @@ namespace DataStructures.HashTable
             }
         }
 
-        public string GetFromTable(string testKey)
+        public string GetFromTable(string key)
         {
+            int index = GenerateHashCode(key);
 
+            if (Buckets[index] == null)
+            {
+                throw new KeyNotFoundException();
+            }
+            else
+            {
+                Node current = Buckets[index];
+                
+                while (current != null)
+                {
+                    if (current.Key == key)
+                    {
+                        return current.Value;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
+                }
+                throw new KeyNotFoundException();
+            }
         }
 
         public bool TableContains(string key)
