@@ -43,7 +43,7 @@ namespace DataStructures.HashTable
 
             if (Buckets[index] == null)
             {
-                throw new KeyNotFoundException();
+                return null;
             }
             else
             {
@@ -60,7 +60,8 @@ namespace DataStructures.HashTable
                         current = current.Next;
                     }
                 }
-                throw new KeyNotFoundException();
+                
+                return null;
             }
         }
 

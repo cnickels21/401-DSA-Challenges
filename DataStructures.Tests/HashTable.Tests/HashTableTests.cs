@@ -8,6 +8,14 @@ namespace DataStructures.Tests.HashTable.Tests
 {
     public class HashTableTests
     {
+        /// <summary>
+        /// 1. Adding a key/value to your hashtable results in the value being in the data structure -- DONE
+        /// 2. Retrieving based on a key returns the value stored -- DONE
+        /// 3. Successfully returns null for a key that does not exist in the hashtable 
+        /// 4. Successfully handle a collision within the hashtable
+        /// 5. Successfully retrieve a value from a bucket within the hashtable that has a collision
+        /// 6. Successfully hash a key to an in-range value -- DONE
+        /// </summary>
         [Fact]
         public void Can_hash_string_into_key()
         {
@@ -70,6 +78,23 @@ namespace DataStructures.Tests.HashTable.Tests
 
             // Assert
             Assert.Equal("Milo", result);
+        }
+
+        [Fact]
+        public void Can_return_null_if_key_is_invalid()
+        {
+            // Arrange
+            DataStructures.HashTable.HashTable testTable = new DataStructures.HashTable.HashTable(99);
+            string testKey = "Cat";
+            string testValue = "Milo";
+
+            testTable.AddToHashTable(testKey, testValue);
+
+            // Act
+            string result = testTable.GetFromTable("Dog");
+
+            // Assert
+            Assert.Null(result);
         }
 
 
