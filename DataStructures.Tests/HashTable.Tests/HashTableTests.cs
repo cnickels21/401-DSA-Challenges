@@ -55,6 +55,21 @@ namespace DataStructures.Tests.HashTable.Tests
             Assert.False(testTable.TableContains("Dog"));
         }
 
+        [Fact]
+        public void Can_get_value_from_table()
+        {
+            // Arrange
+            DataStructures.HashTable.HashTable testTable = new DataStructures.HashTable.HashTable(99);
+            string testKey = "Cat";
+            string testValue = "Milo";
+
+            // Act
+            string result = testTable.GetFromTable(testKey);
+
+            // Assert
+            Assert.Equal(testValue, result);
+        }
+
 
 
     }

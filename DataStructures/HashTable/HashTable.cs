@@ -37,6 +37,11 @@ namespace DataStructures.HashTable
             }
         }
 
+        public string GetFromTable(string testKey)
+        {
+
+        }
+
         public bool TableContains(string key)
         {
             int index = GenerateHashCode(key);
