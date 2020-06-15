@@ -11,9 +11,9 @@ namespace DataStructures.Tests.HashTable.Tests
         /// <summary>
         /// 1. Adding a key/value to your hashtable results in the value being in the data structure -- DONE
         /// 2. Retrieving based on a key returns the value stored -- DONE
-        /// 3. Successfully returns null for a key that does not exist in the hashtable 
-        /// 4. Successfully handle a collision within the hashtable
-        /// 5. Successfully retrieve a value from a bucket within the hashtable that has a collision
+        /// 3. Successfully returns null for a key that does not exist in the hashtable -- DONE
+        /// 4. Successfully handle a collision within the hashtable -- DONE
+        /// 5. Successfully retrieve a value from a bucket within the hashtable that has a collision -- DONE
         /// 6. Successfully hash a key to an in-range value -- DONE
         /// </summary>
         [Fact]
@@ -95,6 +95,29 @@ namespace DataStructures.Tests.HashTable.Tests
 
             // Assert
             Assert.Null(result);
+        }
+
+        [Fact]
+        public void Can_handle_a_collision()
+        {
+            // Arrange
+            DataStructures.HashTable.HashTable testTable = new DataStructures.HashTable.HashTable(99);
+            string testKey = "Cat";
+            string testValue = "Milo";
+
+            string secondKey = "Act";
+            string secondValue = "Garfield";
+
+            testTable.AddToHashTable(testKey, testValue);
+            testTable.AddToHashTable(secondKey, secondValue);
+
+            // Act
+            string result = testTable.GetFromTable(testKey);
+            string secondResult = testTable.GetFromTable(secondKey);
+
+            // Assert
+            Assert.Equal("Milo", result);
+            Assert.Equal("Garfield", secondResult);
         }
 
 
