@@ -82,5 +82,33 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Can_find_multiple_match()
+        {
+            // Arrange
+            BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
+            BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
+            List<int> expected = new List<int>();
+
+            expected.Add(4);
+            expected.Add(8);
+
+            treeOne.Add(4);
+            treeOne.Add(2);
+            treeOne.Add(6);
+            treeOne.Add(8);
+
+            treeTwo.Add(5);
+            treeTwo.Add(4);
+            treeTwo.Add(1);
+            treeTwo.Add(8);
+
+            // Act
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
