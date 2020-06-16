@@ -138,5 +138,33 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Assert
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Edge_case_of_matching_matches()
+        {
+            // Arrange
+            BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
+            BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
+            List<int> expected = new List<int>();
+
+            expected.Add(12);
+            expected.Add(12);
+
+            treeOne.Add(4);
+            treeOne.Add(2);
+            treeOne.Add(12);
+            treeOne.Add(21);
+
+            treeTwo.Add(5);
+            treeTwo.Add(12);
+            treeTwo.Add(12);
+            treeTwo.Add(8);
+
+            // Act
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }
