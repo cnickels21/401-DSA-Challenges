@@ -35,11 +35,18 @@ namespace Challenges.HashTableStuff
 
                 myTable.AddToHashTable(itemKeyValue, itemKeyValue);
 
-                if (current != null &&
-                    current.Value == item.ToString())
+                while (current != null)
                 {
-                    int match = int.Parse(itemKeyValue);
-                    result.Add(match);
+                    if (current.Value == item.ToString())
+                    {
+                        int match = item;
+                        result.Add(match);
+                        break;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
                 }
             }
 
