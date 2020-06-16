@@ -4,6 +4,7 @@ using System.Text;
 using Xunit;
 using Challenges.HashTableStuff;
 using DataStructures;
+using System.Collections.Generic;
 
 namespace Challenges.Tests.DuplicateSearch.Tests
 {
@@ -15,13 +16,12 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Arrange
             BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
             BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
-            LinkedList expected = new LinkedList();
 
             // Act
-            LinkedList result = FindMatches.TreeIntersection(treeOne, treeTwo);
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
 
             // Assert
-            Assert.True(result.Head == null);
+            Assert.True(result.Count == 0);
         }
 
         [Fact]
@@ -30,15 +30,14 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Arrange
             BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
             BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
-            LinkedList expected = new LinkedList();
 
             treeOne.Add(1);
 
             // Act
-            LinkedList result = FindMatches.TreeIntersection(treeOne, treeTwo);
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
 
             // Assert
-            Assert.True(result.Head == null);
+            Assert.True(result.Count == 0);
         }
 
         [Fact]
@@ -47,15 +46,41 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             // Arrange
             BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
             BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
-            LinkedList expected = new LinkedList();
 
             treeTwo.Add(1);
 
             // Act
-            LinkedList result = FindMatches.TreeIntersection(treeOne, treeTwo);
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
 
             // Assert
-            Assert.True(result.Head == null);
+            Assert.True(result.Count == 0);
+        }
+
+        [Fact]
+        public void Can_find_a_single_match()
+        {
+            // Arrange
+            BinarySearchTree<int> treeOne = new BinarySearchTree<int>();
+            BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
+            List<int> expected = new List<int>();
+
+            expected.Add(8);
+
+            treeOne.Add(2);
+            treeOne.Add(4);
+            treeOne.Add(6);
+            treeOne.Add(8);
+
+            treeTwo.Add(1);
+            treeTwo.Add(3);
+            treeTwo.Add(5);
+            treeTwo.Add(8);
+
+            // Act
+            List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
+
+            // Assert
+            Assert.Equal(expected, result);
         }
     }
 }

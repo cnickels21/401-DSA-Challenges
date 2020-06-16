@@ -2,18 +2,46 @@
 using DataStructures.BinaryTree;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Challenges.HashTableStuff
 {
     public class FindMatches
     {
-        public static LinkedList TreeIntersection(BinaryTree<int> treeOne, BinaryTree<int> treeTwo)
+        public static List<int> TreeIntersection(BinarySearchTree<int> treeOne, BinarySearchTree<int> treeTwo)
         {
-            LinkedList result = new LinkedList();
+            List<int> result = new List<int>();
+            DataStructures.HashTable.HashTable myTable = new DataStructures.HashTable.HashTable(99);
 
             if (treeOne.Root == null || treeTwo.Root == null)
                 return result;
+
+            List<int> treeOneValues = treeOne.PreOrder(treeOne.Root).ToList();
+            List<int> treeTwoValues = treeTwo.PreOrder(treeTwo.Root).ToList();
+
+            foreach (var item in treeOneValues)
+            {
+                string itemKeyValue = item.ToString();
+                myTable.AddToHashTable(itemKeyValue, itemKeyValue);
+            }
+
+            foreach (var item in treeTwoValues)
+            {
+                string itemKeyValue = item.ToString();
+                int currentIndex = DataStructures.HashTable.HashTable.GenerateHashCode(itemKeyValue);
+                DataStructures.HashTable.HashTable.Node current = myTable.Buckets[currentIndex];
+
+                myTable.AddToHashTable(itemKeyValue, itemKeyValue);
+
+                if (current != null &&
+                    current.Value == item.ToString())
+                {
+                    int match = int.Parse(itemKeyValue);
+                    result.Add(match);
+                }
+            }
 
             return result;
         }
