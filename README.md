@@ -43,3 +43,4 @@
 18. [Hash Table](readme/hashTable.md)
 19. [Repeating Word](readme/repeatingWord.md)
 20. [Tree Intersection](readme/treeIntersection.md)
+21. [Left Join](readme/leftJoin.md)
