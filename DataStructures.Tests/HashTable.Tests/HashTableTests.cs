@@ -147,11 +147,11 @@ namespace DataStructures.Tests.HashTable.Tests
             // Assert
             Assert.NotNull(result);
             Assert.True(result.MoveNext());
-            Assert.Equal("Cat", result.Current);
+            Assert.Equal("Cat Milo", result.Current);
             Assert.True(result.MoveNext());
-            Assert.Equal("Act", result.Current);
+            Assert.Equal("Act Garfield", result.Current);
             Assert.False(result.MoveNext());
-            Assert.Equal(new string[] { "Cat", "Act" }, testTable);
+            Assert.Equal(new string[] { "Cat Milo", "Act Garfield" }, testTable);
         }
 
 

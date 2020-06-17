@@ -122,7 +122,8 @@ namespace DataStructures.HashTable
 
                 while (current != null)
                 {
-                    yield return current.Key;
+                    string result = $"{current.Key} {current.Value}";
+                    yield return result;
                     current = current.Next;
                 }
             }
