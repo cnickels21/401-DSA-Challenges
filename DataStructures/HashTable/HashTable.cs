@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DataStructures.HashTable
 {
-    public class HashTable
+    public class HashTable : IEnumerable
     {
         public Node[] Buckets { get; set; }
         public int BucketCount { get; set; }
@@ -110,6 +111,21 @@ namespace DataStructures.HashTable
             int hashIndex = hashProduct % 99;
 
             return hashIndex;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            foreach (var bucket in Buckets)
+            {
+                int index = GenerateHashCode(bucket.Key);
+                Node current = Buckets[index];
+
+                if (current != null)
+                {
+                    yield return bucket;
+                }
+
+            }
         }
 
         public class Node
