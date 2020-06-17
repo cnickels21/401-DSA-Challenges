@@ -29,11 +29,6 @@ namespace Challenges.HashTableStuff
 
             foreach (var item in treeTwoValues)
             {
-                if (result.Contains(item))
-                {
-                    break;
-                }
-
                 string itemKeyValue = item.ToString();
                 int currentIndex = DataStructures.HashTable.HashTable.GenerateHashCode(itemKeyValue);
                 DataStructures.HashTable.HashTable.Node current = myTable.Buckets[currentIndex];
@@ -44,6 +39,11 @@ namespace Challenges.HashTableStuff
                 {
                     if (current.Value == item.ToString())
                     {
+                        if (result.Contains(item))
+                        {
+                            break;
+                        }
+
                         int match = item;
                         result.Add(match);
                         break;

@@ -5,6 +5,7 @@ using Xunit;
 using Challenges.HashTableStuff;
 using DataStructures;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Challenges.Tests.DuplicateSearch.Tests
 {
@@ -147,8 +148,9 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             BinarySearchTree<int> treeTwo = new BinarySearchTree<int>();
             List<int> expected = new List<int>();
 
+
+            expected.Add(2);
             expected.Add(12);
-            // expected.Add(12);
 
             treeOne.Add(4);
             treeOne.Add(2);
@@ -159,6 +161,7 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             treeTwo.Add(12);
             treeTwo.Add(12);
             treeTwo.Add(8);
+            treeTwo.Add(2);
 
             // Act
             List<int> result = FindMatches.TreeIntersection(treeOne, treeTwo);
