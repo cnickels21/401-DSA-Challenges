@@ -148,7 +148,7 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             List<int> expected = new List<int>();
 
             expected.Add(12);
-            expected.Add(12);
+            // expected.Add(12);
 
             treeOne.Add(4);
             treeOne.Add(2);
