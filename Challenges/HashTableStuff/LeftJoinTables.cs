@@ -7,13 +7,14 @@ namespace Challenges.HashTableStuff
 {
     public class LeftJoinTables
     {
-        public static HashTable LeftJoin(HashTable tableOne, HashTable tableTwo)
+        public static string[][] LeftJoin(HashTable tableOne, HashTable tableTwo)
         {
-            HashTable resultTable = new HashTable(99);
+            string[][] resultArray = new string[tableOne.BucketCount][];
+            int counter = 0;
 
 
 
-            return resultTable;
+            return resultArray;
         }
     }
 }

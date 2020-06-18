@@ -16,10 +16,28 @@ namespace Challenges.Tests.DuplicateSearch.Tests
             HashTable testTableOne = new HashTable(99);
             HashTable testTableTwo = new HashTable(99);
 
-            HashTable expected = new HashTable(99);
+            string[][] expected = new string[99][];
 
             // Act
-            HashTable result = LeftJoinTables.LeftJoin(testTableOne, testTableTwo);
+            string[][] result = LeftJoinTables.LeftJoin(testTableOne, testTableTwo);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void First_table_has_values()
+        {
+            // Arrange
+            HashTable testTableOne = new HashTable(99);
+            HashTable testTableTwo = new HashTable(99);
+
+            testTableOne.AddToHashTable("time", "day");
+
+            string[][] expected = new string[99][];
+
+            // Act
+            string[][] result = LeftJoinTables.LeftJoin(testTableOne, testTableTwo);
 
             // Assert
             Assert.Equal(expected, result);
