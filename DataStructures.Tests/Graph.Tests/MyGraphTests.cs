@@ -115,5 +115,19 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Equal(3, result);
         }
+
+        [Fact]
+        public void Vertex_doesnt_exist_returns_null()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+            MyGraph<int>.Vertex testVertex = new MyGraph<int>.Vertex(1);
+
+            // Act
+            var result = testGraph.BreadthFirst(testVertex);
+
+            // Assert
+            Assert.True(result.Count() == 0);
+        }
     }
 }

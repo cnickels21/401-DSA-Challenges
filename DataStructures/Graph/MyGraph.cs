@@ -53,7 +53,7 @@ namespace DataStructures.Graph
 
         public IEnumerable<T> BreadthFirst(Vertex start)
         {
-            if (start == null)
+            if (!GetVertices().Contains(start))
                 yield break;
 
             Queue<Vertex> traversal = new Queue<Vertex>();
