@@ -68,17 +68,8 @@ namespace DataStructures.Graph
         {
             int count = 0;
 
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    count++;
-                }
-            }
+            foreach (var item in AdjList)
+                count++;
 
             return count;
         }
