@@ -18,9 +18,6 @@ namespace DataStructures.Tests.Graph.Tests
             // Act
             var result = testGraph.AddVertex(1).Value;
 
-            // Second arrange
-            var expected = testGraph.AdjList.First().ToString();
-
             // Assert
             Assert.Equal("1", result.ToString());
         }
@@ -37,9 +34,10 @@ namespace DataStructures.Tests.Graph.Tests
             var third = testGraph.AddVertex(3).Value;
 
             // Second arrange
-            var expected = testGraph.AdjList.First().ToString();
+            var expected = testGraph.AdjList.First().Value.ToString();
 
             // Assert
+            Assert.True(testGraph.AdjList.Count == 3);
             Assert.Equal(expected, first.ToString());
         }
 
