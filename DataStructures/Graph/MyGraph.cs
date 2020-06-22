@@ -76,13 +76,14 @@ namespace DataStructures.Graph
         {
             for (int i = 0; i < AdjList.Length; i++)
             {
-                var current = AdjList[i].First();
+                // This method I don't think is working the correct way yet but this variable will be part of making it work
+                // var current = AdjList[i].First();
 
                 if (AdjList.ElementAt(i).Count == 0)
                 {
                     continue;
                 }
-                else if (current == request)
+                else
                 {
                     foreach (var item in AdjList[i])
                     {
