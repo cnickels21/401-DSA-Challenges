@@ -34,6 +34,7 @@ namespace DataStructures.Graph
                     if (AdjList.ElementAt(i).Count == 0)
                     {
                         AdjList[i].AddFirst(newVertex);
+                        break;
                     }
                 }
             }
