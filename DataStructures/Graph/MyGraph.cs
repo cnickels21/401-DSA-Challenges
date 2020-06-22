@@ -44,7 +44,15 @@ namespace DataStructures.Graph
 
         public void AddEdge(Vertex main, Vertex neighbor)
         {
-            main.Neighbor = neighbor.Value;
+            for (int i = 0; i < AdjList.Length; i++)
+            {
+                var current = AdjList[i].First();
+                if (current == main)
+                {
+                    AdjList[i].AddLast(neighbor);
+                    break;
+                }
+            }
         }
 
         public class Vertex

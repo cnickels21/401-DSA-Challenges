@@ -60,11 +60,10 @@ namespace DataStructures.Tests.Graph.Tests
             testGraph.AddEdge(firstVertex, secondVertex);
 
             // Second arrange
-            string result = firstVertex.ToString();
-            string expected = secondVertex.ToString();
+            bool actual = testGraph.AdjList[0].Contains(secondVertex);
 
             // Assert
-            Assert.Equal(result, expected);
+            Assert.True(actual);
         }
     }
 }
