@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DataStructures.Graph;
+using System.Linq;
 
 namespace DataStructures.Tests.Graph.Tests
 {
@@ -17,8 +18,12 @@ namespace DataStructures.Tests.Graph.Tests
             // Act
             MyGraph<int>.Vertex result = testGraph.AddVertex(1);
 
+            // Second arrange
+            var expected = testGraph.AdjList[0].First().ToString();
+
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(expected, result.ToString());
         }
 
         [Fact]
@@ -32,8 +37,12 @@ namespace DataStructures.Tests.Graph.Tests
             // Act
             testGraph.AddEdge(firstVertex, secondVertex);
 
+            // Second arrange
+            string result = firstVertex.ToString();
+            string expected = secondVertex.ToString();
+
             // Assert
-            Assert.(testGraph);
+            Assert.Equal(result, expected);
         }
     }
 }

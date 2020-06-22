@@ -7,7 +7,7 @@ namespace DataStructures.Graph
 {
     public class MyGraph<T>
     {
-        LinkedList<Vertex>[] AdjList { get; set; }
+        public LinkedList<Vertex>[] AdjList { get; set; }
 
         public MyGraph(int vertices)
         {
@@ -23,7 +23,7 @@ namespace DataStructures.Graph
         {
             Vertex newVertex = new Vertex(value);
 
-            if (AdjList.ElementAt(0) == null)
+            if (AdjList[0].Count == 0)
             {
                 AdjList[0].AddFirst(newVertex);
             }
@@ -31,7 +31,7 @@ namespace DataStructures.Graph
             {
                 for (int i = 0; i < AdjList.Length; i++)
                 {
-                    if (AdjList.ElementAt(i) == null)
+                    if (AdjList.ElementAt(i).Count == 0)
                     {
                         AdjList[i].AddFirst(newVertex);
                     }
