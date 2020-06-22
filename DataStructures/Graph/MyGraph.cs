@@ -7,36 +7,24 @@ namespace DataStructures.Graph
 {
     public class MyGraph<T>
     {
-        public LinkedList<Vertex>[] AdjList { get; set; }
+        public LinkedList<Vertex> AdjList { get; set; }
 
-        public MyGraph(int vertices)
+        public MyGraph()
         {
-            AdjList = new LinkedList<Vertex>[vertices];
-
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                AdjList[i] = new LinkedList<Vertex>();
-            }
+            AdjList = new LinkedList<Vertex>();
         }
 
         public Vertex AddVertex(T value)
         {
             Vertex newVertex = new Vertex(value);
 
-            if (AdjList[0].Count == 0)
+            if (AdjList.Count == 0)
             {
-                AdjList[0].AddFirst(newVertex);
+                AdjList.AddFirst(newVertex);
             }
             else
             {
-                for (int i = 0; i < AdjList.Length; i++)
-                {
-                    if (AdjList.ElementAt(i).Count == 0)
-                    {
-                        AdjList[i].AddFirst(newVertex);
-                        break;
-                    }
-                }
+                AdjList.AddLast(newVertex);
             }
 
             return newVertex;
@@ -115,15 +103,14 @@ namespace DataStructures.Graph
         public class Vertex
         {
             public T Value { get; set; }
-            public T Neighbor { get; set; }
-
+            public LinkedList<T> Neighbors { get; set; }
             public bool Visited { get; set; }
             public int Weight { get; set; }
 
             public Vertex(T value)
             {
                 this.Value = value;
-                this.Neighbor = default(T);
+                this.Neighbors = new LinkedList<T>();
                 this.Visited = false;
                 this.Weight = 0;
             }
