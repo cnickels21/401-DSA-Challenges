@@ -82,7 +82,6 @@ namespace DataStructures.Tests.Graph.Tests
         {
             // Arrange
             MyGraph<int> testGraph = new MyGraph<int>();
-            List<int> setup = new List<int>();
 
             MyGraph<int>.Vertex first = testGraph.AddVertex(1);
             MyGraph<int>.Vertex second = testGraph.AddVertex(2);
@@ -90,20 +89,15 @@ namespace DataStructures.Tests.Graph.Tests
 
             testGraph.AddEdge(first, second);
             testGraph.AddEdge(first, third);
-
-            setup.Add(1);
-            setup.Add(2);
-            setup.Add(3);
+            testGraph.AddEdge(second, third);
 
             // Act
             IEnumerable<int> result = testGraph.GetNeighbors(first);
-
-            // Second arrange
-            string actual = result.ToList().ToString();
-            string expected = setup.ToString();
+            IEnumerable<int> secondResult = testGraph.GetNeighbors(second);
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.True(result.Count() == 2);
+            Assert.True(secondResult.Count() == 1);
         }
 
         [Fact]
