@@ -57,23 +57,11 @@ namespace DataStructures.Graph
 
         public IEnumerable<T> GetNeighbors(Vertex request)
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                // This method I don't think is working the correct way yet but this variable will be part of making it work
-                // var current = AdjList[i].First();
+            if (request.Neighbors.Count == 0)
+                yield break;
 
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    foreach (var item in AdjList[i])
-                    {
-                        yield return item.Value;
-                    }
-                }
-            }
+            foreach (var item in request.Neighbors)
+                yield return item;
         }
 
         public int Size()
