@@ -18,6 +18,11 @@ namespace DataStructures.Graph
             return newVertex;
         }
 
+        public void AddEdge(Vertex main, Vertex neighbor)
+        {
+            main.Neighbor = neighbor.Value;
+        }
+
         public class Vertex
         {
             public T Value { get; set; }
