@@ -1,19 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataStructures.Graph
 {
     public class MyGraph<T>
     {
-        
+        LinkedList<Vertex>[] AdjList { get; set; }
+
+        public MyGraph(int vertices)
+        {
+            AdjList = new LinkedList<Vertex>[vertices];
+
+            for (int i = 0; i < AdjList.Length; i++)
+            {
+                AdjList[i] = new LinkedList<Vertex>();
+            }
+        }
 
         public Vertex AddVertex(T value)
         {
             Vertex newVertex = new Vertex(value);
-            //AdjacencyList newList = new AdjacencyList();
 
-            //newList.AdjList.AddFirst(newVertex);
+            if (AdjList.ElementAt(0) == null)
+            {
+                AdjList[0].AddFirst(newVertex);
+            }
+            else
+            {
+                for (int i = 0; i < AdjList.Length; i++)
+                {
+                    if (AdjList.ElementAt(i) == null)
+                    {
+                        AdjList[i].AddFirst(newVertex);
+                    }
+                }
+            }
 
             return newVertex;
         }
@@ -38,11 +61,6 @@ namespace DataStructures.Graph
                 this.Visited = false;
                 this.Weight = 0;
             }
-        }
-
-        public class AdjacencyList
-        {
-            public LinkedList<LinkedList<Vertex>> AdjList { get; set; }
         }
     }
 }
