@@ -7,123 +7,88 @@ namespace DataStructures.Graph
 {
     public class MyGraph<T>
     {
-        public LinkedList<Vertex>[] AdjList { get; set; }
+        public LinkedList<Vertex> AdjList { get; set; }
 
-        public MyGraph(int vertices)
+        public MyGraph()
         {
-            AdjList = new LinkedList<Vertex>[vertices];
-
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                AdjList[i] = new LinkedList<Vertex>();
-            }
+            AdjList = new LinkedList<Vertex>();
         }
 
         public Vertex AddVertex(T value)
         {
             Vertex newVertex = new Vertex(value);
 
-            if (AdjList[0].Count == 0)
-            {
-                AdjList[0].AddFirst(newVertex);
-            }
-            else
-            {
-                for (int i = 0; i < AdjList.Length; i++)
-                {
-                    if (AdjList.ElementAt(i).Count == 0)
-                    {
-                        AdjList[i].AddFirst(newVertex);
-                        break;
-                    }
-                }
-            }
+            AdjList.AddFirst(newVertex);
 
             return newVertex;
         }
 
         public void AddEdge(Vertex main, Vertex neighbor)
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                var current = AdjList[i].First();
+            // Potential for adding edge when vertex doesnt exist yet
+            //if (!AdjList.Contains(main))
+            //    AddVertex(main.Value);
+            //if (!AdjList.Contains(neighbor))
+            //    AddVertex(neighbor.Value);
 
-                if (current == main)
-                {
-                    AdjList[i].AddLast(neighbor);
-                    break;
-                }
-            }
+            main.Neighbors.AddFirst(neighbor);
         }
 
-        public IEnumerable<T> GetVertices()
+        public IEnumerable<Vertex> GetVertices()
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    var current = AdjList[i].First();
-                    yield return current.Value;
-                }
-            }
+            foreach (var item in AdjList)
+                yield return item;
         }
 
-        public IEnumerable<T> GetNeighbors(Vertex request)
+        public IEnumerable<Vertex> GetNeighbors(Vertex request)
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                // This method I don't think is working the correct way yet but this variable will be part of making it work
-                // var current = AdjList[i].First();
-
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    foreach (var item in AdjList[i])
-                    {
-                        yield return item.Value;
-                    }
-                }
-            }
+            foreach (var item in request.Neighbors)
+                yield return item;
         }
 
         public int Size()
         {
-            int count = 0;
+            return AdjList.Count;
+        }
 
-            for (int i = 0; i < AdjList.Length; i++)
+        public IEnumerable<T> BreadthFirst(Vertex start)
+        {
+            if (!GetVertices().Contains(start))
+                yield break;
+
+            Queue<Vertex> traversal = new Queue<Vertex>();
+            traversal.Enqueue(start);
+            start.Visited = true;
+
+            while (traversal.Count > 0)
             {
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    count++;
-                }
-            }
+                Vertex front = traversal.Dequeue();
+                var neighbors = GetNeighbors(front);
 
-            return count;
+                foreach (var item in neighbors)
+                {
+                    if (item.Visited == false)
+                    {
+                        item.Visited = true;
+                        traversal.Enqueue(item);
+                    }
+                }
+
+                yield return front.Value;
+            }
         }
 
         public class Vertex
         {
             public T Value { get; set; }
-            public T Neighbor { get; set; }
-
+            public LinkedList<Vertex> Neighbors { get; set; }
             public bool Visited { get; set; }
             public int Weight { get; set; }
 
             public Vertex(T value)
             {
                 this.Value = value;
-                this.Neighbor = default(T);
+                this.Neighbors = new LinkedList<Vertex>();
                 this.Visited = false;
                 this.Weight = 0;
             }

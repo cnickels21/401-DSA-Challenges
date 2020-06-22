@@ -13,129 +13,175 @@ namespace DataStructures.Tests.Graph.Tests
         public void Can_add_one_vertex_to_graph()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
+            MyGraph<int> testGraph = new MyGraph<int>();
 
             // Act
-            MyGraph<int>.Vertex result = testGraph.AddVertex(1);
-
-            // Second arrange
-            var expected = testGraph.AdjList[0].First().ToString();
+            var result = testGraph.AddVertex(1).Value;
 
             // Assert
-            Assert.NotNull(result);
-            Assert.Equal(expected, result.ToString());
+            Assert.Equal("1", result.ToString());
         }
 
         [Fact]
         public void Can_add_multiple_vertices_to_graph()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
+            MyGraph<int> testGraph = new MyGraph<int>();
 
             // Act
-            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
-            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
-
-            // Second arrange
-            var expected = testGraph.AdjList[0].First().ToString();
-            var expectedTwo = testGraph.AdjList[1].First().ToString();
-            var expectedThree = testGraph.AdjList[2].First().ToString();
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
 
             // Assert
-            Assert.Equal(expected, first.ToString());
-            Assert.Equal(expectedTwo, second.ToString());
-            Assert.Equal(expectedThree, third.ToString());
+            Assert.Contains(first, testGraph.GetVertices());
+            Assert.Contains(second, testGraph.GetVertices());
+            Assert.Contains(third, testGraph.GetVertices());
+
         }
 
         [Fact]
         public void Can_add_an_edge()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
-            MyGraph<int>.Vertex firstVertex = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex secondVertex = testGraph.AddVertex(2);
+            MyGraph<int> testGraph = new MyGraph<int>();
+            var firstVertex = testGraph.AddVertex(1);
+            var secondVertex = testGraph.AddVertex(2);
 
             // Act
             testGraph.AddEdge(firstVertex, secondVertex);
 
             // Second arrange
-            bool actual = testGraph.AdjList[0].Contains(secondVertex);
+            var actual = firstVertex.Neighbors.First();
 
             // Assert
-            Assert.True(actual);
+            Assert.True(firstVertex.Neighbors.Count == 1);
+            Assert.Equal(2, actual.Value);
         }
 
         [Fact]
         public void Can_get_all_of_the_vertices()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
-            List<int> setup = new List<int>();
+            MyGraph<int> testGraph = new MyGraph<int>();
 
             testGraph.AddVertex(1);
             testGraph.AddVertex(2);
             testGraph.AddVertex(3);
 
-            setup.Add(1);
-            setup.Add(2);
-            setup.Add(3);
-
             // Act
-            IEnumerable<int> result = testGraph.GetVertices();
-
-            // Second arrange
-            var actual = result.ToList().ToString();
-            var expected = setup.ToString();
+            var result = testGraph.GetVertices();
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(3, result.Count());
         }
 
         [Fact]
         public void Can_get_all_of_the_neighbors()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
-            List<int> setup = new List<int>();
+            MyGraph<int> testGraph = new MyGraph<int>();
 
-            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
-            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
 
             testGraph.AddEdge(first, second);
             testGraph.AddEdge(first, third);
-
-            setup.Add(1);
-            setup.Add(2);
-            setup.Add(3);
+            testGraph.AddEdge(second, third);
 
             // Act
-            IEnumerable<int> result = testGraph.GetNeighbors(first);
-
-            // Second arrange
-            string actual = result.ToList().ToString();
-            string expected = setup.ToString();
+            var result = testGraph.GetNeighbors(first);
+            var secondResult = testGraph.GetNeighbors(second);
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.True(result.Count() == 2);
+            Assert.True(secondResult.Count() == 1);
         }
 
         [Fact]
         public void Can_get_count_of_graph()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
+            MyGraph<int> testGraph = new MyGraph<int>();
 
-            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
-            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+            testGraph.AddVertex(1);
+            testGraph.AddVertex(2);
+            testGraph.AddVertex(3);
 
             // Act
             int result = testGraph.Size();
 
             // Assert
             Assert.Equal(3, result);
+        }
+
+        [Fact]
+        public void Vertex_doesnt_exist_returns_null()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+            MyGraph<int>.Vertex testVertex = new MyGraph<int>.Vertex(1);
+
+            // Act
+            var result = testGraph.BreadthFirst(testVertex);
+
+            // Assert
+            Assert.True(result.Count() == 0);
+        }
+
+        [Fact]
+        public void Breadth_first_on_one_layer()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+
+            // This is the order because my adjacency list adds new items to the beginning of each list
+            int[] expected = new int[] { 1, 3, 2 };
+
+            // Act
+            var result = testGraph.BreadthFirst(first);
+
+            // Assert
+            Assert.Equal(expected, result.ToArray());
+
+            // Why did having these tests break each other and my assert.equal
+            // Assert.Contains(second.Value, result);
+            // Assert.Contains(third.Value, result);
+        }
+
+        [Fact]
+        public void More_complex_traversal()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
+            var fourth = testGraph.AddVertex(4);
+            var fifth = testGraph.AddVertex(5);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+            testGraph.AddEdge(second, fourth);
+            testGraph.AddEdge(third, fifth);
+
+            // This is the order because my adjacency list adds new items to the beginning of each list
+            int[] expected = new int[] { 1, 3, 2, 5, 4 };
+
+            // Act
+            var result = testGraph.BreadthFirst(first);
+
+            // Assert
+            Assert.Equal(expected, result.ToArray());
         }
     }
 }
