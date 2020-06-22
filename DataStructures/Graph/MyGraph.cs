@@ -51,27 +51,32 @@ namespace DataStructures.Graph
             return AdjList.Count;
         }
 
-        //public IEnumerable<T> BreadthFirst(Vertex start)
-        //{
-        //    if (start == null)
-        //        yield break;
+        public IEnumerable<T> BreadthFirst(Vertex start)
+        {
+            if (start == null)
+                yield break;
 
-        //    Queue<Vertex> traversal = new Queue<Vertex>();
-        //    traversal.Enqueue(start);
-        //    start.Visited = true;
+            Queue<Vertex> traversal = new Queue<Vertex>();
+            traversal.Enqueue(start);
+            start.Visited = true;
 
-        //    while (traversal.Count > 0)
-        //    {
-        //        Vertex front = traversal.Dequeue();
-        //        var neighbors = GetNeighbors(front);
+            while (traversal.Count > 0)
+            {
+                Vertex front = traversal.Dequeue();
+                var neighbors = GetNeighbors(front);
 
-        //        foreach (var item in neighbors)
-        //        {
-        //            if ()
-        //        }
-                
-        //    }
-        //}
+                foreach (var item in neighbors)
+                {
+                    if (item.Visited == false)
+                    {
+                        item.Visited = true;
+                        traversal.Enqueue(item);
+                    }
+                }
+
+                yield return front.Value;
+            }
+        }
 
         public class Vertex
         {
