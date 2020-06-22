@@ -7,5 +7,6 @@ namespace DataStructures.Tests.Graph.Tests
 {
     public class MyGraphTests
     {
+
     }
 }
