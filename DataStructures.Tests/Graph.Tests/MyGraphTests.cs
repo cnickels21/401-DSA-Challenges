@@ -120,5 +120,22 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Can_get_count_of_graph()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>(20);
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+
+            // Act
+            int result = testGraph.Size();
+
+            // Assert
+            Assert.Equal(3, result);
+        }
     }
 }

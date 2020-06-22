@@ -90,6 +90,25 @@ namespace DataStructures.Graph
             }
         }
 
+        public int Size()
+        {
+            int count = 0;
+
+            for (int i = 0; i < AdjList.Length; i++)
+            {
+                if (AdjList.ElementAt(i).Count == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
         public class Vertex
         {
             public T Value { get; set; }
