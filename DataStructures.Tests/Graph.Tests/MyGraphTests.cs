@@ -112,9 +112,9 @@ namespace DataStructures.Tests.Graph.Tests
             // Arrange
             MyGraph<int> testGraph = new MyGraph<int>();
 
-            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
-            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+            testGraph.AddVertex(1);
+            testGraph.AddVertex(2);
+            testGraph.AddVertex(3);
 
             // Act
             int result = testGraph.Size();
