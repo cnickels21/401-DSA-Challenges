@@ -13,10 +13,10 @@ namespace DataStructures.Tests.Graph.Tests
         public void Can_add_one_vertex_to_graph()
         {
             // Arrange
-            MyGraph<int> testGraph = new MyGraph<int>(20);
+            MyGraph<int> testGraph = new MyGraph<int>();
 
             // Act
-            MyGraph<int>.Vertex result = testGraph.AddVertex(1);
+            var result = testGraph.AddVertex(1);
 
             // Second arrange
             var expected = testGraph.AdjList[0].First().ToString();
