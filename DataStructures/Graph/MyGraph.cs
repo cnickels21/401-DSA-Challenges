@@ -32,32 +32,27 @@ namespace DataStructures.Graph
 
         public void AddEdge(Vertex main, Vertex neighbor)
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                var current = AdjList[i].First();
+            // Potential for adding edge when vertex doesnt exist yet
+            //if (!AdjList.Contains(main))
+            //    AddVertex(main.Value);
+            //if (!AdjList.Contains(neighbor))
+            //    AddVertex(neighbor.Value);
 
-                if (current == main)
-                {
-                    AdjList[i].AddLast(neighbor);
-                    break;
-                }
+            if (main.Neighbors.Count == 0)
+            {
+                main.Neighbors.AddFirst(neighbor.Value);
             }
+
+            main.Neighbors.AddLast(neighbor.Value);
         }
 
-        public IEnumerable<T> GetVertices()
+        public IEnumerable<Vertex> GetVertices()
         {
-            for (int i = 0; i < AdjList.Length; i++)
-            {
-                if (AdjList.ElementAt(i).Count == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    var current = AdjList[i].First();
-                    yield return current.Value;
-                }
-            }
+            if (AdjList.Count == 0)
+                yield return null;
+
+            foreach (var item in AdjList)
+                yield return item;
         }
 
         public IEnumerable<T> GetNeighbors(Vertex request)
