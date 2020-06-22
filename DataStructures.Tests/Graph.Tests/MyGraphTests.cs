@@ -82,9 +82,9 @@ namespace DataStructures.Tests.Graph.Tests
             // Arrange
             MyGraph<int> testGraph = new MyGraph<int>();
 
-            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
-            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
 
             testGraph.AddEdge(first, second);
             testGraph.AddEdge(first, third);
@@ -128,6 +128,29 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.True(result.Count() == 0);
+        }
+
+        [Fact]
+        public void Breadth_first_on_one_layer()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+
+            // This is the order because my adjacency list adds new items to the beginning of each list
+            int[] expected = new int[] { 1, 3, 2 };
+
+            // Act
+            var result = testGraph.BreadthFirst(first);
+
+            // Assert
+            Assert.Equal(expected, result.ToArray());
         }
     }
 }
