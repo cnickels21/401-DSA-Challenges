@@ -18,14 +18,7 @@ namespace DataStructures.Graph
         {
             Vertex newVertex = new Vertex(value);
 
-            if (AdjList.Count == 0)
-            {
-                AdjList.AddFirst(newVertex);
-            }
-            else
-            {
-                AdjList.AddLast(newVertex);
-            }
+            AdjList.AddFirst(newVertex);
 
             return newVertex;
         }
@@ -38,42 +31,24 @@ namespace DataStructures.Graph
             //if (!AdjList.Contains(neighbor))
             //    AddVertex(neighbor.Value);
 
-            if (main.Neighbors.Count == 0)
-            {
-                main.Neighbors.AddFirst(neighbor.Value);
-            }
-            else
-            {
-                main.Neighbors.AddLast(neighbor.Value);
-            }
+            main.Neighbors.AddFirst(neighbor.Value);
         }
 
         public IEnumerable<Vertex> GetVertices()
         {
-            if (AdjList.Count == 0)
-                yield return null;
-
             foreach (var item in AdjList)
                 yield return item;
         }
 
         public IEnumerable<T> GetNeighbors(Vertex request)
         {
-            if (request.Neighbors.Count == 0)
-                yield break;
-
             foreach (var item in request.Neighbors)
                 yield return item;
         }
 
         public int Size()
         {
-            int count = 0;
-
-            foreach (var item in AdjList)
-                count++;
-
-            return count;
+            return AdjList.Count;
         }
 
         public class Vertex

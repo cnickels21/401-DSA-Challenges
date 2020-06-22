@@ -29,16 +29,15 @@ namespace DataStructures.Tests.Graph.Tests
             MyGraph<int> testGraph = new MyGraph<int>();
 
             // Act
-            var first = testGraph.AddVertex(1).Value;
-            var second = testGraph.AddVertex(2).Value;
-            var third = testGraph.AddVertex(3).Value;
-
-            // Second arrange
-            var expected = testGraph.AdjList.First().Value.ToString();
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
 
             // Assert
-            Assert.True(testGraph.AdjList.Count == 3);
-            Assert.Equal(expected, first.ToString());
+            Assert.Contains(first, testGraph.GetVertices());
+            Assert.Contains(second, testGraph.GetVertices());
+            Assert.Contains(third, testGraph.GetVertices());
+
         }
 
         [Fact]
