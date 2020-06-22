@@ -6,11 +6,16 @@ namespace DataStructures.Graph
 {
     public class MyGraph<T>
     {
-        LinkedList<LinkedList<Vertex>> AdjList { get; set; }
+        
 
         public Vertex AddVertex(T value)
         {
-            return default;
+            Vertex newVertex = new Vertex(value);
+            //AdjacencyList newList = new AdjacencyList();
+
+            //newList.AdjList.AddFirst(newVertex);
+
+            return newVertex;
         }
 
         public class Vertex
@@ -21,13 +26,18 @@ namespace DataStructures.Graph
             public bool Visited { get; set; }
             public int Weight { get; set; }
 
-            public Vertex(T value, T neighbor)
+            public Vertex(T value)
             {
                 this.Value = value;
-                this.Neighbor = neighbor;
+                this.Neighbor = default(T);
                 this.Visited = false;
                 this.Weight = 0;
             }
+        }
+
+        public class AdjacencyList
+        {
+            public LinkedList<LinkedList<Vertex>> AdjList { get; set; }
         }
     }
 }
