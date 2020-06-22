@@ -42,8 +42,10 @@ namespace DataStructures.Graph
             {
                 main.Neighbors.AddFirst(neighbor.Value);
             }
-
-            main.Neighbors.AddLast(neighbor.Value);
+            else
+            {
+                main.Neighbors.AddLast(neighbor.Value);
+            }
         }
 
         public IEnumerable<Vertex> GetVertices()

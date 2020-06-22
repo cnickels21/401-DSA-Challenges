@@ -46,17 +46,22 @@ namespace DataStructures.Tests.Graph.Tests
         {
             // Arrange
             MyGraph<int> testGraph = new MyGraph<int>();
-            MyGraph<int>.Vertex firstVertex = testGraph.AddVertex(1);
-            MyGraph<int>.Vertex secondVertex = testGraph.AddVertex(2);
+            var firstVertex = testGraph.AddVertex(1);
+            var secondVertex = testGraph.AddVertex(2);
+
+            //Assert.True(firstVertex.Neighbors.Count == 0);
 
             // Act
             testGraph.AddEdge(firstVertex, secondVertex);
 
+            
+
             // Second arrange
-            bool actual = testGraph.AdjList.Contains(secondVertex);
+            int actual = firstVertex.Neighbors.First();
 
             // Assert
             Assert.True(firstVertex.Neighbors.Count == 1);
+            Assert.Equal(2, actual);
         }
 
         [Fact]
