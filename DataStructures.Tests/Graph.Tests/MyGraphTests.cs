@@ -65,5 +65,31 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.True(actual);
         }
+
+        [Fact]
+        public void Can_get_all_of_the_vertices()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>(20);
+            List<int> setup = new List<int>();
+
+            testGraph.AddVertex(1);
+            testGraph.AddVertex(2);
+            testGraph.AddVertex(3);
+
+            setup.Add(1);
+            setup.Add(1);
+            setup.Add(1);
+
+            // Act
+            IEnumerable<int> result = testGraph.GetVertices();
+
+            // Second arrange
+            var actual = result.ToList().ToString();
+            var expected = setup.ToString();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }

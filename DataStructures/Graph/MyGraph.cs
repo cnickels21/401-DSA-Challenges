@@ -47,10 +47,27 @@ namespace DataStructures.Graph
             for (int i = 0; i < AdjList.Length; i++)
             {
                 var current = AdjList[i].First();
+
                 if (current == main)
                 {
                     AdjList[i].AddLast(neighbor);
                     break;
+                }
+            }
+        }
+
+        public IEnumerable<T> GetVertices()
+        {
+            for (int i = 0; i < AdjList.Length; i++)
+            {
+                if (AdjList.ElementAt(i).Count == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    var current = AdjList[i].First();
+                    yield return current.Value;
                 }
             }
         }
