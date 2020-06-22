@@ -1,6 +1,9 @@
 ﻿
 using DataStructures.HashTable;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
 using Xunit;
 
@@ -118,6 +121,37 @@ namespace DataStructures.Tests.HashTable.Tests
             // Assert
             Assert.Equal("Milo", result);
             Assert.Equal("Garfield", secondResult);
+        }
+
+        [Fact]
+        public void Get_enumerator_implemented()
+        {
+            // Arrange
+            DataStructures.HashTable.HashTable testTable = new DataStructures.HashTable.HashTable(99);
+            string testKey = "Cat";
+            string testValue = "Milo";
+
+            string secondKey = "Act";
+            string secondValue = "Garfield";
+
+            testTable.AddToHashTable(testKey, testValue);
+            testTable.AddToHashTable(secondKey, secondValue);
+
+            LinkedList<string> expected = new LinkedList<string>();
+            expected.AddLast("Cat");
+            expected.AddLast("Act");
+
+            // Act
+            IEnumerator<string> result = testTable.GetEnumerator();
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.True(result.MoveNext());
+            Assert.Equal("Cat Milo", result.Current);
+            Assert.True(result.MoveNext());
+            Assert.Equal("Act Garfield", result.Current);
+            Assert.False(result.MoveNext());
+            Assert.Equal(new string[] { "Cat Milo", "Act Garfield" }, testTable);
         }
 
 
