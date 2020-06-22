@@ -151,6 +151,37 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.Equal(expected, result.ToArray());
+
+            // Why did having these tests break each other and my assert.equal
+            // Assert.Contains(second.Value, result);
+            // Assert.Contains(third.Value, result);
+        }
+
+        [Fact]
+        public void More_complex_traversal()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
+            var fourth = testGraph.AddVertex(4);
+            var fifth = testGraph.AddVertex(5);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+            testGraph.AddEdge(second, fourth);
+            testGraph.AddEdge(third, fifth);
+
+            // This is the order because my adjacency list adds new items to the beginning of each list
+            int[] expected = new int[] { 1, 3, 2, 5, 4 };
+
+            // Act
+            var result = testGraph.BreadthFirst(first);
+
+            // Assert
+            Assert.Equal(expected, result.ToArray());
         }
     }
 }
