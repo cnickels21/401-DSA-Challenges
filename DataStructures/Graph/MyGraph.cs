@@ -72,15 +72,17 @@ namespace DataStructures.Graph
             }
         }
 
-        public IEnumerable<T> GetNeighbors()
+        public IEnumerable<T> GetNeighbors(Vertex request)
         {
             for (int i = 0; i < AdjList.Length; i++)
             {
+                var current = AdjList[i].First();
+
                 if (AdjList.ElementAt(i).Count == 0)
                 {
                     continue;
                 }
-                else
+                else if (current == request)
                 {
                     foreach (var item in AdjList[i])
                     {

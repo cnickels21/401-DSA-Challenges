@@ -111,7 +111,7 @@ namespace DataStructures.Tests.Graph.Tests
             setup.Add(3);
 
             // Act
-            IEnumerable<int> result = testGraph.GetNeighbors();
+            IEnumerable<int> result = testGraph.GetNeighbors(first);
 
             // Second arrange
             string actual = result.ToList().ToString();
