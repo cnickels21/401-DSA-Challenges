@@ -52,11 +52,11 @@ namespace DataStructures.Tests.Graph.Tests
             testGraph.AddEdge(firstVertex, secondVertex);
 
             // Second arrange
-            int actual = firstVertex.Neighbors.First();
+            var actual = firstVertex.Neighbors.First();
 
             // Assert
             Assert.True(firstVertex.Neighbors.Count == 1);
-            Assert.Equal(2, actual);
+            Assert.Equal(2, actual.Value);
         }
 
         [Fact]
@@ -91,8 +91,8 @@ namespace DataStructures.Tests.Graph.Tests
             testGraph.AddEdge(second, third);
 
             // Act
-            IEnumerable<int> result = testGraph.GetNeighbors(first);
-            IEnumerable<int> secondResult = testGraph.GetNeighbors(second);
+            var result = testGraph.GetNeighbors(first);
+            var secondResult = testGraph.GetNeighbors(second);
 
             // Assert
             Assert.True(result.Count() == 2);

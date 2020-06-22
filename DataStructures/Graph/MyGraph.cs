@@ -31,7 +31,7 @@ namespace DataStructures.Graph
             //if (!AdjList.Contains(neighbor))
             //    AddVertex(neighbor.Value);
 
-            main.Neighbors.AddFirst(neighbor.Value);
+            main.Neighbors.AddFirst(neighbor);
         }
 
         public IEnumerable<Vertex> GetVertices()
@@ -40,7 +40,7 @@ namespace DataStructures.Graph
                 yield return item;
         }
 
-        public IEnumerable<T> GetNeighbors(Vertex request)
+        public IEnumerable<Vertex> GetNeighbors(Vertex request)
         {
             foreach (var item in request.Neighbors)
                 yield return item;
@@ -51,17 +51,39 @@ namespace DataStructures.Graph
             return AdjList.Count;
         }
 
+        //public IEnumerable<T> BreadthFirst(Vertex start)
+        //{
+        //    if (start == null)
+        //        yield break;
+
+        //    Queue<Vertex> traversal = new Queue<Vertex>();
+        //    traversal.Enqueue(start);
+        //    start.Visited = true;
+
+        //    while (traversal.Count > 0)
+        //    {
+        //        Vertex front = traversal.Dequeue();
+        //        var neighbors = GetNeighbors(front);
+
+        //        foreach (var item in neighbors)
+        //        {
+        //            if ()
+        //        }
+                
+        //    }
+        //}
+
         public class Vertex
         {
             public T Value { get; set; }
-            public LinkedList<T> Neighbors { get; set; }
+            public LinkedList<Vertex> Neighbors { get; set; }
             public bool Visited { get; set; }
             public int Weight { get; set; }
 
             public Vertex(T value)
             {
                 this.Value = value;
-                this.Neighbors = new LinkedList<T>();
+                this.Neighbors = new LinkedList<Vertex>();
                 this.Visited = false;
                 this.Weight = 0;
             }
