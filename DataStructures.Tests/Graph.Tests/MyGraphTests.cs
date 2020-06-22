@@ -49,12 +49,8 @@ namespace DataStructures.Tests.Graph.Tests
             var firstVertex = testGraph.AddVertex(1);
             var secondVertex = testGraph.AddVertex(2);
 
-            //Assert.True(firstVertex.Neighbors.Count == 0);
-
             // Act
             testGraph.AddEdge(firstVertex, secondVertex);
-
-            
 
             // Second arrange
             int actual = firstVertex.Neighbors.First();
@@ -69,25 +65,16 @@ namespace DataStructures.Tests.Graph.Tests
         {
             // Arrange
             MyGraph<int> testGraph = new MyGraph<int>();
-            List<int> setup = new List<int>();
 
             testGraph.AddVertex(1);
             testGraph.AddVertex(2);
             testGraph.AddVertex(3);
 
-            setup.Add(1);
-            setup.Add(2);
-            setup.Add(3);
-
             // Act
             var result = testGraph.GetVertices();
 
-            // Second arrange
-            var actual = result.ToList().ToString();
-            var expected = setup.ToString();
-
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(3, result.Count());
         }
 
         [Fact]
