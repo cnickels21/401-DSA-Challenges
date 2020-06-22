@@ -78,8 +78,8 @@ namespace DataStructures.Tests.Graph.Tests
             testGraph.AddVertex(3);
 
             setup.Add(1);
-            setup.Add(1);
-            setup.Add(1);
+            setup.Add(2);
+            setup.Add(3);
 
             // Act
             IEnumerable<int> result = testGraph.GetVertices();
@@ -87,6 +87,35 @@ namespace DataStructures.Tests.Graph.Tests
             // Second arrange
             var actual = result.ToList().ToString();
             var expected = setup.ToString();
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Can_get_all_of_the_neighbors()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>(20);
+            List<int> setup = new List<int>();
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex third = testGraph.AddVertex(3);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+
+            setup.Add(1);
+            setup.Add(2);
+            setup.Add(3);
+
+            // Act
+            IEnumerable<int> result = testGraph.GetNeighbors();
+
+            // Second arrange
+            string actual = result.ToList().ToString();
+            string expected = setup.ToString();
 
             // Assert
             Assert.Equal(expected, actual);
