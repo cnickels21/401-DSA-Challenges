@@ -49,14 +49,15 @@ namespace DataStructures.Tests.Graph.Tests
             var secondVertex = testGraph.AddVertex(2);
 
             // Act
-            testGraph.AddEdge(firstVertex, secondVertex);
+            testGraph.AddEdge(firstVertex, secondVertex, 42);
 
             // Second arrange
             var actual = firstVertex.Neighbors.First();
+            (MyGraph<int>.Vertex, int) expected = (secondVertex, 42);
 
             // Assert
             Assert.True(firstVertex.Neighbors.Count == 1);
-            Assert.Equal(2, actual.Item1.Value);
+            Assert.True(actual.Equals(expected));
         }
 
         [Fact]
@@ -201,8 +202,5 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Contains(first, result);
         }
-
-        [Fact]
-        public
     }
 }
