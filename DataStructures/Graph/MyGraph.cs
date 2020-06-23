@@ -73,6 +73,13 @@ namespace DataStructures.Graph
             }
         }
 
+        public bool TrySumEdgeWeights(out int sum, params T[] locations)
+        {
+            sum = 0;
+
+            return false;
+        }
+
         public class Vertex
         {
             public T Value { get; set; }
