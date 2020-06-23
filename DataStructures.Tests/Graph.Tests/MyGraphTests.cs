@@ -202,5 +202,26 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Contains(first, result);
         }
+
+        /// <summary>
+        /// Direct Flight Tests Below
+        /// </summary>
+        [Fact]
+        public void No_connections_returns_false()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex[] testArray = 
+                new MyGraph<int>.Vertex[] { first, second };
+
+            // Act
+            var result = testGraph.TrySumEdgeWeights(out _, testArray);
+
+            // Assert
+            Assert.False(result);
+        }
     }
 }

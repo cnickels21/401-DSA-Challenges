@@ -73,9 +73,21 @@ namespace DataStructures.Graph
             }
         }
 
-        public bool TrySumEdgeWeights(out int sum, params T[] locations)
+        public bool TrySumEdgeWeights(out int sum, params Vertex[] locations)
         {
             sum = 0;
+
+            for (int i = 0; i < locations.Length; i++)
+            {
+                Vertex current = locations[i];
+                var neighbors = GetNeighbors(current);
+
+                if (!neighbors.Contains(locations[i + 1]))
+                    return false;
+
+
+                //sum += 
+            }
 
             return false;
         }
@@ -85,14 +97,12 @@ namespace DataStructures.Graph
             public T Value { get; set; }
             public LinkedList<(Vertex, int)> Neighbors { get; set; }
             public bool Visited { get; set; }
-            public int Weight { get; set; }
 
             public Vertex(T value)
             {
                 this.Value = value;
                 this.Neighbors = new LinkedList<(Vertex, int)>();
                 this.Visited = false;
-                this.Weight = 0;
             }
         }
     }
