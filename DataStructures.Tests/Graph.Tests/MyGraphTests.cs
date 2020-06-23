@@ -56,7 +56,7 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.True(firstVertex.Neighbors.Count == 1);
-            Assert.Equal(2, actual.Value);
+            Assert.Equal(2, actual.Item1.Value);
         }
 
         [Fact]
@@ -96,7 +96,7 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.True(result.Count() == 2);
-            Assert.True(secondResult.Count() == 1);
+            Assert.True(secondResult.Count() == 2);
         }
 
         [Fact]
@@ -183,5 +183,26 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Equal(expected, result.ToArray());
         }
+
+        [Fact]
+        public void Directed_or_undirected_graph()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+
+            // Act
+            testGraph.AddEdge(first, second);
+
+            var result = testGraph.GetNeighbors(second);
+
+            // Assert
+            Assert.Contains(first, result);
+        }
+
+        [Fact]
+        public
     }
 }
