@@ -49,14 +49,15 @@ namespace DataStructures.Tests.Graph.Tests
             var secondVertex = testGraph.AddVertex(2);
 
             // Act
-            testGraph.AddEdge(firstVertex, secondVertex);
+            testGraph.AddEdge(firstVertex, secondVertex, 42);
 
             // Second arrange
             var actual = firstVertex.Neighbors.First();
+            (MyGraph<int>.Vertex, int) expected = (secondVertex, 42);
 
             // Assert
             Assert.True(firstVertex.Neighbors.Count == 1);
-            Assert.Equal(2, actual.Value);
+            Assert.True(actual.Equals(expected));
         }
 
         [Fact]
@@ -96,7 +97,7 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.True(result.Count() == 2);
-            Assert.True(secondResult.Count() == 1);
+            Assert.True(secondResult.Count() == 2);
         }
 
         [Fact]
@@ -182,6 +183,68 @@ namespace DataStructures.Tests.Graph.Tests
 
             // Assert
             Assert.Equal(expected, result.ToArray());
+        }
+
+        [Fact]
+        public void Directed_or_undirected_graph()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+
+            // Act
+            testGraph.AddEdge(first, second);
+
+            var result = testGraph.GetNeighbors(second);
+
+            // Assert
+            Assert.Contains(first, result);
+        }
+
+        /// <summary>
+        /// Direct Flight Tests Below
+        /// </summary>
+        [Fact]
+        public void No_connections_returns_false()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex[] testArray = 
+                new MyGraph<int>.Vertex[] { first, second };
+
+            // Act
+            var result = testGraph.TrySumEdgeWeights(out _, testArray);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void Direct_connections_returns_true()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex[] testArray =
+                new MyGraph<int>.Vertex[] { first, second };
+
+            testGraph.AddEdge(first, second, 42);
+
+            int sum;
+
+            // Act
+            var result = testGraph.TrySumEdgeWeights(out sum, testArray);
+
+            // Assert
+            Assert.True(result);
+            Assert.Equal(42, sum);
         }
     }
 }

@@ -23,15 +23,10 @@ namespace DataStructures.Graph
             return newVertex;
         }
 
-        public void AddEdge(Vertex main, Vertex neighbor)
+        public void AddEdge(Vertex main, Vertex neighbor, int weight = 0)
         {
-            // Potential for adding edge when vertex doesnt exist yet
-            //if (!AdjList.Contains(main))
-            //    AddVertex(main.Value);
-            //if (!AdjList.Contains(neighbor))
-            //    AddVertex(neighbor.Value);
-
-            main.Neighbors.AddFirst(neighbor);
+            main.Neighbors.AddFirst((neighbor, weight));
+            neighbor.Neighbors.AddFirst((main, weight));
         }
 
         public IEnumerable<Vertex> GetVertices()
@@ -42,8 +37,8 @@ namespace DataStructures.Graph
 
         public IEnumerable<Vertex> GetNeighbors(Vertex request)
         {
-            foreach (var item in request.Neighbors)
-                yield return item;
+            foreach (var (vertex, weight) in request.Neighbors)
+                yield return vertex;
         }
 
         public int Size()
@@ -78,19 +73,46 @@ namespace DataStructures.Graph
             }
         }
 
+        public bool TrySumEdgeWeights(out int sum, params Vertex[] locations)
+        {
+            sum = 0;
+
+            for (int i = 0; i < locations.Length; i++)
+            {
+                Vertex current = locations[i];
+                var neighbors = GetNeighbors(current);
+
+                if (i == locations.Length - 1)
+                    break;
+
+                if (!neighbors.Contains(locations[i + 1]))
+                    return false;
+
+                var neighborTuples = current.Neighbors;
+
+                foreach (var item in neighborTuples)
+                {
+                    if (item.Item1 == locations[i + 1])
+                    {
+                        sum += item.Item2;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         public class Vertex
         {
             public T Value { get; set; }
-            public LinkedList<Vertex> Neighbors { get; set; }
+            public LinkedList<(Vertex, int)> Neighbors { get; set; }
             public bool Visited { get; set; }
-            public int Weight { get; set; }
 
             public Vertex(T value)
             {
                 this.Value = value;
-                this.Neighbors = new LinkedList<Vertex>();
+                this.Neighbors = new LinkedList<(Vertex, int)>();
                 this.Visited = false;
-                this.Weight = 0;
             }
         }
     }
