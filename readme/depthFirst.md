@@ -9,5 +9,5 @@ Today's code challenge is to add a depth first traversal to my graph.  This mean
 Below you will see the white board solution that my partner and I worked together on.  Through doing so we were able to conceptualize our approach to a solution and have a stronger idea of how to implement the algorithm in the code.  Then, using TDD I was able to utilize the red/green refactor methodology of unit testing and verify the functionality of my algorithm and verify that edge cases were in fact being considered and handled correctly.  Check the links to see what you thinkg!
 
 [Check the Code](../DataStructures/Graph/MyGraph.cs)  
-[Check the Code](../DataStructures.Tests/Graph.Tests/MyGraphTests.cs)  
+[Check the Tests](../DataStructures.Tests/Graph.Tests/MyGraphTests.cs)  
 ![White Board Diagram](assets/DepthFirstGraph.png)
