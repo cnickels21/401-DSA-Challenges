@@ -10,6 +10,6 @@ Given a graph and an array of locations in that graph, check whether you can tra
 
 A few of us got together and white boarded what a solution for this challenge would look like \(diagram below\).  The pseudocode is not completely accurate, but is a general representation of what the algorithm will look like by the end.  Utlizing TDD I will verify functionality to work out bugs that are apparent in the pseudocode.  The time and space efficiency for this algorithm are both O\(n\) as worst case has you iterating through the entire collection to find a connection.
 
-[Check the Code](../Challenges/Graph/DirectFlight.cs)  
-[Check the Code](../Challenges.Tests/Graph.Tests/DirectFlightTests.cs)  
+[Check the Code](../DataStructures/Graph/MyGraph.cs)  
+[Check the Code](../DataStructures.Tests/Graph.Tests/MyGraphTests.cs)  
 ![White Board Diagram](assets/DirectFlights.png)
