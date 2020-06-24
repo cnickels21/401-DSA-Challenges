@@ -289,5 +289,32 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.Equal(expected, result.ToArray());
         }
+
+        [Fact]
+        public void More_complex_depth_traversal()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            var first = testGraph.AddVertex(1);
+            var second = testGraph.AddVertex(2);
+            var third = testGraph.AddVertex(3);
+            var fourth = testGraph.AddVertex(4);
+            var fifth = testGraph.AddVertex(5);
+
+            testGraph.AddEdge(first, second);
+            testGraph.AddEdge(first, third);
+            testGraph.AddEdge(second, fourth);
+            testGraph.AddEdge(third, fifth);
+
+            // This is the order because my adjacency list adds new items to the beginning of each list
+            int[] expected = new int[] { 1, 2, 4, 3, 5 };
+
+            // Act
+            var result = testGraph.DepthFirst(first);
+
+            // Assert
+            Assert.Equal(expected, result.ToArray());
+        }
     }
 }
