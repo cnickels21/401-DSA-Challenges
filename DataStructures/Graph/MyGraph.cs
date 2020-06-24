@@ -71,6 +71,10 @@ namespace DataStructures.Graph
 
                 yield return front.Value;
             }
+
+            var graph = GetVertices();
+            foreach (var item in graph)
+                item.Visited = false;
         }
 
         public bool TrySumEdgeWeights(out int sum, params Vertex[] locations)
