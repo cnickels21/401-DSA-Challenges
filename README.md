@@ -50,3 +50,4 @@
 22. [My Basic Graph](readme/myGraph.md)
 23. [Breadth First](readme/breadthFirstGraph.md)
 24. [Direct Flights](readme/directFlights.md)
+25. [Depth First](readme/depthFirst.md)
