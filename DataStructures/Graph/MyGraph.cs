@@ -82,14 +82,24 @@ namespace DataStructures.Graph
                 Vertex current = locations[i];
                 var neighbors = GetNeighbors(current);
 
+                if (i == locations.Length - 1)
+                    break;
+
                 if (!neighbors.Contains(locations[i + 1]))
                     return false;
 
+                var neighborTuples = current.Neighbors;
 
-                //sum += 
+                foreach (var item in neighborTuples)
+                {
+                    if (item.Item1 == locations[i + 1])
+                    {
+                        sum += item.Item2;
+                    }
+                }
             }
 
-            return false;
+            return true;
         }
 
         public class Vertex

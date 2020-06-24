@@ -223,5 +223,28 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.False(result);
         }
+
+        [Fact]
+        public void Direct_connections_returns_true()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+
+            MyGraph<int>.Vertex first = testGraph.AddVertex(1);
+            MyGraph<int>.Vertex second = testGraph.AddVertex(2);
+            MyGraph<int>.Vertex[] testArray =
+                new MyGraph<int>.Vertex[] { first, second };
+
+            testGraph.AddEdge(first, second, 42);
+
+            int sum;
+
+            // Act
+            var result = testGraph.TrySumEdgeWeights(out sum, testArray);
+
+            // Assert
+            Assert.True(result);
+            Assert.Equal(42, sum);
+        }
     }
 }
