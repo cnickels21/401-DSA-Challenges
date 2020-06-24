@@ -117,6 +117,9 @@ namespace DataStructures.Tests.Graph.Tests
             Assert.Equal(3, result);
         }
 
+        /// <summary>
+        /// Breadth First tests below
+        /// </summary>
         [Fact]
         public void Vertex_doesnt_exist_returns_null()
         {
@@ -245,6 +248,23 @@ namespace DataStructures.Tests.Graph.Tests
             // Assert
             Assert.True(result);
             Assert.Equal(42, sum);
+        }
+
+        /// <summary>
+        /// Depth First tests below
+        /// </summary>
+        [Fact]
+        public void Vertex_doesnt_exist_depth_first()
+        {
+            // Arrange
+            MyGraph<int> testGraph = new MyGraph<int>();
+            MyGraph<int>.Vertex testVertex = new MyGraph<int>.Vertex(1);
+
+            // Act
+            var result = testGraph.DepthFirst(testVertex);
+
+            // Assert
+            Assert.True(result.Count() == 0);
         }
     }
 }
