@@ -77,6 +77,37 @@ namespace DataStructures.Graph
                 item.Visited = false;
         }
 
+        public IEnumerable<T> DepthFirst(Vertex start)
+        {
+            if (!GetVertices().Contains(start))
+                yield break;
+
+            Stack<Vertex> traversal = new Stack<Vertex>();
+            traversal.Push(start);
+            start.Visited = true;
+
+            while (traversal.Count > 0)
+            {
+                Vertex current = traversal.Pop();
+                var neighbors = GetNeighbors(current);
+
+                foreach (var neighbor in neighbors)
+                {
+                    if (neighbor.Visited == false)
+                    {
+                        traversal.Push(neighbor);
+                        neighbor.Visited = true;
+                    }
+                }
+
+                yield return current.Value;
+            }
+
+            var graph = GetVertices();
+            foreach (var item in graph)
+                item.Visited = false;
+        }
+
         public bool TrySumEdgeWeights(out int sum, params Vertex[] locations)
         {
             sum = 0;
